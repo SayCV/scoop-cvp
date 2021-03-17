@@ -12,6 +12,6 @@
         "regex": "nuttcp-([\\d.]+).win64.zip<\\/a>"
     },
     "autoupdate": {
-        "url": "https://iperf.fr/download/windows/iperf-$version-win64.zip"
+        "url": "http://nuttcp.net/nuttcp/latest/bin/nuttcp-$version.win64.zip"
     }
 }
