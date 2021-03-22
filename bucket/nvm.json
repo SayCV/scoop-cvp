@@ -39,7 +39,10 @@
         "Set-Content \"$file\" \"prefix=$persist_dir/nodejs/bin`ncache=$persist_dir/nodejs/cache`nregistry=https://registry.npm.taobao.org/\" -encoding \"ASCII\""
     ],
     "bin": "nvm.exe",
-    "env_add_path": "nodejs\\nodejs",
+    "env_add_path": [
+        "nodejs\\nodejs",
+        "bin"
+    ],
     "env_set": {
         "NVM_HOME": "$dir",
         "NVM_SYMLINK": "$persist_dir\\nodejs\\nodejs"
