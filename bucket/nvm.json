@@ -36,8 +36,7 @@
         "if(!(test-path \"$file\")) {",
         "    Write-Output \"$file not exist\"",
         "}",
-        "Set-Content \"$file\" \"prefix=$persist_dir/nodejs/bin`ncache=$persist_dir/nodejs/cache`nregistry=https://registry.npm.taobao.org/\" -encoding \"ASCII\"",
-        "exit"
+        "Set-Content \"$file\" \"prefix=$persist_dir/nodejs/bin`ncache=$persist_dir/nodejs/cache`nregistry=https://registry.npm.taobao.org/\" -encoding \"ASCII\""
     ],
     "bin": "nvm.exe",
     "env_add_path": "nodejs\\nodejs",
