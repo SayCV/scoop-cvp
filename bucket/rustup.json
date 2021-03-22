@@ -26,7 +26,9 @@
     "env_add_path": ".cargo\\bin",
     "env_set": {
         "CARGO_HOME": "$persist_dir\\.cargo",
-        "RUSTUP_HOME": "$persist_dir\\.rustup"
+        "RUSTUP_HOME": "$persist_dir\\.rustup",
+        "RUSTUP_DIST_SERVER": "https://mirrors.ustc.edu.cn/rust-static",
+        "RUSTUP_UPDATE_ROOT": "https://mirrors.ustc.edu.cn/rust-static/rustup"
     },
     "persist": [
         ".cargo",
