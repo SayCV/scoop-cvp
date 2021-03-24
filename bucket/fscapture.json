@@ -3,7 +3,7 @@
     "description": "A powerful, lightweight, yet full-featured screen capture tool",
     "homepage": "https://www.faststone.org/FSCaptureDetail.htm",
     "url": "https://www.faststonesoft.net/DN/FSCapture94.zip",
-    "hash": "d0a689d715f8d304c7ddf3885c268137cf4f8a8dc561cb9349a29c9727ec9849",
+    "hash": "b5d58643ed784cebbe48b6d6f1880b35f47bdab73a237b2a3261a69508fed067",
     "extract_dir": "FSCapture94",
     "bin": "FSCapture.exe",
     "shortcuts": [
