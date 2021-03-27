@@ -20,18 +20,15 @@
         "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\Uninstall.exe\" -Force -Recurse",
         "if (-not (Test-Path \"$dir\\WeaselSetupx64.exe\")) { cmd /c mklink /h \"$dir\\WeaselSetupx64.exe\" \"$dir\\WeaselSetup.exe\" }",
         "'install-weasel.reg', 'uninstall-weasel.reg' | ForEach-Object {",
-        "    $rime_user_dir = \"$persist_dir\\.rime\".Replace('\\', '\\\\')",
+        "    $rime_user_dir = \"$(current_dir $dir)\\.rime\".Replace('\\', '\\\\').Replace('/', '\\\\')",
         "    $content = (Get-Content \"$dir\\$_\").Replace('$rime_user_dir', $rime_user_dir)",
         "    Set-Content \"$dir\\$_\" $content",
-        "}"
+        "}",
+        "cmd /c regedit.exe /s \"$dir\\install-weasel.reg\""
     ],
-    "installer": {
-        "script": [
-            "cmd /c regedit.exe /s \"$dir\\install-weasel.reg\"",
-            "sudo \"$dir\\install.bat\""
-        ],
-        "keep": true
-    },
+    "post_install": [
+        "sudo \"$dir\\install.bat\""
+    ],
     "uninstaller": {
         "script": [
             "sudo \"$dir\\uninstall.bat\"",
