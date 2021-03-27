@@ -1,0 +1,85 @@
+{
+    "version": "0.14.3",
+    "description": "【小狼毫】Rime for Windows",
+    "homepage": "https://rime.im/",
+    "license": " GPL-3.0",
+    "url": [
+        "https://dl.bintray.com/rime/weasel/weasel-0.14.3.0-installer.exe#/dl.7z",
+        "https://raw.githubusercontent.com/rime/weasel/master/output/install.bat",
+        "https://raw.githubusercontent.com/rime/weasel/master/output/uninstall.bat",
+        "https://raw.githubusercontent.com/rime/weasel/master/output/stop_service.bat",
+        "https://raw.githubusercontent.com/rime/weasel/master/output/sudo.js",
+        "https://raw.githubusercontent.com/rime/weasel/master/output/check_windows_version.js"
+    ],
+    "hash": [
+        "de63dc2ef45d5b094a239fc704051270f3185bf9e883132532b7e17d2fdaf81b"
+    ],
+    "pre_install": [
+        "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\Uninstall.exe\" -Force -Recurse",
+        "if (-not (Test-Path \"$dir\\WeaselSetupx64.exe\")) { cmd /c mklink /h \"$dir\\WeaselSetupx64.exe\" \"$dir\\WeaselSetup.exe\" }"
+    ],
+    "installer": {
+        "script": "sudo \"$dir\\install.bat\"",
+        "keep": true
+    },
+    "uninstaller": {
+        "script": [
+            "sudo \"$dir\\stop_service.bat\"",
+            "sudo \"$dir\\uninstall.bat\""
+        ]
+    },
+    "bin": [
+        "WeaselSetup.exe",
+        "WeaselDeployer.exe",
+        "WeaselServer.exe"
+    ],
+    "shortcuts": [
+        [
+            "WeaselSetup.exe",
+            "【小狼毫】 安装选项"
+        ],
+        [
+            "WeaselServer.exe",
+            "【小狼毫】 程序文件夹", "/weaseldir"
+        ],
+        [
+            "WeaselDeployer.exe",
+            "【小狼毫】 输入法设定"
+        ],
+        [
+            "WeaselDeployer.exe",
+            "【小狼毫】 用户词典管理", "/dict"
+        ],
+        [
+            "WeaselServer.exe",
+            "【小狼毫】 用户词典管理", "/userdir"
+        ],
+        [
+            "WeaselDeployer.exe",
+            "【小狼毫】 用户资料同步", "/sync"
+        ],
+        [
+            "WeaselDeployer.exe",
+            "【小狼毫】 重新部署", "/deploy"
+        ],
+        [
+            "WeaselServer.exe",
+            "【小狼毫】 算法服务"
+        ]
+    ],
+    "env_set": {
+        "rime_dir": "$persist_dir\\.rime",
+        "plum_dir": "$persist_dir\\.rime\\plum"
+    },
+    "persist": [
+        "data",
+        ".rime"
+    ],
+    "checkver": {
+        "github": "https://github.com/rime/weasel",
+        "regex": "/releases/tag/([\\d.]+)"
+    },
+    "autoupdate": {
+        "url": "https://dl.bintray.com/rime/weasel/weasel-$version.0-installer.exe#/dl.7z"
+    }
+}
