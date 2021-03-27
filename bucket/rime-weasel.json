@@ -9,14 +9,22 @@
         "https://raw.githubusercontent.com/rime/weasel/master/output/uninstall.bat",
         "https://raw.githubusercontent.com/rime/weasel/master/output/stop_service.bat",
         "https://raw.githubusercontent.com/rime/weasel/master/output/sudo.js",
-        "https://raw.githubusercontent.com/rime/weasel/master/output/check_windows_version.js"
+        "https://raw.githubusercontent.com/rime/weasel/master/output/check_windows_version.js",
+        "https://raw.githubusercontent.com/SayCV/scoop-cvp/main/scripts/rime-weasel/install-weasel.reg",
+        "https://raw.githubusercontent.com/SayCV/scoop-cvp/main/scripts/rime-weasel/uninstall-weasel.reg"
     ],
     "hash": [
         "de63dc2ef45d5b094a239fc704051270f3185bf9e883132532b7e17d2fdaf81b"
     ],
     "pre_install": [
         "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\Uninstall.exe\" -Force -Recurse",
-        "if (-not (Test-Path \"$dir\\WeaselSetupx64.exe\")) { cmd /c mklink /h \"$dir\\WeaselSetupx64.exe\" \"$dir\\WeaselSetup.exe\" }"
+        "if (-not (Test-Path \"$dir\\WeaselSetupx64.exe\")) { cmd /c mklink /h \"$dir\\WeaselSetupx64.exe\" \"$dir\\WeaselSetup.exe\" }",
+        "'install-weasel.reg', 'uninstall-weasel.reg' | ForEach-Object {",
+        "    $rime_user_dir = \"$(current_dir $dir)\\.rime\".Replace('\\', '\\\\')",
+        "    $content = (Get-Content \"$dir\\$_\").Replace('$rime_user_dir', $rime_user_dir)",
+        "    Set-Content \"$dir\\$_\" $content",
+        "}",
+        "cmd /c regedit.exe /s \"$dir\\install-weasel.reg\""
     ],
     "installer": {
         "script": "sudo \"$dir\\install.bat\"",
@@ -24,8 +32,8 @@
     },
     "uninstaller": {
         "script": [
-            "sudo \"$dir\\stop_service.bat\"",
-            "sudo \"$dir\\uninstall.bat\""
+            "sudo \"$dir\\uninstall.bat\"",
+            "Remove-Item HKCU:\\Software\\Rime -Recurse -Force"
         ]
     },
     "bin": [
@@ -72,7 +80,6 @@
         "plum_dir": "$persist_dir\\.rime\\plum"
     },
     "persist": [
-        "data",
         ".rime"
     ],
     "checkver": {
