@@ -3,6 +3,7 @@
     "description": "【小狼毫】Rime for Windows",
     "homepage": "https://rime.im/",
     "license": " GPL-3.0",
+    "depends": "sudo",
     "url": [
         "https://dl.bintray.com/rime/weasel/weasel-0.14.3.0-installer.exe#/dl.7z",
         "https://raw.githubusercontent.com/rime/weasel/master/output/install.bat",
@@ -25,7 +26,7 @@
         "    $content = (Get-Content \"$dir\\$_\").Replace('$rime_user_dir', $rime_user_dir)",
         "    Set-Content \"$dir\\$_\" $content",
         "}",
-        "cmd /c regedit.exe /s \"$dir\\install-weasel.reg\""
+        "sudo regedit.exe /s \"$dir\\install-weasel.reg\""
     ],
     "post_install": [
         "Copy-Item \"$dir\\default.custom.yaml\" \"$persist_dir\\.rime\\default.custom.yaml\"",
