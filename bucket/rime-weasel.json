@@ -11,7 +11,8 @@
         "https://raw.githubusercontent.com/rime/weasel/master/output/sudo.js",
         "https://raw.githubusercontent.com/rime/weasel/master/output/check_windows_version.js",
         "https://raw.githubusercontent.com/SayCV/scoop-cvp/main/scripts/rime-weasel/install-weasel.reg",
-        "https://raw.githubusercontent.com/SayCV/scoop-cvp/main/scripts/rime-weasel/uninstall-weasel.reg"
+        "https://raw.githubusercontent.com/SayCV/scoop-cvp/main/scripts/rime-weasel/uninstall-weasel.reg",
+        "https://raw.githubusercontent.com/SayCV/scoop-cvp/main/scripts/rime-weasel/default.custom.yaml"
     ],
     "hash": [
         "de63dc2ef45d5b094a239fc704051270f3185bf9e883132532b7e17d2fdaf81b"
@@ -27,6 +28,7 @@
         "cmd /c regedit.exe /s \"$dir\\install-weasel.reg\""
     ],
     "post_install": [
+        "Copy-Item \"$dir\\default.custom.yaml\" \"$persist_dir\\.rime\\default.custom.yaml\"",
         "sudo \"$dir\\install.bat\""
     ],
     "uninstaller": {
