@@ -31,13 +31,13 @@
     "post_install": [
         "Copy-Item \"$dir\\default.custom.yaml\" \"$persist_dir\\.rime\\default.custom.yaml\"",
         "#New-ItemProperty -Path \"HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\" -Name WeaselServer -Value \"$dir\\WeaselServer.exe\" -ErrorAction Ignore | Out-Null",
-        "sudo \"$dir\\install.bat\""
+        "sudo cmd /c \"$dir\\install.bat\""
     ],
     "uninstaller": {
         "script": [
             "#Remove-ItemProperty -Path \"HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\" -Name WeaselServer",
             "Start-Process -Wait \"$dir\\WeaselServer.exe\" \"/quit\"",
-            "sudo \"$dir\\uninstall.bat\"",
+            "sudo cmd /c \"$dir\\uninstall.bat\"",
             "Remove-Item HKCU:\\Software\\Rime -Recurse -Force"
         ]
     },
