@@ -15,6 +15,7 @@
             "/SILENT",
             "/DIR=\"$dir\"",
             "/LANG=\"English\"",
+            "/NOICONS",
             "/NORESTART",
             "/CLOSEAPPLICATIONS",
             "/NORESTARTAPPLICATIONS"
