@@ -36,6 +36,7 @@
     "uninstaller": {
         "script": [
             "Remove-ItemProperty -Path \"HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\" -Name WeaselServer",
+            "Start-Process -Wait \"$dir\\WeaselServer.exe\" \"/quit\"",
             "sudo \"$dir\\uninstall.bat\"",
             "Remove-Item HKCU:\\Software\\Rime -Recurse -Force"
         ]
