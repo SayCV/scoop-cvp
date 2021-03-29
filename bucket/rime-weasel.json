@@ -30,15 +30,22 @@
     ],
     "post_install": [
         "Copy-Item \"$dir\\default.custom.yaml\" \"$persist_dir\\.rime\\default.custom.yaml\"",
-        "#New-ItemProperty -Path \"HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\" -Name WeaselServer -Value \"$dir\\WeaselServer.exe\" -ErrorAction Ignore | Out-Null",
-        "sudo cmd /c \"$dir\\install.bat\""
+        "#sudo cmd /c \"$dir\\install.bat\"",
+        "Write-Host \":: stopping service from an older version.\"", "Invoke-ExternalCommand -FilePath \"$dir\\WeaselServer.exe\" -ArgumentList '/q' | Out-Null",
+        "Write-Host \":: configuring preset input schemas...\"",  "Invoke-ExternalCommand -FilePath \"$dir\\WeaselDeployer.exe\" -ArgumentList '/install' | Out-Null",
+        "Write-Host \":: registering Weasel IME to your system.\"", "Invoke-ExternalCommand -FilePath \"$dir\\WeaselSetup.exe\" -ArgumentList '/s' -RunAs | Out-Null",
+        "sudo New-ItemProperty -Path \"HKLM:\\Software\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Run\" -Name \"WeaselServer\" -Value \"$dir\\WeaselServer.exe\" -ErrorAction Ignore | Out-Null",
+        "Start-Process \"$dir\\WeaselServer.exe\"",
+        "Write-Host \":: installed.\""
     ],
     "uninstaller": {
         "script": [
-            "#Remove-ItemProperty -Path \"HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\" -Name WeaselServer",
-            "Start-Process -Wait \"$dir\\WeaselServer.exe\" \"/quit\"",
-            "sudo cmd /c \"$dir\\uninstall.bat\"",
-            "Remove-Item HKCU:\\Software\\Rime -Recurse -Force"
+            "sudo Remove-ItemProperty -Path \"HKLM:\\Software\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Run\" -Name \"WeaselServer\" -ErrorAction Ignore | Out-Null",
+            "Write-Host \":: stopping service.\"", "Invoke-ExternalCommand -FilePath \"$dir\\WeaselServer.exe\" -ArgumentList '/q' | Out-Null",
+            "Write-Host \":: uninstalling Weasel ime.\"", "Invoke-ExternalCommand -FilePath \"$dir\\WeaselSetup.exe\" -ArgumentList '/u' -RunAs | Out-Null",
+            "#sudo cmd /c \"$dir\\uninstall.bat\"",
+            "sudo Remove-Item HKCU:\\Software\\Rime -Recurse -Force",
+            "Write-Host \":: uninstalled.\""
         ]
     },
     "bin": [
