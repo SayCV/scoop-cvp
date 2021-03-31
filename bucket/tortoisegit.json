@@ -30,7 +30,7 @@
         "}",
 
         "$null, $bucket = find_manifest($app)",
-        "$bucketdir = bucketdir($bucket)",
+        "$bucketdir = Find-BucketDirectory($bucket)",
         "$escdir = $dir -replace \"\\\\\",\"\\\\\"",
         "(gc \"$bucketdir\\..\\scripts\\tortoisegit\\tortoisegit-install.reg.templ\") | % {$_ -replace \"%TGITHOME%\",\"$escdir\"} | out-file -enc oem \"$dir\\tortoisegit-install.reg\"",
         "(gc \"$bucketdir\\..\\scripts\\tortoisegit\\tortoisegit-install-tools.reg.templ\") | % {$_ -replace \"%TGITHOME%\",\"$escdir\"} | out-file -enc oem \"$dir\\tortoisegit-install-tools.reg\"",
