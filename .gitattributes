@@ -1,2 +1,10 @@
 # retain windows line-endings in case checked out on mac or linux
 * text eol=crlf
+
+*.sh eol=lf
+*.bat eol=crlf
+
+*.zip binary
+*.tar binary
+*.exe binary
+*.dll binary
