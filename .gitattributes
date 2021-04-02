@@ -4,6 +4,7 @@
 *.sh eol=lf
 *.bat eol=crlf
 
+*.7z  binary
 *.zip binary
 *.tar binary
 *.exe binary
