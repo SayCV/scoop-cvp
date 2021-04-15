@@ -2,12 +2,34 @@
     "version": "9.4.6.27770",
     "homepage": "https://im.qq.com",
     "description": "QQ",
+    "license": "Freeware",
     "url": "https://dl.softmgr.qq.com/original/im/QQ9.4.6.27770.exe#/dl.7z",
     "hash": "b85e14f260ad7dd3136d2614b9f9b3bf41cc6e634112cd77bdfce3b4f0eb5717",
-    "extract_dir": "Files",
+    "installer": {
+        "script": [
+            "$qqRoaming = \"$env:APPDATA\\Tencent\\QQ\"",
+            "if (!(Test-Path $qqRoaming)) {",
+            "    New-Item -Path \"$qqRoaming\" -ItemType Directory | Out-Null",
+            "} else {",
+            "    Get-ChildItem -Path \"$dir\\Application Data\\Tencent\\QQ\" -Name | ForEach-Object {",
+            "        if (Test-Path \"$qqRoaming\\$_\") {",
+            "            Remove-Item \"$qqRoaming\\$_\" -Recurse -Force",
+            "        }",
+            "    }",
+            "}",
+            "Move-Item \"$dir\\Application Data\\Tencent\\QQ\\*\" \"$qqRoaming\" -Force",
+            "Move-Item \"$dir\\Files\\*\" \"$dir\" -Force",
+            "@('Application Data', 'Common', 'Files') | ForEach-Object {",
+            "    Remove-Item \"$dir\\$_\" -Recurse -Force",
+            "}"
+        ]
+    },
+    "uninstaller": {
+        "script": "Remove-Item \"$env:APPDATA\\Tencent\\QQ\" -Recurse -Force"
+    },
     "shortcuts": [
         [
-            "Bin\\QQ.exe",
+            "Bin\\QQScLauncher.exe",
             "QQ"
         ]
     ],
