@@ -1,0 +1,23 @@
+{
+    "version": "06.3",
+    "description": "This tool displays the characteristic (ESR, ripple current, capacitance etc.) needed for a capacitor and automate the selection of a proper capacitor.",
+    "homepage": "https://industrial.panasonic.com/ww/design-support/ds-tools",
+    "license": "Shareware",
+    "notes": [
+        ""
+    ],
+    "url": "https://industrial.panasonic.com/content/data/CP/files/Capacitor_selection_tool.zip",
+    "hash": "697a3f98999c734005c3290282b0ec18c6fba11cbc860be9aa98937bb2a7b151",
+    "bin": [
+        [
+            "Capacitor Selection Tool.exe",
+            "Panasonic Capacitor Selection Tool"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "Capacitor Selection Tool.exe",
+            "Panasonic Capacitor Selection Tool"
+        ]
+    ]
+}
