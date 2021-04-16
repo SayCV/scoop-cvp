@@ -20,5 +20,8 @@
             "simsurfing.exe",
             "Murata simsurfing"
         ]
+    ],
+    "persist": [
+        "simservedata"
     ]
 }
