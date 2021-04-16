@@ -1,0 +1,35 @@
+{
+    "version": "8.05",
+    "description": "The Saturn PCB Toolkit is the best freeware resource for PCB related calculations you can find.",
+    "homepage": "http://saturnpcb.com/pcb_toolkit.htm",
+    "license": "Trialware",
+    "notes": [
+        "Very simple but extensive PCB design aid. And it's free!",
+        "Includes a via current calculator, trace width calculator, bandwidth calculator, differential pair calculator, mechanical data, conductor impedance calculator", 
+        "unit conversions, planar inductor calculator, thermal resistance calculator and more!"
+    ],
+    "url": "https://www.saturnpcb.com/wp-content/Toolkit/Saturn_PCB_Toolkit_V8.05_Setup.exe#/setup.exe",
+    "hash": "7afa8fa591d91bd5f41d63b7ab7b0f892682a67cf58b782a275702883cab24bc",
+    "installer": {
+        "file": "setup.exe",
+        "args": [
+            "/exenoui",
+            "/extract=\"$dir\""
+        ]
+    },
+    "bin": [
+        [
+            "PCB Toolkit.exe",
+            "Saturn PCB Toolkit"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "PCB Toolkit.exe",
+            "Saturn PCB Toolkit"
+        ]
+    ],
+    "persist": [
+        "data"
+    ]
+}
