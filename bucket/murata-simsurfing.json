@@ -1,0 +1,24 @@
+{
+    "version": "5.1.0",
+    "description": "The software 'SimSurfing' simulates the characteristics of Murata products.",
+    "homepage": "https://www.murata.com/en-sg/tool",
+    "license": "Shareware",
+    "notes": [
+        ""
+    ],
+    "url": "https://www.murata.com/-/media/webrenewal/tool/download/simsurfing/download/simsurfing5-1-0-setup.ashx#/setup.exe",
+    "hash": "18a0fbfbc333036422df93d6ced7e00deca28fa0a23de825f50f667d9a02a0dd",
+    "innosetup": true,
+    "bin": [
+        [
+            "simsurfing.exe",
+            "Murata simsurfing"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "simsurfing.exe",
+            "Murata simsurfing"
+        ]
+    ]
+}
