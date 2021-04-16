@@ -7,16 +7,16 @@
         ""
     ],
     "url": "https://industrial.panasonic.com/content/data/CP/files/Capacitor_selection_tool.zip",
-    "hash": "697a3f98999c734005c3290282b0ec18c6fba11cbc860be9aa98937bb2a7b151",
+    "hash": "aa941cbaa118b74a4502defaca5a83bd7ee0be5d26840f779e679036b22c6f31",
     "bin": [
         [
-            "Capacitor Selection Tool.exe",
+            "Capacitor_selection_tool\\Capacitor Selection Tool.exe",
             "Panasonic Capacitor Selection Tool"
         ]
     ],
     "shortcuts": [
         [
-            "Capacitor Selection Tool.exe",
+            "Capacitor_selection_tool\\Capacitor Selection Tool.exe",
             "Panasonic Capacitor Selection Tool"
         ]
     ]
