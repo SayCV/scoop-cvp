@@ -20,6 +20,12 @@
         "    cmd /c mklink /j \"$env:UserProfile\\Documents\\EE-Sim OASIS Simulator\" \"$dir\\data\\EE-Sim OASIS Simulator\"",
         "}",
         "",
+        "ensure \"$dir\\data\\AppData\" | Out-Null",
+        "$maximRoaming = \"$env:APPDATA\\MAXIM\"",
+        "ensure \"$maximRoaming\" | Out-Null",
+        "if (-not (Test-Path \"$maximRoaming\\EE-Sim_OASIS_Simulator820\")) {",
+        "    sudo cmd /c mklink /j \"$maximRoaming\\EE-Sim_OASIS_Simulator820\" \"$dir\\data\\AppData\"",
+        "}",
         ""
     ],
     "bin": [
