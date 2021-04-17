@@ -1,0 +1,47 @@
+{
+    "version": "3.13",
+    "description": "MPS DC DC Designer is a simulation tool which is used to help you create and analyze a power solution with MPS DCDC chips.",
+    "homepage": "https://www.monolithicpower.com/en/dc-dc-designer-for-windows.html",
+    "license": "Freeware",
+    "notes": [
+        "MPS DC-DC Designer is a simulation tool to help help create and analyze a power solution with MPS DC-DC chips conveniently. ", 
+        "MPS also offers an Online Version of DC-DC Designer: ", 
+        "https://www.monolithicpower.com/design-tools/design-tools/dc-dc-designer-online.html"
+    ],
+    "url": "https://www.monolithicpower.com/en/themechanges/downloadlink/downloadlink/?url=L2QvYy9kY2RjX2Rlc2lnbmVyX3NldHVwLnppcA==#/dcdc_designer_setup.zip",
+    "hash": "408c0f879dd398071b7b34eede118c3a8d09027019632dd6165fdd2b630daef7",
+    "installer": {
+        "script": [
+            "$file = (Get-Item \"$dir\\DCDCDesignerSetup*.exe\").FullName",
+            "Expand-InnoArchive $file -DestinationPath $dir",
+            "Expand-InnoArchive $file -Removal"
+        ]
+    },
+    "post_install": [
+        "$null, $bucket = find_manifest($app)",
+        "$bucketdir = Find-BucketDirectory($bucket)",
+        "",
+        "ensure \"$dir\\data\\DCDCDesigner\" | Out-Null",
+        "ensure \"$env:UserProfile\\Documents\\MPS\" | Out-Null",
+        "if (-not (Test-Path \"$env:UserProfile\\Documents\\MPS\\DCDCDesigner\")) {",
+        "    cmd /c mklink /j \"$env:UserProfile\\Documents\\MPS\\DCDCDesigner\" \"$dir\\data\\DCDCDesigner\"",
+        "}",
+        "",
+        ""
+    ],
+    "bin": [
+        [
+            "DCDCDesigner.exe",
+            "MPS DCDCDesigner 3.13"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "DCDCDesigner.exe",
+            "MPS DCDCDesigner 3.13"
+        ]
+    ],
+    "persist": [
+        "data"
+    ]
+}
