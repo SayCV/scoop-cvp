@@ -3,6 +3,9 @@
     "description": "FilterLab® is an innovative software tool that simplifies active filter design.",
     "homepage": "https://www.microchip.com/developmenttools/ProductDetails/filterlabdesignsoftware",
     "license": "Freeware",
+    "depends": [
+        "SilentCMD"
+    ],
     "notes": [
         "FilterLab® is an innovative software tool that simplifies active filter design. ",
         "Available at no cost, the FilterLab® active filter software design tool provides ",
@@ -17,10 +20,10 @@
             "",
             "cp \"$bucketdir\\..\\scripts\\microchip-filterlab\\extract-setup.cmd\" \"$dir\"",
             "",
-            "Start-Process $dir\\extract-setup.cmd -Wait -Verb RunAs",
+            "Start-Process 'silentcmd' -ArgumentList @(\"$dir\\extract-setup.cmd\") -Verb RunAs -Wait | Out-Null",
             "",
             "Expand-MsiArchive \"$dir\\FilterLab 2.0.msi\" \"$dir\" -ExtractDir 'program files\\Microchip Technology'",
-            "Remove-Item \"$dir\\$fname\"",
+            "Remove-Item \"$dir\\FilterLab 2.0.msi\"",
             "",
             "$FL_INSTALL_DIR = \"$(current_dir $dir)\".Replace('/', '\\\\')",
             "$escdir = $FL_INSTALL_DIR -replace \"\\\\\",\"\\\\\"",
