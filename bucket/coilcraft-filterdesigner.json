@@ -16,13 +16,6 @@
             "hash": ""
         }
     },
-    "installer": {
-        "script": [
-            "#Expand-DarkArchive \"$dir\\$fname\" \"$dir\\tmp\" -Removal",
-            "Expand-MsiArchive \"$dir\\setup.msi\" \"$dir\" -ExtractDir 'Coilcraft'",
-            "Remove-Item \"$dir\\Coilcraft\" -Recurse"
-        ]
-    },
     "post_install": [
         "$null, $bucket = find_manifest($app)",
         "$bucketdir = Find-BucketDirectory($bucket)",
