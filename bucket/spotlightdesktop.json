@@ -12,14 +12,14 @@
     "extract_dir": "",
     "bin": [
         [
-            "Spotlight-Desktop.exe",
-            "Spotlight-Desktop"
+            "Spotlight Desktop.exe",
+            "Spotlight Desktop"
         ]
     ],
     "shortcuts": [
         [
-            "Spotlight-Desktop.exe",
-            "Spotlight-Desktop"
+            "Spotlight Desktop.exe",
+            "Spotlight Desktop"
         ]
     ],
     "persist": [
