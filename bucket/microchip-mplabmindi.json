@@ -19,32 +19,84 @@
         ""
     ],
     "url": "https://ww1.microchip.com/downloads/en//softwarelibrary/analogsimmplabmindi/mplab_mindi_8.40g.zip",
-    "hash": "",
+    "hash": "b38df856b1cf629b9ee71a3236eddfee25d58c627f9542239bbff4475c288a6f",
+    "pre_install": [
+        "",
+        "ensure \"$dir\\Programs\" | Out-Null",
+        "",
+        "if (-not (Test-Path \"$env:PROGRAMFILES\\MPLAB_Mindi_840\")) {",
+        "    sudo cmd /c mklink /j \"$env:PROGRAMFILES\\MPLAB_Mindi_840\" \"$dir\\Programs\"",
+        "}",
+        "",
+        ""
+    ],
     "installer": {
-        "script": [
-            "$null, $bucket = find_manifest($app)",
-            "$bucketdir = Find-BucketDirectory($bucket)",
-            "",
-            ""
-        ]
+        "file": "MPLAB_Mindi-setup.exe",
+        "args": [
+            "/quiet",
+            "/install",
+            "/NORESTART",
+            "/LOG=\"$dir\\ScoopInstall.log\""
+        ],
+        "keep": true
     },
+    "post_install": [
+        "'data', 'scripts', 'crack' | ForEach-Object { ensure \"$dir\\$_\" | Out-Null }",
+        "$null, $bucket = find_manifest($app)",
+        "$bucketdir = Find-BucketDirectory($bucket)",
+        "",
+        "ensure \"$dir\\data\\ProgramData\" | Out-Null",
+        "ensure \"$dir\\data\\AppData\" | Out-Null",
+        "ensure \"$dir\\data\\LocalAppData\" | Out-Null",
+        "ensure \"$dir\\data\\UserProfile\" | Out-Null",
+        "ensure \"$dir\\data\\PublicProfile\" | Out-Null",
+        "",
+        "$companyname = 'MicroChip'",
+        "",
+        "#ensure \"$env:ProgramData\\$companyname\" | Out-Null",
+        "#if (-not (Test-Path \"$env:ProgramData\\$companyname\")) {",
+        "#    cmd /c mklink /j \"$env:ProgramData\\$companyname\" \"$dir\\data\\ProgramData\"",
+        "#}",
+        "",
+        "ensure \"$env:AppData\\$companyname\" | Out-Null",
+        "if (-not (Test-Path \"$env:AppData\\$companyname\\MPLAB Mindi840\")) {",
+        "    cmd /c mklink /j \"$env:AppData\\$companyname\\MPLAB Mindi840\" \"$dir\\data\\AppData\"",
+        "}",
+        "",
+        "#ensure \"$env:LocalAppData\\$companyname\" | Out-Null",
+        "#if (-not (Test-Path \"$env:LocalAppData\\$companyname\")) {",
+        "#    cmd /c mklink /j \"$env:LocalAppData\\$companyname\" \"$dir\\data\\LocalAppData\"",
+        "#}",
+        "",
+        "#ensure \"$env:UserProfile\\Documents\\$companyname\" | Out-Null",
+        "if (-not (Test-Path \"$env:UserProfile\\Documents\\MPLAB Mindi\")) {",
+        "    cmd /c mklink /j \"$env:UserProfile\\Documents\\MPLAB Mindi\" \"$dir\\data\\UserProfile\"",
+        "}",
+        "",
+        "#ensure \"$env:Public\\$companyname\" | Out-Null",
+        "#if (-not (Test-Path \"$env:Public\\$companyname\")) {",
+        "#    cmd /c mklink /j \"$env:Public\\$companyname\" \"$dir\\data\\PublicProfile\"",
+        "#}",
+        "",
+        ""
+    ],
     "uninstaller": {
-        "script": [
-            "",
-            "",
-            ""
+        "file": "MPLAB_Mindi-setup.exe",
+        "args": [
+            "/quiet",
+            "/uninstall"
         ]
     },
     "bin": [
         [
-            "FilterLab\\FilterLab20.exe",
-            "Microchip FilterLab 2.0"
+            "Programs\\bin64\\SIMetrix.exe",
+            "Microchip MPLAB Mindi 8.4"
         ]
     ],
     "shortcuts": [
         [
-            "FilterLab\\FilterLab20.exe",
-            "Microchip FilterLab 2.0"
+            "Programs\\bin64\\SIMetrix.exe",
+            "Microchip MPLAB Mindi 8.4"
         ]
     ],
     "persist": [
