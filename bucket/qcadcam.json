@@ -1,0 +1,43 @@
+{
+    "version": "3.26.2",
+    "description": "QCAD is a free, open source application for computer aided drafting (CAD) in two dimensions (2D).",
+    "homepage": "https://qcad.org/",
+    "license": "Trailware",
+    "architecture": {
+        "64bit": {
+            "url": "https://qcad.org/archives/qcad/qcadcam-3.26.2-trial-win64.zip",
+            "hash": "4e9e1cc952094732d16b016c8823739771f5dd550986e332d5b528ec970cd126",
+            "extract_dir": "qcadcam-3.26.2-trial-win64"
+        },
+        "32bit": {
+            "url": "https://qcad.org/archives/qcad/qcadcam-3.26.2-trial-win32.zip",
+            "hash": "",
+            "extract_dir": "qcadcam-3.26.2-trial-win32"
+        }
+    },
+    "pre_install": "Remove-Item \"$dir\\`$*\", \"$dir\\Uninstall*\" -Recurse -Force",
+    "bin": "qcadcmd.com",
+    "shortcuts": [
+        [
+            "qcad.exe",
+            "QCAD"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/qcad/qcad/tags",
+        "regex": "v([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://qcad.org/archives/qcad/qcadcam-$version-trial-win64.zip",
+                "extract_dir": "qcadcam-$version-trial-win64"
+                
+            },
+            "32bit": {
+                "url": "https://qcad.org/archives/qcad/qcadcam-$version-trial-win32.zip",
+                "extract_dir": "qcadcam-$version-trial-win32"
+            }
+        }
+    }
+}
