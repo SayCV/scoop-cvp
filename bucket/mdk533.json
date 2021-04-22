@@ -15,6 +15,7 @@
         "",
         "$MDK_INSTALL_PATH = \"$(current_dir $dir)\".Replace('/', '\\\\')",
         "$escdir = $MDK_INSTALL_PATH -replace \"\\\\\",\"\\\\\"",
+        "$escdir = $(current_dir $dir)",
         "(gc \"$bucketdir\\..\\scripts\\mdk533\\TOOLS.INI.templ\") | % {$_ -replace \"%MDK_INSTALL_PATH%\",\"$escdir\"} | out-file -enc oem \"$dir\\Programs\\TOOLS.INI\"",
         "",
         ""
@@ -24,6 +25,9 @@
             "Programs\\UV4\\UV4.exe",
             "Keil MDK ARM 5.33"
         ]
+    ],
+    "persist": [
+        "Programs\\ARM\\PACK"
     ],
     "checkver": {
         "url": "https://github.com/SayCV/gh-cdn-cvp/releases",
