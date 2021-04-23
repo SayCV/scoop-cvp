@@ -54,9 +54,9 @@
         "$cont = $cont -replace '@SCRIPT_LNKNAME@', \"Lattice Diamond 3.11 CVP\"",
         "Set-Content \"$ofile\" ($cont -join \"`r`n\") -Encoding ASCII",
         "",
-        "$TK_INSTALL_PATH = \"$(current_dir $dir)\".Replace('/', '\\\\')",
-        "$escdir = $TK_INSTALL_PATH -replace \"\\\\\",\"\\\\\"",
-        "(gc \"$bucketdir\\..\\scripts\\lattice-diamond311\\install-context.reg.templ\") | % {$_ -replace \"%TK_INSTALL_PATH%\",\"$escdir\"} | out-file -enc oem \"$dir\\install-context.reg\"",
+        "$TOOL_INST_PATH = \"$(current_dir $dir)\".Replace('/', '\\\\')",
+        "$escdir = $TOOL_INST_PATH -replace \"\\\\\",\"\\\\\"",
+        "(gc \"$bucketdir\\..\\scripts\\lattice-diamond311\\install-context.reg.templ\") | % {$_ -replace \"%TOOL_INST_PATH%\",\"$escdir\"} | out-file -enc oem \"$dir\\install-context.reg\"",
         "cp \"$bucketdir\\..\\scripts\\lattice-diamond311\\uninstall-context.reg\" \"$dir\"",
         ""
     ],

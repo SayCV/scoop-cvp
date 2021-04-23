@@ -1,5 +1,14 @@
 Windows Registry Editor Version 5.00
 
+[HKEY_CLASSES_ROOT\.DPJ]
+
+[HKEY_CLASSES_ROOT\.DPJ\shell]
+
+[HKEY_CLASSES_ROOT\.DPJ\shell\open]
+
+[HKEY_CLASSES_ROOT\.DPJ\shell\open\command]
+@="silentcmd %TOOL_INST_PATH%\\scripts\\lattice_diamond.cmd \"%1\""
+
 [HKEY_CLASSES_ROOT\.ldf]
 
 [HKEY_CLASSES_ROOT\.ldf\shell]
@@ -7,5 +16,5 @@ Windows Registry Editor Version 5.00
 [HKEY_CLASSES_ROOT\.ldf\shell\open]
 
 [HKEY_CLASSES_ROOT\.ldf\shell\open\command]
-@="silentcmd %TK_INSTALL_PATH%\\scripts\\lattice_diamond.cmd \"%1\""
+@="silentcmd %TOOL_INST_PATH%\\scripts\\lattice_diamond.cmd \"%1\""
 
