@@ -4,7 +4,7 @@
     "description": "QQ",
     "license": "Freeware",
     "notes": [
-        "QQShellExt64.dll"
+        "Restart C:/windows/explorer.exe before uninstall QQShellExt64.dll"
     ],
     "url": "http://dldir1.qq.com/qqfile/qq/QQ7.9Light/14314/QQ7.9Light.exe",
     "hash": "9bbe55a444ea8317fe2650a48e7bd9e3470cbb516ce045e76802ecdd191b24ac",
