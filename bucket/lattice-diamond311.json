@@ -49,6 +49,7 @@
         "$ofile = \"$dir\\scripts\\lattice_diamond.cmd\"",
         "$cont = (Get-Content \"$ifile\") -replace '@SCRIPT_NAME@', \"lattice_diamond\"",
         "$cont = $cont -replace '@SCRIPT_RUNNER_RELDIR@', \"Programs/bin/nt64\"",
+        "$cont = $cont -replace '@SCRIPT_RUNNER_ICON@', \"pnwrap.ico\"",
         "$cont = $cont -replace '@SCRIPT_RUNNER@', \"pnwrap\"",
         "$cont = $cont -replace '%SCRIPT_RUNNER_ARG%', \"\"",
         "$cont = $cont -replace '@SCRIPT_LNKNAME@', \"Lattice Diamond 3.11 CVP\"",

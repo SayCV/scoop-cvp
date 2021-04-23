@@ -1,0 +1,35 @@
+{
+    "version": "20210423",
+    "description": "Rockchip Develop tools",
+    "homepage": "https://github.com/rockchip-linux/tools",
+    "license": "Freeware",
+    "depends": [
+        ""
+    ],
+    "notes": [
+        ""
+    ],
+    "url": "https://github.com/rockchip-linux/tools/archive/03796552d1a381223b20d0d75da3412cece8aacb.zip#/dl.zip",
+    "hash": "00b3b828f6f14a9ab7b3dfc1c55ad639206a9c55c35c543ad8394c2d59d417cb",
+    "extract_dir": "tools-03796552d1a381223b20d0d75da3412cece8aacb",
+    "pre_install": [
+        "",
+        "$null, $bucket = find_manifest($app)",
+        "$bucketdir = Find-BucketDirectory($bucket)",
+        "",
+        "$file = \"$dir\\windows\\DriverAssitant_v5.0.zip\"",
+        "Expand-7zipArchive \"$file\" \"$dir\\windows\"",
+        "",
+        ""
+    ],
+    "shortcuts": [
+        [
+            "windows\\RKDevTool\\RKDevTool_Release\\RKDevTool.exe",
+            "Rockchip/RKDevTool"
+        ],
+        [
+            "windows\\DriverAssitant_v5.0\\DriverInstall.exe",
+            "Rockchip/DriverInstall"
+        ]
+    ]
+}
