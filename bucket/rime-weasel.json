@@ -31,12 +31,11 @@
     ],
     "post_install": [
         "Copy-Item \"$dir\\default.custom.yaml\" \"$persist_dir\\AppData\\default.custom.yaml\"",
-        "Copy-Item \"$dir\\start_WeaselServer.cmd\" \"$persist_dir\\start_WeaselServer.cmd\"",
         "#sudo cmd /c \"$dir\\install.bat\"",
         "Write-Host \":: stopping service from an older version.\"", "Invoke-ExternalCommand -FilePath \"$dir\\WeaselServer.exe\" -ArgumentList '/q' | Out-Null",
         "Write-Host \":: configuring preset input schemas...\"",  "Invoke-ExternalCommand -FilePath \"$dir\\WeaselDeployer.exe\" -ArgumentList '/install' | Out-Null",
         "Write-Host \":: registering Weasel IME to your system.\"", "Invoke-ExternalCommand -FilePath \"$dir\\WeaselSetup.exe\" -ArgumentList '/s' -RunAs | Out-Null",
-        "sudo New-ItemProperty -Path \"HKLM:\\Software\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Run\" -Name \"WeaselServer\" -Value \"$persist_dir\\start_WeaselServer.cmd\" -ErrorAction Ignore | Out-Null",
+        "sudo New-ItemProperty -Path \"HKLM:\\Software\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Run\" -Name \"WeaselServer\" -Value \"$dir\\start_WeaselServer.cmd\" -ErrorAction Ignore | Out-Null",
         "Start-Process \"$dir\\WeaselServer.exe\"",
         "Write-Host \":: installed.\""
     ],
