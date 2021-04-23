@@ -17,7 +17,7 @@ set "PATH=%MINI_PATH%"
 :: ----------------------------------------
 
 set "XLNX_BURN_TOPDIR=%TOPDIR%"
-set "XLNX_BURN_ROOTDIR=%XLNX_SDK_MINI_TOPDIR%/Programs/bin"
+set "XLNX_BURN_ROOTDIR=%XLNX_BURN_TOPDIR%/Programs/bin"
 set "PATH=%XLNX_BURN_ROOTDIR%;%PATH%"
 
 cmd /C program_flash -f target/BOOT.bin -offset 0 -flash_type nand-x8 -fsbl target/fsbl.elf -cable type xilinx_tcf url TCP:127.0.0.1:3121 
