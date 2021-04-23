@@ -25,11 +25,11 @@
     "shortcuts": [
         [
             "windows\\RKDevTool\\RKDevTool_Release\\RKDevTool.exe",
-            "Rockchip/RKDevTool"
+            "Rockchip/RK RKDevTool"
         ],
         [
             "windows\\DriverAssitant_v5.0\\DriverInstall.exe",
-            "Rockchip/DriverInstall"
+            "Rockchip/RK DriverInstall"
         ]
     ]
 }
