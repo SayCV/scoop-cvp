@@ -59,10 +59,15 @@
             "",
             "Remove-Item \"$env:APPDATA\\Tencent\\QQ\" -Recurse -Force",
             "sudo regedit.exe /s \"$dir\\uninstall-qqlite.reg\"",
+            "",
+            "Remove-Item \"$env:APPDATA\\Tencent\\QQ\" -Recurse -Force",
+            "sudo regedit.exe /s \"$dir\\uninstall-qqlite.reg\"",
+            "",
+            "gps explorer | spps",
             ""
         ]
     },
-    "shortcuts0": [
+    "shortcuts": [
         [
             "Bin\\QQScLauncher.exe",
             "腾讯QQ轻聊版"
