@@ -41,12 +41,19 @@
         "https://github.com/SayCV/gh-cdn-eda/releases/download/v1.0.1/xlnx-vivado20183-p05.7z"
     ],
     "hash": [
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
+        "4db223f17db1e05860ee1b90733149931d72f86c4e92a023b5d0477da9de61eb",
+        "3864443846191c5611f47b396a886122ca756dcf0986b613ef5aa068e131c895",
+        "e517b109fff41c0795f6a00ece25905799cb46171c136045c7085abe4d7f61fe",
+        "3b1e75f820733246a5465c48218e88727e5b5298cbd9aac3119b70172bae3537",
+        "6309d4136542ebde99444678bed4e160511093d8635d384feb94ea5afcd8d8f4",
+        "db78999a3f4b9e0b6c84f220f6b57d803e13f78f4c92ad8f59da48f545f3fa30",
+        "59a58d24a75676ee76d5a50b3e5d484300d335deb6de79219591a07c027c5a3b",
+        "aa575b9b63b62f0ab7f93c0a8d9e8a1e74c89105e28f06844dedc493df52d761",
+        "ba911f20b6de8a8a5af478c79cd42e4e583bae8feec1c1cb6a905a2fb6c207e9",
+        "f6ebf665c5b10f75bb177572d85b644837e499861fd1347ffa29b067f2256d5a",
+        "dbc0a07326bcca0eaaf6d3386e8d760178268c9051f304acd748d4766c5e4448",
+        "c033c50c5d664203dbc15c6c004527a2816e0494b2dc03b587f893c5d86443be",
+        "381fa5f028b42cfcd758b83ac6ab408a544d12ebd9b15da272daed10f316aeb5"
     ],
     "pre_install": [
         "",
