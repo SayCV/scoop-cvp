@@ -17,7 +17,7 @@
         "$rimeWeaselDir = \"$(appdir rime-weasel $global)\\current\".Replace('/', '\\')",
         "",
         "Write-Host \"S1. Copy to your rime install directory...\" -ForegroundColor DarkCyan",
-        "cp \"$dir\\*\" \"$rimeWeaselDir\\AppData\" -Recurse -force",
+        "cp \"$dir\\*\" \"$rimeWeaselDir\\AppData\" -Exclude 'default.custom.yaml' -Recurse -force",
         ""
     ],
     "checkver": {

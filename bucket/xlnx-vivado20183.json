@@ -1,0 +1,112 @@
+{
+    "version": "20210423",
+    "description": "A SoC-strength, IP-centric and system-centric, next-generation development environment",
+    "homepage": "https://www.xilinx.com/products/design-tools/vivado.html#overview",
+    "license": "Trialware",
+    "depends": [
+        ""
+    ],
+    "notes": [
+        "Vivado Design Suite HLx Editions - Accelerating High Level Design",
+        "p00-p0 | Vivado/2018.3/*",
+        "p00-p0-p1 | Vivado/2018.3/data/*",
+        "p00-p0-p2 | Vivado/2018.3/data/xsim",
+        "p00-p0-p3 | Vivado/2018.3/data/ip",
+        "*extra*   | Vivado/2018.3/data/parts",
+        "p00-p1 | Vivado/2018.3/docs",
+        "p00-p2 | Vivado/2018.3/ids_lite",
+        "p00-p3 | Vivado/2018.3/lib",
+        "p00-p4 | Vivado/2018.3/msys64",
+        "p00-p5 | Vivado/2018.3/win64",
+        "p01 | SDK",
+        "p02 | SDx",
+        "p03 | DocNav",
+        "p04 | xic",
+        "p05 | .xinstall",
+        ""
+    ],
+    "url": [
+        "https://github.com/SayCV/gh-cdn-eda/releases/download/v1.0.1/xlnx-vivado20183-p00-p0.7z",
+        "https://github.com/SayCV/gh-cdn-eda/releases/download/v1.0.1/xlnx-vivado20183-p00-p0-p1.7z",
+        "https://github.com/SayCV/gh-cdn-eda/releases/download/v1.0.1/xlnx-vivado20183-p00-p0-p2.7z",
+        "https://github.com/SayCV/gh-cdn-eda/releases/download/v1.0.1/xlnx-vivado20183-p00-p0-p3.7z",
+        "https://github.com/SayCV/gh-cdn-eda/releases/download/v1.0.1/xlnx-vivado20183-p00-p1.7z",
+        "https://github.com/SayCV/gh-cdn-eda/releases/download/v1.0.1/xlnx-vivado20183-p00-p2.7z",
+        "https://github.com/SayCV/gh-cdn-eda/releases/download/v1.0.1/xlnx-vivado20183-p00-p3.7z",
+        "https://github.com/SayCV/gh-cdn-eda/releases/download/v1.0.1/xlnx-vivado20183-p00-p4.7z",
+        "https://github.com/SayCV/gh-cdn-eda/releases/download/v1.0.1/xlnx-vivado20183-p00-p5.7z",
+        "https://github.com/SayCV/gh-cdn-eda/releases/download/v1.0.1/xlnx-vivado20183-p01.7z",
+        "https://github.com/SayCV/gh-cdn-eda/releases/download/v1.0.1/xlnx-vivado20183-p03.7z",
+        "https://github.com/SayCV/gh-cdn-eda/releases/download/v1.0.1/xlnx-vivado20183-p04.7z",
+        "https://github.com/SayCV/gh-cdn-eda/releases/download/v1.0.1/xlnx-vivado20183-p05.7z"
+    ],
+    "hash": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+    ],
+    "pre_install": [
+        "",
+        "$null, $bucket = find_manifest($app)",
+        "$bucketdir = Find-BucketDirectory($bucket)",
+        "",
+        "'home', 'scripts' | ForEach-Object { ensure \"$dir\\$_\" | Out-Null }",
+        "",
+        "Write-Host \"S2. Creating scripts...\" -ForegroundColor DarkCyan",
+        "$ifile = \"$bucketdir\\..\\scripts\\xlnx-vivado20183\\xlnx_vivado.cmd.templ\"",
+        "$ofile = \"$dir\\scripts\\xlnx_vivado.cmd\"",
+        "$cont = (Get-Content \"$ifile\") -replace '@SCRIPT_NAME@', \"xlnx_vivado\"",
+        "$cont = $cont -replace '@SCRIPT_RUNNER_RELDIR@', \"Vivado/2018.3/doc/images\"",
+        "$cont = $cont -replace '@SCRIPT_RUNNER_ICON@', \"vivado_logo.ico\"",
+        "$cont = $cont -replace '@SCRIPT_RUNNER@', \"vvgl\"",
+        "$cont = $cont -replace '%SCRIPT_RUNNER_ARG%', \"$dir\\Vivado\\2018.3\\bin\\vivado.bat\"",
+        "$cont = $cont -replace '@SCRIPT_LNKNAME@', \"Xilinx Vivado 2018.3 CVP\"",
+        "Set-Content \"$ofile\" ($cont -join \"`r`n\") -Encoding ASCII",
+        "",
+        "$TOOL_INST_PATH = \"$(current_dir $dir)\".Replace('/', '\\\\')",
+        "$escdir = $TOOL_INST_PATH -replace \"\\\\\",\"\\\\\"",
+        "(gc \"$bucketdir\\..\\scripts\\xlnx-vivado20183\\install-context.reg.templ\") | % {$_ -replace \"%TOOL_INST_PATH%\",\"$escdir\"} | out-file -enc oem \"$dir\\install-context.reg\"",
+        "cp \"$bucketdir\\..\\scripts\\xlnx-vivado20183\\uninstall-context.reg\" \"$dir\"",
+        ""
+    ],
+    "shortcuts": [
+        [
+            "scripts\\xlnx_vivado.cmd",
+            "EDA\\Xilinx Vivado 2018.3 CVP",
+            "",
+            "Vivado\\2018.3\\doc\\images\\vivado_logo.ico"
+        ],
+        [
+            "scripts\\xlnx_vivado_hls.cmd",
+            "EDA\\Xilinx Vivado HLS 2018.3 CVP",
+            "",
+            "Vivado\\2018.3\\common\\icons\\CS1056_Vivado_HSL_Icon_64x64.ico"
+        ],
+        [
+            "scripts\\xlnx_sysgen.cmd",
+            "EDA\\Xilinx System Generator 2018.3 CVP",
+            "",
+            "Vivado\\2018.3\\data\\sysgen\\images\\sysgen.ico"
+        ],
+        [
+            "scripts\\xlnx_docnav.cmd",
+            "EDA\\Xilinx DocNav 2018.3 CVP",
+            "",
+            "Vivado\\DocNav\\docnav.exe"
+        ]
+    ],
+    "persist": [
+        "AppData",
+        "home"
+    ],
+    "checkver": {
+        "url": "https://github.com/SayCV/gh-cdn-eda/releases",
+        "regex": "xlnx-vivado20183-win64-([\\d.]+).7z<"
+    },
+    "autoupdate": {
+        "url": "https://github.com/SayCV/gh-cdn-eda/releases/download/v1.0.1/xlnx-vivado20183-$version.7z"
+    }
+}
