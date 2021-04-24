@@ -1,0 +1,30 @@
+{
+    "version": "20210423",
+    "description": "A SoC-strength, IP-centric and system-centric, next-generation development environment",
+    "homepage": "https://www.xilinx.com/products/design-tools/vivado.html#overview",
+    "license": "Trialware",
+    "depends": [
+        "xlnx-vivado20183",
+        "xlnx-vivado20183-parts-artix7",
+        "xlnx-vivado20183-parts-kintex7",
+        "xlnx-vivado20183-parts-kintexu",
+        "xlnx-vivado20183-parts-kintexuplus",
+        "xlnx-vivado20183-parts-spartan",
+        "xlnx-vivado20183-parts-virtex",
+        "xlnx-vivado20183-parts-virtexuplus",
+        "xlnx-vivado20183-parts-virtexuplusHBM",
+        "xlnx-vivado20183-parts-zynquplus",
+        "xlnx-vivado20183-parts-zynquplusRFSOC"
+    ],
+    "notes": [
+        "Vivado Design Suite HLx Editions - Accelerating High Level Design",
+        "Vivado/2018.3/data/parts/xilinx/*",
+        ""
+    ],
+    "url": [
+        "https://github.com/excitoon/empty/releases/download/empty-1.0.7/empty-1.0.7.zip"
+    ],
+    "hash": [
+        "8739c76e681f900923b900c9df0ef75cf421d39cabb54650c4b9ad19b6a76d85"
+    ]
+}
