@@ -12,8 +12,8 @@
             "extras/vcredist2013"
         ]
     },
-    "url": "http://ardownload.adobe.com/pub/adobe/reader/win/AcrobatDC/2100120145/AcroRdrDC2100120145_en_US.exe#/cosi.7z",
-    "hash": "f1e5cbbace69edba23e7a2557b9be59d916af06ad27d99526e6ff356429ff4f2",
+    "url": "http://ardownload.adobe.com/pub/adobe/reader/win/AcrobatDC/2100120145/AcroRdrDC2100120145_zh_CN.exe#/cosi.7z",
+    "hash": "",
     "installer": {
         "script": [
             "Expand-MsiArchive \"$dir\\AcroRead.msi\" -DestinationPath \"$dir\\cosi\"",
@@ -34,6 +34,6 @@
     ],
     "checkver": "Version\\s+\\d{2}([\\d.]+)",
     "autoupdate": {
-        "url": "http://ardownload.adobe.com/pub/adobe/reader/win/AcrobatDC/$cleanVersion/AcroRdrDC$cleanVersion_en_US.exe#/cosi.7z"
+        "url": "http://ardownload.adobe.com/pub/adobe/reader/win/AcrobatDC/$cleanVersion/AcroRdrDC$cleanVersion_zh_CN.exe#/cosi.7z"
     }
 }
