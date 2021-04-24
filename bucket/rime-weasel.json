@@ -14,6 +14,7 @@
         "https://raw.githubusercontent.com/SayCV/scoop-cvp/main/scripts/rime-weasel/install-weasel.reg",
         "https://raw.githubusercontent.com/SayCV/scoop-cvp/main/scripts/rime-weasel/uninstall-weasel.reg",
         "https://raw.githubusercontent.com/SayCV/scoop-cvp/main/scripts/rime-weasel/default.custom.yaml",
+        "https://raw.githubusercontent.com/SayCV/scoop-cvp/main/scripts/rime-weasel/weasel.custom.yaml",
         "https://raw.githubusercontent.com/SayCV/scoop-cvp/main/scripts/rime-weasel/start_WeaselServer.cmd"
     ],
     "hash": [
@@ -31,6 +32,7 @@
     ],
     "post_install": [
         "Copy-Item \"$dir\\default.custom.yaml\" \"$persist_dir\\AppData\\default.custom.yaml\"",
+        "Copy-Item \"$dir\\weasel.custom.yaml\" \"$persist_dir\\AppData\\weasel.custom.yaml\"",
         "#sudo cmd /c \"$dir\\install.bat\"",
         "Write-Host \":: stopping service from an older version.\"", "Invoke-ExternalCommand -FilePath \"$dir\\WeaselServer.exe\" -ArgumentList '/q' | Out-Null",
         "Write-Host \":: configuring preset input schemas...\"",  "Invoke-ExternalCommand -FilePath \"$dir\\WeaselDeployer.exe\" -ArgumentList '/install' | Out-Null",
