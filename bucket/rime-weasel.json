@@ -35,13 +35,13 @@
         "Write-Host \":: stopping service from an older version.\"", "Invoke-ExternalCommand -FilePath \"$dir\\WeaselServer.exe\" -ArgumentList '/q' | Out-Null",
         "Write-Host \":: configuring preset input schemas...\"",  "Invoke-ExternalCommand -FilePath \"$dir\\WeaselDeployer.exe\" -ArgumentList '/install' | Out-Null",
         "Write-Host \":: registering Weasel IME to your system.\"", "Invoke-ExternalCommand -FilePath \"$dir\\WeaselSetup.exe\" -ArgumentList '/s' -RunAs | Out-Null",
-        "sudo New-ItemProperty -Path \"HKLM:\\Software\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Run\" -Name \"WeaselServer\" -Value \"$dir\\start_WeaselServer.cmd\" -ErrorAction Ignore | Out-Null",
+        "sudo New-ItemProperty -Path \"HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\" -Name \"WeaselServer\" -Value \"$dir\\start_WeaselServer.cmd\" -ErrorAction Ignore | Out-Null",
         "Start-Process \"$dir\\WeaselServer.exe\"",
         "Write-Host \":: installed.\""
     ],
     "uninstaller": {
         "script": [
-            "sudo Remove-ItemProperty -Path \"HKLM:\\Software\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Run\" -Name \"WeaselServer\" -ErrorAction Ignore | Out-Null",
+            "sudo Remove-ItemProperty -Path \"HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\" -Name \"WeaselServer\" -ErrorAction Ignore | Out-Null",
             "Write-Host \":: stopping service.\"", "Invoke-ExternalCommand -FilePath \"$dir\\WeaselServer.exe\" -ArgumentList '/q' | Out-Null",
             "Write-Host \":: uninstalling Weasel ime.\"", "Invoke-ExternalCommand -FilePath \"$dir\\WeaselSetup.exe\" -ArgumentList '/u' -RunAs | Out-Null",
             "#sudo cmd /c \"$dir\\uninstall.bat\"",
