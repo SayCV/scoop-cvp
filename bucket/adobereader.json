@@ -1,0 +1,39 @@
+{
+    "version": "21.001.20145",
+    "description": "Adobe Reader. Global standard for reliably viewing, printing, and commenting on PDF documents.",
+    "homepage": "https://get.adobe.com/reader/",
+    "license": {
+        "identifier": "Proprietary",
+        "url": "https://wwwimages2.adobe.com/www.adobe.com/content/dam/acom/en/legal/licenses-terms/pdf/PlatformClients_PC_WWEULA-en_US-20150407_1357.pdf"
+    },
+    "suggest": {
+        "Microsoft Visual C++ Redistributable": [
+            "extras/vcredist2012",
+            "extras/vcredist2013"
+        ]
+    },
+    "url": "http://ardownload.adobe.com/pub/adobe/reader/win/AcrobatDC/2100120145/AcroRdrDC2100120145_en_US.exe#/cosi.7z",
+    "hash": "f1e5cbbace69edba23e7a2557b9be59d916af06ad27d99526e6ff356429ff4f2",
+    "installer": {
+        "script": [
+            "Expand-MsiArchive \"$dir\\AcroRead.msi\" -DestinationPath \"$dir\\cosi\"",
+            "Get-ChildItem $dir -Exclude 'cosi' | Remove-Item -Force -Recurse",
+            "Move-Item \"$dir\\cosi\\program files\\Adobe\\Acrobat Reader DC\\*\" $dir -Force",
+            "Move-Item \"$dir\\cosi\\Common\\*\" $env:CommonProgramFiles -Force",
+            "#Remove-Item \"$dir\\cosi\" -Force -Recurse"
+        ]
+    },
+    "uninstaller": {
+        "script": "Remove-Item \"${env:CommonProgramFiles}\\Adobe\" -Force -Recurse"
+    },
+    "shortcuts": [
+        [
+            "Reader\\AcroRd32.exe",
+            "Adobe Acrobat DC"
+        ]
+    ],
+    "checkver": "Version\\s+\\d{2}([\\d.]+)",
+    "autoupdate": {
+        "url": "http://ardownload.adobe.com/pub/adobe/reader/win/AcrobatDC/$cleanVersion/AcroRdrDC$cleanVersion_en_US.exe#/cosi.7z"
+    }
+}
