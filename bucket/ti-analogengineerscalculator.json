@@ -52,7 +52,7 @@
             "   $proc | kill",
             "   Write-Host \"::Detecting and ignoring internal error.\"",
             "}",
-            "Remove-Item \"$dir\\installer\" -Recurse -Force",
+            "Remove-Item \"$dir\\installer\" -Recurse -Force | Out-Null",
             "",
             ""
         ]
