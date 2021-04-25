@@ -158,6 +158,28 @@
         "",
         ""
     ],
+    "bin": [
+        [
+            "scripts\\xlnx_xsdk.cmd",
+            "xlnx_xsdk"
+        ],
+        [
+            "scripts\\xlnx_vivado.cmd",
+            "xlnx_vivado"
+        ],
+        [
+            "scripts\\xlnx_vivado_hls.cmd",
+            "xlnx_vivado_hls"
+        ],
+        [
+            "scripts\\xlnx_sysgen.cmd",
+            "xlnx_sysgen"
+        ],
+        [
+            "scripts\\xlnx_docnav.cmd",
+            "xlnx_docnav"
+        ]
+    ],
     "shortcuts": [
         [
             "scripts\\xlnx_xsdk.cmd",
