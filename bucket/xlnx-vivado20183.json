@@ -212,6 +212,9 @@
             "DocNav\\docnav.exe"
         ]
     ],
+    "env_set": {
+        "XLNX_VIVADO20183_INSTALL_ROOT": "$dir"
+    },
     "persist": [
         "AppData",
         "home"
