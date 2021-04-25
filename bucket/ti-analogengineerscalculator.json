@@ -52,6 +52,11 @@
             "   $proc | kill",
             "   Write-Host \"::Detecting and ignoring internal error.\"",
             "}",
+            "$nierserverproc = Get-Process -name \"nierserver\" -ErrorAction \"Ignore\"",
+            "if ($nierserverproc -ne $null) {",
+            "   Write-Host \"Stopping nierserver ...\"",
+            "   Stop-Process -Name \"nierserver\"",
+            "}",
             "Remove-Item \"$dir\\installer\" -Recurse -Force | Out-Null",
             "",
             ""
