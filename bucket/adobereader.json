@@ -56,7 +56,7 @@
     },
     "shortcuts": [
         [
-            "Reader\\AcroRd32.exe",
+            "Programs\\Reader\\AcroRd32.exe",
             "Adobe Acrobat DC"
         ]
     ],
