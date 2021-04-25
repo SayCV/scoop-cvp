@@ -12,19 +12,47 @@
             "extras/vcredist2013"
         ]
     },
-    "url": "http://ardownload.adobe.com/pub/adobe/reader/win/AcrobatDC/2100120145/AcroRdrDC2100120145_zh_CN.exe#/cosi.7z",
-    "hash": "",
+    "url": "http://ardownload.adobe.com/pub/adobe/reader/win/AcrobatDC/2100120145/AcroRdrDC2100120145_en_US.exe#/cosi.7z",
+    "hash": "f1e5cbbace69edba23e7a2557b9be59d916af06ad27d99526e6ff356429ff4f2",
+    "extract_to": "installer",
+    "pre_install": [
+        "$inst = Join-Path $dir 'Programs'",
+        "ensure $inst | Out-Null",
+        "",
+        "$null, $bucket = find_manifest($app)",
+        "$bucketdir = Find-BucketDirectory($bucket)",
+        "",
+        "'data', 'scripts' | ForEach-Object { ensure \"$dir\\$_\" | Out-Null }",
+        "",
+        "Write-Host \"S1. Creating scripts...\" -ForegroundColor DarkCyan",
+        "",
+        "$ifile = \"$dir\\installer\\abcpy.ini\"",
+        "$ofile = \"$dir\\installer\\abcpy.ini\"",
+        "$cont = (Get-Content \"$ifile\") -replace '@SCRIPT_NAME@', \"\"",
+        "$cont = $cont -replace 'INSTALLDIR=.*', \"INSTALLDIR=$dir\\Programs\\\"",
+        "Set-Content \"$ofile\" ($cont -join \"`r`n\") -Encoding ASCII",
+        "",
+        ""
+    ],
     "installer": {
         "script": [
-            "Expand-MsiArchive \"$dir\\AcroRead.msi\" -DestinationPath \"$dir\\cosi\"",
-            "Get-ChildItem $dir -Exclude 'cosi' | Remove-Item -Force -Recurse",
-            "Move-Item \"$dir\\cosi\\program files\\Adobe\\Acrobat Reader DC\\*\" $dir -Force",
-            "Move-Item \"$dir\\cosi\\Common\\*\" $env:CommonProgramFiles -Force",
-            "#Remove-Item \"$dir\\cosi\" -Force -Recurse"
+            "#Expand-MsiArchive \"$dir\\AcroRead.msi\" -DestinationPath \"$dir\\cosi\"",
+            "#Get-ChildItem $dir -Exclude 'cosi' | Remove-Item -Force -Recurse",
+            "#Move-Item \"$dir\\cosi\\program files\\Adobe\\Acrobat Reader DC\\*\" $dir -Force",
+            "#sudo Move-Item \"$dir\\cosi\\Common\\*\" $env:CommonProgramFiles -Force",
+            "#Remove-Item \"$dir\\cosi\" -Force -Recurse",
+            "",
+            "Start-Process \"$dir\\installer\\setup.exe\" -ArgumentList @('/sAll', '/rs', \"/log $dir\\ScoopInstall.log\", '/confirmCriticalWarnings', '/disableNotificationCheck') -Verb RunAs -Wait",
+            "",
+            ""
         ]
     },
     "uninstaller": {
-        "script": "Remove-Item \"${env:CommonProgramFiles}\\Adobe\" -Force -Recurse"
+        "script": [
+            "#sudo Remove-Item \"${env:CommonProgramFiles}\\Adobe\" -Force -Recurse",
+            "",
+            ""
+        ]
     },
     "shortcuts": [
         [
@@ -34,6 +62,6 @@
     ],
     "checkver": "Version\\s+\\d{2}([\\d.]+)",
     "autoupdate": {
-        "url": "http://ardownload.adobe.com/pub/adobe/reader/win/AcrobatDC/$cleanVersion/AcroRdrDC$cleanVersion_zh_CN.exe#/cosi.7z"
+        "url": "http://ardownload.adobe.com/pub/adobe/reader/win/AcrobatDC/$cleanVersion/AcroRdrDC$cleanVersion_en_US.exe#/cosi.7z"
     }
 }
