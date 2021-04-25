@@ -166,10 +166,10 @@
             "SDK\\2018.3\\data\\sdk\\images\\sdk_logo.ico"
         ],
         [
-            "scripts\\xlnx_vivado_hls.cmd",
-            "EDA\\Xilinx Vivado HLS 2018.3 CVP",
+            "scripts\\xlnx_vivado.cmd",
+            "EDA\\Xilinx Vivado 2018.3 CVP",
             "",
-            "Vivado\\2018.3\\common\\icons\\CS1056_Vivado_HSL_Icon_64x64.ico"
+            "Vivado\\2018.3\\doc\\images\\vivado_logo.ico"
         ],
         [
             "scripts\\xlnx_vivado_hls.cmd",
@@ -187,7 +187,7 @@
             "scripts\\xlnx_docnav.cmd",
             "EDA\\Xilinx DocNav 2018.3 CVP",
             "",
-            "Vivado\\DocNav\\docnav.exe"
+            "DocNav\\docnav.exe"
         ]
     ],
     "persist": [
