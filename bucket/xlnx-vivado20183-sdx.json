@@ -32,7 +32,7 @@
         "    # Shortcut creation",
         "    # $target, $shortcutName, $arguments, [System.IO.FileInfo]$icon, $global",
         "$icon = $evalDir\\SDx\\2018.3\\docs\\images\\sdx_icon.ico",
-        "startmenu_shortcut \"$evalDir\\SDx\\2018.3\\bin\\sdx.vbs\" 'Xilinx SDx IDE 2018.3' $null \"$icon\" $global",
+        "startmenu_shortcut \"$evalDir\\SDx\\2018.3\\bin\\sdx.vbs\" 'EDA\\Xilinx SDx IDE 2018.3 CVP' $null \"$icon\" $global",
         "",
         ""
     ]
