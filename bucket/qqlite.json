@@ -47,21 +47,24 @@
             "#}",
             "",
             "Write-Host \"S1. install program 'qqlite' with native method\" -ForegroundColor DarkCyan",
-            "Start-Process $dir\\QQ7.9Light.exe -ArgumentList \"/VERYSILENT\",\"/SUPPRESSMSGBOXES\",\"/DIR=`\"$dir`\"\" -Wait -Verb RunAs",
+            "Start-Process $dir\\QQ7.9Light.exe -ArgumentList @('/S') -Wait -Verb RunAs",
             "",
             ""
         ]
     },
     "uninstaller": {
         "script": [
+            "Assert-Administrator",
             "",
             "Write-Host \"S1. uninstall program 'qqlite' with native method\" -ForegroundColor DarkCyan",
-            "Start-Process $dir\\QQUninst.exe -ArgumentList \"/VERYSILENT\",\"/SUPPRESSMSGBOXES\" -Wait -Verb RunAs",
+            "if (Test-Path \"$dir\\QQUninst.exe\") {",
+            "   Start-Process $dir\\QQUninst.exe -ArgumentList @('/quiet /passive /qn /norestart') -Wait -Verb RunAs",
+            "}",
             "",
             "Remove-Item \"$env:APPDATA\\Tencent\\QQ\" -Recurse -Force",
             "sudo regedit.exe /s \"$dir\\uninstall-qqlite.reg\"",
             "",
-            "gps explorer | spps",
+            "#gps explorer | spps",
             ""
         ]
     },
