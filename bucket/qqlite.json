@@ -60,9 +60,6 @@
             "Remove-Item \"$env:APPDATA\\Tencent\\QQ\" -Recurse -Force",
             "sudo regedit.exe /s \"$dir\\uninstall-qqlite.reg\"",
             "",
-            "Remove-Item \"$env:APPDATA\\Tencent\\QQ\" -Recurse -Force",
-            "sudo regedit.exe /s \"$dir\\uninstall-qqlite.reg\"",
-            "",
             "gps explorer | spps",
             ""
         ]

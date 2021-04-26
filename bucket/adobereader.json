@@ -43,6 +43,7 @@
             "#Remove-Item \"$dir\\cosi\" -Force -Recurse",
             "",
             "Start-Process \"$dir\\installer\\setup.exe\" -ArgumentList @('/sAll', '/rs', \"/log $dir\\ScoopInstall.log\", '/confirmCriticalWarnings', '/disableNotificationCheck') -Verb RunAs -Wait",
+            "Remove-Item \"$dir\\installer\" -Recurse -Force | Out-Null",
             "",
             ""
         ]
@@ -50,11 +51,11 @@
     "uninstaller": {
         "script": [
             "#sudo Remove-Item \"${env:CommonProgramFiles}\\Adobe\" -Force -Recurse",
-            "",
+            "Start-Process \"$dir\\Programs\\Setup Files\\{AC76BA86-7AD7-1033-7B44-AC0F074E4100}\\setup.exe\" -ArgumentList @('/sAll', '/rs', '/msi', '/qn', '/uninstall', '/norestart') -Verb RunAs -Wait",
             ""
         ]
     },
-    "shortcuts": [
+    "shortcuts0": [
         [
             "Programs\\Reader\\AcroRd32.exe",
             "Adobe Acrobat DC"
