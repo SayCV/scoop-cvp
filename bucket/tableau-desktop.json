@@ -1,0 +1,44 @@
+{
+    "##": "Download URL and Hashes https://community.chocolatey.org/packages/Tableau-Desktop#files",
+    "version": "2021.1.1",
+    "description": "Tableau Desktop is data visualization software that lets you see and understand data in minutes.",
+    "homepage": "https://www.tableau.com//desktop/",
+    "license": "",
+    "url": "https://downloads.tableau.com/tssoftware/TableauDesktop-64bit-2021-1-1.exe#/setup.exe",
+    "hash": "093a318cbf64b23cf0f1bd9196bcab2361960d1958bfd833a57a6cd810c0e3a4",
+    "pre_download": "Assert-Administrator",
+    "pre_install": [
+        "$processname = \"Tableau.exe\"",
+        "$process = Get-Process $processname -ErrorAction SilentlyContinue",
+        "if ($process) {",
+        "   $process.CloseMainWindow()",
+        "   Start-Sleep -Seconds 5",
+        "   if (!$process.HasExited) {",
+        "       Start-Sleep -Seconds 25",
+        "       $process | Stop-Process -Force",
+        "   }",
+        "}"
+    ],
+    "installer": {
+        "script": [
+            "$programname = \"Tableau Desktop*\"",
+            "if(!(Get-Package -Provider Programs -IncludeWindowsInstaller -Name \"$programname\" -MinimumVersion $version -ErrorAction SilentlyContinue))",
+            "{",
+            "   &\"$dir\\setup.exe\" /quiet /norestart ACCEPT_EULA=1 INSTALLLOCATION=\"$dir\" | Out-Null",
+            "   if(!(Get-Package -Provider Programs -IncludeWindowsInstaller -Name \"$programname\" -MinimumVersion $version -ErrorAction SilentlyContinue))",
+            "   {",
+            "       exit 1",
+            "   }",
+            "}",
+            "Remove-Item \"$dir\\setup.exe\" -Force"
+        ]
+    },
+    "post_install": [
+        "$CommonDesktopPath = [Environment]::GetFolderPath(\"CommonDesktopDirectory\")",
+        "if (Test-Path \"$CommonDesktopPath\\Tableau Desktop.lnk\") {Remove-Item \"$CommonDesktopPath\\Tableau Desktop.lnk\" -Force}"
+    ],
+    "checkver": {
+        "url": "https://community.chocolatey.org/packages/Tableau-Desktop",
+        "regex": "Tableau Desktop ([\\d.]+)"
+    }
+}
