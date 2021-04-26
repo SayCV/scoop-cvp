@@ -1,0 +1,52 @@
+{
+    "##": "Download URL and Hashes https://community.chocolatey.org/packages/PowerBI#files",
+    "version": "2.92.706.0",
+    "description": "Power BI Desktop. Create rich, interactive reports with visual analytics at your fingertips",
+    "homepage": "https://powerbi.microsoft.com/en-us/desktop/",
+    "license": "",
+    "architecture": {
+        "64bit": {
+            "url": "https://download.microsoft.com/download/8/8/0/880BCA75-79DD-466A-927D-1ABF1F5454B0/PBIDesktopSetup_x64.exe#/setup.exe",
+            "hash": "d236917e7854dc1d5720196f7c29b7eefeccfcae76904f975c4d3727ed6d8597"
+        },
+        "32bit": {
+            "url": "https://download.microsoft.com/download/8/8/0/880BCA75-79DD-466A-927D-1ABF1F5454B0/PBIDesktopSetup.exe#/setup.exe",
+            "hash": "032ba0ea85ab3d2a774ffe1a237694e146e25a0f22166daf43ae302b5b352ff9"
+        }
+    },
+    "pre_download": "Assert-Administrator",
+    "pre_install": [
+        "$processname = \"PowerBI.exe\"",
+        "$process = Get-Process $processname -ErrorAction SilentlyContinue",
+        "if ($process) {",
+        "   $process.CloseMainWindow()",
+        "   Start-Sleep -Seconds 5",
+        "   if (!$process.HasExited) {",
+        "       Start-Sleep -Seconds 25",
+        "       $process | Stop-Process -Force",
+        "   }",
+        "}"
+    ],
+    "installer": {
+        "script": [
+            "$programname = \"Microsoft PowerBI Desktop*\"",
+            "if(!(Get-Package -Provider Programs -IncludeWindowsInstaller -Name \"$programname\" -MinimumVersion $version -ErrorAction SilentlyContinue))",
+            "{",
+            "   &\"$dir\\setup.exe\" -quiet -norestart ACCEPT_EULA=1 | Out-Null",
+            "   if(!(Get-Package -Provider Programs -IncludeWindowsInstaller -Name \"$programname\" -MinimumVersion $version -ErrorAction SilentlyContinue))",
+            "   {",
+            "       exit 1",
+            "   }",
+            "}",
+            "Remove-Item \"$dir\\setup.exe\" -Force"
+        ]
+    },
+    "post_install": [
+        "$CommonDesktopPath = [Environment]::GetFolderPath(\"CommonDesktopDirectory\")",
+        "if (Test-Path \"$CommonDesktopPath\\Power BI Desktop.lnk\") {Remove-Item \"$CommonDesktopPath\\Power BI Desktop.lnk\" -Force}"
+    ],
+    "checkver": {
+        "url": "https://community.chocolatey.org/packages/PowerBI",
+        "regex": "Power BI Desktop ([\\d.]+)"
+    }
+}
