@@ -43,7 +43,7 @@
     },
     "post_install": [
         "$CommonDesktopPath = [Environment]::GetFolderPath(\"CommonDesktopDirectory\")",
-        "if (Test-Path \"$CommonDesktopPath\\Power BI Desktop.lnk\") {Remove-Item \"$CommonDesktopPath\\Power BI Desktop.lnk\" -Force}"
+        "#if (Test-Path \"$CommonDesktopPath\\Power BI Desktop.lnk\") {sudo Remove-Item \"$CommonDesktopPath\\Power BI Desktop.lnk\" -Force}"
     ],
     "checkver": {
         "url": "https://community.chocolatey.org/packages/PowerBI",
