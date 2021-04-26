@@ -24,11 +24,35 @@
             ]
         }
     },
-    "post_install": [
-        "New-ItemProperty -Path 'HKCU:\\SOFTWARE\\Oray\\SunLogin\\SunloginClient' -Name $version_IsRunSeted -Value 1 | Out-Null"
+    "pre_install": [
+        "$null, $bucket = find_manifest($app)",
+        "$bucketdir = Find-BucketDirectory($bucket)",
+        "",
+        "",
+        "$EVAL_INST_PATH = \"$(current_dir $dir)\".Replace('/', '\\\\')",
+        "$EVAL_INST_PATH = \"$dir\".Replace('/', '\\\\')",
+        "$escdir = $EVAL_INST_PATH -replace \"\\\\\",\"\\\\\"",
+        "(gc \"$bucketdir\\..\\scripts\\sunloginclient\\install-eval.reg.templ\") | % {$_ -replace \"%EVAL_INST_PATH%\",\"$escdir\"} | out-file -enc oem \"$dir\\install-eval.reg\"",
+        "cp \"$bucketdir\\..\\scripts\\sunloginclient\\uninstall-eval.reg\" \"$dir\"",
+        "",
+        "sudo regedit.exe /s \"$dir\\install-eval.reg\"",
+        "",
+        ""
     ],
+    "post_install": [
+        "New-ItemProperty -Path 'HKCU:\\SOFTWARE\\Oray\\SunLogin\\SunloginClient' -Name ${version}_IsRunSeted -Value 1 | Out-Null"
+    ],
+    "installer": {
+        "script": [
+            "Remove-ItemProperty -Path 'HKCU:\\SOFTWARE\\Oray\\SunLogin\\SunloginClient' -Name *_IsRunSeted -Force -ErrorAction SilentlyContinue"
+        ]
+    },
     "uninstaller": {
         "script": [
+            "$uninst = \"$dir\\SunloginClient\\SunloginClient.exe\"",
+            "if (Test-Path $uninst) {",
+            "   $uninst --mod=uninstall",
+            "}",
             "Remove-ItemProperty -Path 'HKCU:\\SOFTWARE\\Oray\\SunLogin\\SunloginClient' -Name *_IsRunSeted -Force -ErrorAction SilentlyContinue"
         ]
     },
