@@ -13,13 +13,28 @@
         "$null, $bucket = find_manifest($app)",
         "$bucketdir = Find-BucketDirectory($bucket)",
         "",
-        "$MDK_INSTALL_PATH = \"$(current_dir $dir)\".Replace('/', '\\\\')",
-        "$escdir = $MDK_INSTALL_PATH -replace \"\\\\\",\"\\\\\"",
+        "$EVAL_INST_PATH = \"$(current_dir $dir)\".Replace('/', '\\\\')",
+        "$escdir = $EVAL_INST_PATH -replace \"\\\\\",\"\\\\\"",
         "$escdir = $(current_dir $dir)",
-        "(gc \"$bucketdir\\..\\scripts\\mdk533\\TOOLS.INI.templ\") | % {$_ -replace \"%MDK_INSTALL_PATH%\",\"$escdir\"} | out-file -enc oem \"$dir\\Programs\\TOOLS.INI\"",
+        "(gc \"$bucketdir\\..\\scripts\\mdk533\\TOOLS.INI.templ\") | % {$_ -replace \"%EVAL_INST_PATH%\",\"$escdir\"} | out-file -enc oem \"$dir\\Programs\\TOOLS.INI\"",
+        "",
+        "$EVAL_INST_PATH = \"$(current_dir $dir)\".Replace('/', '\\\\')",
+        "$escdir = $EVAL_INST_PATH -replace \"\\\\\",\"\\\\\"",
+        "(gc \"$bucketdir\\..\\scripts\\mdk533\\install-context.reg.templ\") | % {$_ -replace \"%EVAL_INST_PATH%\",\"$escdir\"} | out-file -enc oem \"$dir\\install-context.reg\"",
+        "cp \"$bucketdir\\..\\scripts\\mdk533\\uninstall-context.reg\" \"$dir\"",
+        "",
+        "sudo regedit.exe /s \"$dir\\install-context.reg\"",
         "",
         ""
     ],
+    "uninstaller": {
+        "script": [
+            "",
+            "sudo regedit.exe /s \"$dir\\uninstall-context.reg\"",
+            "",
+            ""
+        ]
+    },
     "shortcuts": [
         [
             "Programs\\UV4\\UV4.exe",
