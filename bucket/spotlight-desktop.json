@@ -17,6 +17,18 @@
     ],
     "uninstaller": {
         "script": [
+            "",
+            "$processname = \"Spotlight Desktop.exe\"",
+            "$process = Get-Process $processname -ErrorAction SilentlyContinue",
+            "if ($process) {",
+            "   $process.CloseMainWindow()",
+            "   Start-Sleep -Seconds 5",
+            "   if (!$process.HasExited) {",
+            "       Start-Sleep -Seconds 25",
+            "       $process | Stop-Process -Force",
+            "   }",
+            "}",
+            "",
             "sudo Remove-ItemProperty -Path \"HKLM:\\Software\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Run\" -Name \"SpotlightDesktop\" -ErrorAction Ignore | Out-Null",
             "Write-Host \":: uninstalled.\""
         ]

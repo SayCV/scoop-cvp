@@ -9,6 +9,23 @@
     "installer": {
         "script": [
             "",
+            "'data' | ForEach-Object { ensure \"$dir\\$_\" | Out-Null }",
+            "$null, $bucket = find_manifest($app)",
+            "$bucketdir = Find-BucketDirectory($bucket)",
+            "",
+            "ensure \"$dir\\data\\ProgramData\" | Out-Null",
+            "ensure \"$dir\\data\\AppData\" | Out-Null",
+            "ensure \"$dir\\data\\LocalAppData\" | Out-Null",
+            "ensure \"$dir\\data\\UserProfile\" | Out-Null",
+            "ensure \"$dir\\data\\PublicProfile\" | Out-Null",
+            "",
+            "$companyname = 'Microsoft'",
+            "",
+            "ensure \"$env:LocalAppData\\$companyname\" | Out-Null",
+            "if (-not (Test-Path \"$env:LocalAppData\\$companyname\\BingWallpaperApp\")) {",
+            "    cmd /c mklink /j \"$env:LocalAppData\\$companyname\\BingWallpaperApp\" \"$dir\\data\\LocalAppData\"",
+            "}",
+            "",
             "Expand-MsiArchive \"$dir\\installer\\BWCInstaller.msi\" -DestinationPath \"$dir\\Programs\" -ExtractDir 'Microsoft\\BingWallpaperApp'",
             "",
             "Remove-Item \"$dir\\installer\" -Recurse -Force | Out-Null",
@@ -19,13 +36,40 @@
     "post_install": [
         "$programname = \"Bing Wallpaper\"",
         "$CommonDesktopPath = [Environment]::GetFolderPath(\"CommonDesktopDirectory\")",
-        "if (Test-Path \"$CommonDesktopPath\\$programname.lnk\") {Remove-Item \"$CommonDesktopPath\\$programname.lnk\" -Force}"
+        "if (Test-Path \"$CommonDesktopPath\\$programname.lnk\") {Remove-Item \"$CommonDesktopPath\\$programname.lnk\" -Force}",
+        "",
+        "sudo New-ItemProperty -Path \"HKLM:\\Software\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Run\" -Name \"BingWallpaper\" -Value \"$dir\\Programs\\BingWallpaperApp.exe\" -ErrorAction Ignore | Out-Null",
+        "Start-Process \"$dir\\Programs\\BingWallpaperApp.exe\"",
+        "Write-Host \":: installed.\"",
+        "",
+        ""
     ],
+    "uninstaller": {
+        "script": [
+            "",
+            "$processname = \"BingWallpaperApp.exe\"",
+            "$process = Get-Process $processname -ErrorAction SilentlyContinue",
+            "if ($process) {",
+            "   $process.CloseMainWindow()",
+            "   Start-Sleep -Seconds 5",
+            "   if (!$process.HasExited) {",
+            "       Start-Sleep -Seconds 25",
+            "       $process | Stop-Process -Force",
+            "   }",
+            "}",
+            "",
+            "sudo Remove-ItemProperty -Path \"HKLM:\\Software\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Run\" -Name \"BingWallpaper\" -ErrorAction Ignore | Out-Null",
+            "Write-Host \":: uninstalled.\""
+        ]
+    },
     "shortcuts": [
         [
             "Programs\\BingWallpaperApp.exe",
             "Bing Wallpaper"
         ]
+    ],
+    "persist": [
+        "data"
     ],
     "checkver": {
         "url": "https://website",
