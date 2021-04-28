@@ -21,15 +21,7 @@
     ],
     "installer": {
         "script": [
-            "$programname = \"Tableau Desktop*\"",
-            "if(!(Get-Package -Provider Programs -IncludeWindowsInstaller -Name \"$programname\" -MinimumVersion $version -ErrorAction SilentlyContinue))",
-            "{",
-            "   &\"$dir\\setup.exe\" /quiet /norestart ACCEPT_EULA=1 INSTALLDIR=\"$dir\" | Out-Null",
-            "   if(!(Get-Package -Provider Programs -IncludeWindowsInstaller -Name \"$programname\" -MinimumVersion $version -ErrorAction SilentlyContinue))",
-            "   {",
-            "       exit 1",
-            "   }",
-            "}",
+            "&\"$dir\\setup.exe\" /quiet /norestart /install ACCEPTEULA=1 INSTALLDIR=\"$dir\" | Out-Null",
             "Remove-Item \"$dir\\setup.exe\" -Force"
         ]
     },
