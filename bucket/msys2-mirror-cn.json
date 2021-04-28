@@ -17,7 +17,7 @@
         "",
         "$evalDir = \"$(appdir msys2 $global)\\current\".Replace('/', '\\')",
         "",
-        "cp \"$bucketdir\\..\\scripts\\msys2-mirror-cn\\mirrorlist.*\" \"$evalDir\\etc\\pacman.d\" -Force -Confirm",
+        "cp \"$bucketdir\\..\\scripts\\msys2-mirror-cn\\mirrorlist.*\" \"$evalDir\\etc\\pacman.d\" -Force",
         ""
     ]
 }
