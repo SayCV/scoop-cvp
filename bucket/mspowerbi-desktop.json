@@ -7,7 +7,7 @@
     "architecture": {
         "64bit": {
             "url": "https://download.microsoft.com/download/8/8/0/880BCA75-79DD-466A-927D-1ABF1F5454B0/PBIDesktopSetup_x64.exe#/setup.exe",
-            "hash": "d236917e7854dc1d5720196f7c29b7eefeccfcae76904f975c4d3727ed6d8597"
+            "hash": "3d3a7308ab05c6f78627e2418ce135ce37cc034b44c3eee2f164ae60860f254f"
         },
         "32bit": {
             "url": "https://download.microsoft.com/download/8/8/0/880BCA75-79DD-466A-927D-1ABF1F5454B0/PBIDesktopSetup.exe#/setup.exe",
@@ -45,6 +45,16 @@
         "$CommonDesktopPath = [Environment]::GetFolderPath(\"CommonDesktopDirectory\")",
         "#if (Test-Path \"$CommonDesktopPath\\Power BI Desktop.lnk\") {sudo Remove-Item \"$CommonDesktopPath\\Power BI Desktop.lnk\" -Force}"
     ],
+    "uninstaller": {
+        "script": [
+            "$uninst = \"$env:ProgramData\\Package Cache\\{f9bc4bcc-aafd-4912-83c8-f36b5088f5a0}\\PBIDesktopSetup_x64.exe\"",
+            "if (Test-Path \"$uninst\")",
+            "{",
+            "   &\"$uninst\" -quiet -uninstall | Out-Null",
+            "}",
+            "Remove-Item \"$env:ProgramData\\Package Cache\\{f9bc4bcc-aafd-4912-83c8-f36b5088f5a0}\" -Force"
+        ]
+    },
     "checkver": {
         "url": "https://community.chocolatey.org/packages/PowerBI",
         "regex": "Power BI Desktop ([\\d.]+)"
