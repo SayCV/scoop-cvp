@@ -9,7 +9,7 @@
         "rime-weasel"
     ],
     "url": "https://github.com/wongdean/rime-settings/archive/69ed88946367f9fb3da6cd29370dff0cab6a3924.zip",
-    "hash": "",
+    "hash": "60253ff65f50ec2b8038a56f42ed7827e7fa2af1ce2dcc651eb0a83f0511bef5",
     "extract_dir": "rime-settings-69ed88946367f9fb3da6cd29370dff0cab6a3924",
     "post_install": [
         "$null, $bucket = find_manifest($app)",
