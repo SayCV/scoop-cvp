@@ -52,7 +52,7 @@
             "{",
             "   &\"$uninst\" -quiet -uninstall | Out-Null",
             "}",
-            "Remove-Item \"$env:ProgramData\\Package Cache\\{f9bc4bcc-aafd-4912-83c8-f36b5088f5a0}\" -Force"
+            "#Remove-Item \"$env:ProgramData\\Package Cache\\{f9bc4bcc-aafd-4912-83c8-f36b5088f5a0}\" -Force"
         ]
     },
     "checkver": {
