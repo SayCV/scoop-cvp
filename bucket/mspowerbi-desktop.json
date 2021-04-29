@@ -47,12 +47,12 @@
     ],
     "uninstaller": {
         "script": [
-            "$uninst = \"$env:ProgramData\\Package Cache\\{f9bc4bcc-aafd-4912-83c8-f36b5088f5a0}\\PBIDesktopSetup_x64.exe\"",
-            "if (Test-Path \"$uninst\")",
+            "$uninstdir = \"$env:ProgramData\\Package Cache\\{f9bc4bcc-aafd-4912-83c8-f36b5088f5a0}\"",
+            "if (Test-Path \"$uninstdir\")",
             "{",
-            "   &\"$uninst\" -quiet -uninstall | Out-Null",
+            "   &\"$uninstdir\\PBIDesktopSetup_x64.exe\" -quiet -uninstall | Out-Null",
             "}",
-            "#Remove-Item \"$env:ProgramData\\Package Cache\\{f9bc4bcc-aafd-4912-83c8-f36b5088f5a0}\" -Force"
+            "Remove-Item \"$uninstdir\" -Force -ErrorAction SilentlyContinue"
         ]
     },
     "checkver": {
