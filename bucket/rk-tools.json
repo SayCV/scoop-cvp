@@ -1,5 +1,5 @@
 {
-    "version": "20210423",
+    "version": "0.2021.01.20",
     "description": "Rockchip Develop tools",
     "homepage": "https://github.com/rockchip-linux/tools",
     "license": "Freeware",
@@ -9,7 +9,7 @@
     "notes": [
         ""
     ],
-    "url": "https://github.com/rockchip-linux/tools/archive/03796552d1a381223b20d0d75da3412cece8aacb.zip#/dl.zip",
+    "url": "https://github.com/rockchip-linux/tools/archive/03796552d1a381223b20d0d75da3412cece8aacb.zip",
     "hash": "00b3b828f6f14a9ab7b3dfc1c55ad639206a9c55c35c543ad8394c2d59d417cb",
     "extract_dir": "tools-03796552d1a381223b20d0d75da3412cece8aacb",
     "pre_install": [
@@ -31,5 +31,14 @@
             "windows\\DriverAssitant_v5.0\\DriverInstall.exe",
             "Rockchip/RK DriverInstall"
         ]
-    ]
+    ],
+    "checkver": {
+        "url": "https://github.com/rockchip-linux/tools/commits/master.atom",
+        "regex": "(?s)>(\\d+)-(\\d+)-(\\d+)T.*?/(?<sha>[0-9a-f]{40})",
+        "replace": "0.${1}.${2}.${3}"
+    },
+    "autoupdate": {
+        "url": "https://github.com/rockchip-linux/tools/archive/$matchSha.zip",
+        "extract_dir": "tools-$matchSha"
+    }
 }
