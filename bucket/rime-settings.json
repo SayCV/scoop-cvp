@@ -1,34 +1,31 @@
 {
-    "version": "0.2020.02.16",
-    "description": "rime settings",
-    "homepage": "https://github.com/SayCV/CVIMRime",
+    "version": "0.14.0",
+    "description": "Cracklock is a unique tool designed to protect you from a particularly vicious polymorphic virus affecting an ever-growing number of shareware programs.",
+    "homepage": "https://github.com/wongdean/rime-settings",
     "license": {
         "identifier": "Freeware"
     },
     "depends": [
         "rime-weasel"
     ],
-    "url": "https://github.com/SayCV/CVIMRime/archive/3a53a3eafea77ea63eb4f2912599e552001f0568.zip",
-    "hash": "a93d7fa42c125d9d726647eab47b3e8402971c2443678b8316ee9381a4906045",
-    "extract_dir": "CVIMRime-3a53a3eafea77ea63eb4f2912599e552001f0568",
+    "url": "https://github.com/wongdean/rime-settings/archive/8e807328a98008896364b2862789a15be817e72f.zip#master.zip",
+    "hash": "14b3a1be7cda122534613367623ea47722e3ef07956882cdd0dd0d0062dd0b72",
+    "extract_dir": "rime-settings-8e807328a98008896364b2862789a15be817e72f",
     "post_install": [
         "$null, $bucket = find_manifest($app)",
         "$bucketdir = Find-BucketDirectory($bucket)",
-        "",
         "$rimeWeaselDir = \"$(appdir rime-weasel $global)\\current\".Replace('/', '\\')",
         "",
         "Write-Host \"S1. Copy to your rime install directory...\" -ForegroundColor DarkCyan",
-        "cp \"$dir\\userdata\\*\" \"$rimeWeaselDir\\AppData\" -Exclude 'default.custom.yaml' -Recurse -force",
-        "",
+        "cp \"$dir\\*\" \"$rimeWeaselDir\\AppData\" -Exclude 'default.custom.yaml' -Recurse -force",
         ""
     ],
     "checkver": {
-        "url": "https://github.com/SayCV/CVIMRime/commits/master.atom",
-        "regex": "(?s)>(\\d+)-(\\d+)-(\\d+)T.*?/(?<sha>[0-9a-f]{40})",
-        "replace": "0.${1}.${2}.${3}"
+        "github": "https://github.com/wongdean/rime-settings",
+        "regex": "version: ([\\d.]+)"
     },
     "autoupdate": {
-        "url": "https://github.com/SayCV/CVIMRime/archive/$matchSha.zip",
-        "extract_dir": "CVIMRime-$matchSha"
+        "url": "https://github.com/wongdean/rime-settings/archive/refs/heads/master.zip",
+        "extract_dir": "master"
     }
 }
