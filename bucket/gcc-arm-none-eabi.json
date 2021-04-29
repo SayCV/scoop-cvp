@@ -11,7 +11,7 @@
     "extract_dir": "gcc-arm-none-eabi-10-2020-q4-major",
     "env_add_path": "bin",
     "env_set": {
-        "GCC_ARM_BARE_INSTALL_ROOT": ".",
+        "GCC_ARM_BARE_INSTALL_ROOT": "$dir",
         "TL_PATH": "$dir\\bin"
     },
     "checkver": {

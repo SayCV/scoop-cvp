@@ -11,7 +11,7 @@
     "extract_dir": "gcc-arm-10.2-2020.11-mingw-w64-i686-aarch64-none-elf",
     "env_add_path": "bin",
     "env_set": {
-        "GCC_AARCH64_BARE_INSTALL_ROOT": ".",
+        "GCC_AARCH64_BARE_INSTALL_ROOT": "$dir",
         "TL_PATH": "$dir\\bin"
     },
     "checkver": {
