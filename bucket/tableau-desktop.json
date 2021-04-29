@@ -31,12 +31,12 @@
     ],
     "uninstaller": {
         "script": [
-            "$uninstdir = \"$dir\"",
+            "$uninstdir = \"$env:ProgramData\\Package Cache\\{e50d2f09-8762-457f-81a4-3510b3146151}\"",
             "if (Test-Path \"$uninstdir\")",
             "{",
-            "   &\"$uninstdir\\uninst.exe\" -quiet -uninstall | Out-Null",
+            "   &\"$uninstdir\\tableau-setup-std-tableau-2021-1.21.0420.1112-x64.exe\" -quiet -uninstall | Out-Null",
             "}",
-            "Remove-Item \"$uninstdir\\uninst.exe\" -Force -ErrorAction SilentlyContinue"
+            "Remove-Item \"$uninstdir\" -Force -ErrorAction SilentlyContinue"
         ]
     },
     "checkver": {
