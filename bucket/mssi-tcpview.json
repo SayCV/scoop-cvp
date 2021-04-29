@@ -11,16 +11,10 @@
     ],
     "url": "https://download.sysinternals.com/files/TCPView.zip",
     "hash": "79ab5a955d5305dcf00960252d2fdd55d9b38ea6987cc9e11fbc994ee073ca69",
-    "bin": [
-        [
-            "TCPView.exe",
-            "Sysinternals TCPView"
-        ]
-    ],
     "shortcuts": [
         [
-            "TCPView.exe",
-            "Sysinternals TCPView"
+            "TCPView64.exe",
+            "Sysinternals TCPView64"
         ]
     ]
 }
