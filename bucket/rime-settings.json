@@ -1,5 +1,5 @@
 {
-    "version": "0.14.0",
+    "version": "0.2021.04.14",
     "description": "Cracklock is a unique tool designed to protect you from a particularly vicious polymorphic virus affecting an ever-growing number of shareware programs.",
     "homepage": "https://github.com/wongdean/rime-settings",
     "license": {
@@ -8,9 +8,9 @@
     "depends": [
         "rime-weasel"
     ],
-    "url": "https://github.com/wongdean/rime-settings/archive/8e807328a98008896364b2862789a15be817e72f.zip#master.zip",
-    "hash": "14b3a1be7cda122534613367623ea47722e3ef07956882cdd0dd0d0062dd0b72",
-    "extract_dir": "rime-settings-8e807328a98008896364b2862789a15be817e72f",
+    "url": "https://github.com/wongdean/rime-settings/archive/69ed88946367f9fb3da6cd29370dff0cab6a3924.zip",
+    "hash": "",
+    "extract_dir": "rime-settings-69ed88946367f9fb3da6cd29370dff0cab6a3924",
     "post_install": [
         "$null, $bucket = find_manifest($app)",
         "$bucketdir = Find-BucketDirectory($bucket)",
@@ -21,11 +21,12 @@
         ""
     ],
     "checkver": {
-        "github": "https://github.com/wongdean/rime-settings",
-        "regex": "version: ([\\d.]+)"
+        "url": "https://github.com/wongdean/rime-settings/commits/master.atom",
+        "regex": "(?s)>(\\d+)-(\\d+)-(\\d+)T.*?/(?<sha>[0-9a-f]{40})",
+        "replace": "0.${1}.${2}.${3}"
     },
     "autoupdate": {
-        "url": "https://github.com/wongdean/rime-settings/archive/refs/heads/master.zip",
-        "extract_dir": "master"
+        "url": "https://github.com/wongdean/rime-settings/archive/$matchSha.zip",
+        "extract_dir": "rime-settings-$matchSha"
     }
 }
