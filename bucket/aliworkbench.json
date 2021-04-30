@@ -1,0 +1,34 @@
+{
+    "version": "6.06.02",
+    "description": "千牛工作台 去广告绿色纯净版，卖家经营管店必备软件，阿里巴巴官方出品的卖家一站式工作台客户端。",
+    "homepage": "https://www.423down.com/2497.html",
+    "depends": "sudo",
+    "extract_dir": "AliWorkbench",
+    "url": "https://github.com/SayCV/gh-cdn-cvp/releases/download/v1.0.0/aliworkbench-cvp-6.06.02.7z/#dl.7z",
+    "hash": "",
+    "installer": {
+        "script": "sudo cmd /c \"$dir\\!)绿化处理.bat\""
+    },
+    "uninstaller": {
+        "script": "sudo cmd /c \"$dir\\!)卸载清除.bat\""
+    },
+    "shortcuts": [
+        [
+            "AliWorkbench.exe",
+            "阿里千牛工作台"
+        ]
+    ],
+    "bin": [
+        [
+            "AliWorkbench.exe",
+            "aliworkbench"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/SayCV/gh-cdn-cvp/releases",
+        "regex": "aliworkbench-cvp-([\\d.-]+).7z"
+    },
+    "autoupdate": {
+        "url": "https://github.com/SayCV/gh-cdn-cvp/releases/download/v1.0.0/aliworkbench-cvp-$version.7z"
+    }
+}
