@@ -32,7 +32,7 @@
             "Copy-Item \"$dir\\runpatch2.exe\" \"$evalDir\\Bin\" -Force",
             "",
             "Start-Process $evalDir\\Bin\\runpatch1.exe -ArgumentList @('/silent', '/overwrite', '/backup') -Wait -Verb RunAs",
-            "#Start-Process $evalDir\\Bin\\runpatch2.exe -ArgumentList @('/silent', '/overwrite', '/backup') -Wait -Verb RunAs",
+            "Start-Process $evalDir\\Bin\\runpatch2.exe -ArgumentList @('/silent', '/overwrite', '/backup') -Wait -Verb RunAs",
             "",
             ""
         ]
