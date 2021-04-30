@@ -3,6 +3,9 @@
     "homepage": "https://im.qq.com",
     "description": "QQ",
     "license": "Freeware",
+    "notes": [
+        "Run after scoop install qq-patch"
+    ],
     "url": "https://dl.softmgr.qq.com/original/im/QQ9.4.6.27770.exe#/dl.7z",
     "hash": "b85e14f260ad7dd3136d2614b9f9b3bf41cc6e634112cd77bdfce3b4f0eb5717",
     "installer": {
