@@ -44,7 +44,7 @@
         ]
     ],
     "persist": [
-        "data"
+        "Programs\\cache"
     ],
     "checkver": {
         "github": "https://github.com/jadepeng/bing-wallpaper"
