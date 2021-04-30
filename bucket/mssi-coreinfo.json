@@ -9,16 +9,14 @@
     ],
     "url": "https://download.sysinternals.com/files/Coreinfo.zip",
     "hash": "38474fc81f5b5c85befffd261ecb762ed0d38fcb8abd2aae3f73b3536818e94a",
-    "bin": [
-        [
-            "Coreinfo.exe",
-            "Sysinternals Coreinfo"
-        ]
-    ],
     "shortcuts": [
         [
             "Coreinfo.exe",
-            "Sysinternals Coreinfo"
+            "Sysinternals Coreinfo32"
+        ],
+        [
+            "Coreinfo64.exe",
+            "Sysinternals Coreinfo64"
         ]
     ]
 }

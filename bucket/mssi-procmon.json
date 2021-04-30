@@ -14,6 +14,10 @@
     "hash": "eb24c5bd418f0d7d9289e27310e2af87a8c0e79c3a953cd22cdc1382e5dfe7cb",
     "shortcuts": [
         [
+            "Procmon.exe",
+            "Sysinternals ProcessMonitor32"
+        ],
+        [
             "Procmon64.exe",
             "Sysinternals ProcessMonitor64"
         ]

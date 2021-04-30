@@ -13,6 +13,10 @@
     "hash": "79ab5a955d5305dcf00960252d2fdd55d9b38ea6987cc9e11fbc994ee073ca69",
     "shortcuts": [
         [
+            "TCPView.exe",
+            "Sysinternals TCPView32"
+        ],
+        [
             "TCPView64.exe",
             "Sysinternals TCPView64"
         ]
