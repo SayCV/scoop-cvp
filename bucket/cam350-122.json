@@ -24,11 +24,11 @@
     "shortcuts": [
         [
             "Programs\\CAM350 12.2\\camnt95.exe",
-            "CAM350 12.2 CVP"
+            "EDA\\CAM350 12.2 CVP"
         ],
         [
             "Programs\\BluePrint-PCB 5.2\\BluePrint.exe",
-            "BluePrint-PCB 5.2 CVP"
+            "EDA\\BluePrint-PCB 5.2 CVP"
         ]
     ],
     "checkver": {
