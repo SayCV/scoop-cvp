@@ -42,7 +42,8 @@
             "#sudo Move-Item \"$dir\\cosi\\Common\\*\" $env:CommonProgramFiles -Force",
             "#Remove-Item \"$dir\\cosi\" -Force -Recurse",
             "",
-            "Start-Process \"$dir\\installer\\setup.exe\" -ArgumentList @('/sAll', '/rs', \"/log $dir\\ScoopInstall.log\", '/confirmCriticalWarnings', '/disableNotificationCheck') -Verb RunAs -Wait",
+            "Start-Process \"$dir\\setup\\setup.exe\" -ArgumentList @('-sfx_nu', '/sALL', '/msi', 'EULA_ACCEPT=YES', 'ENABLE_CHROMEEXT=0', 'DISABLE_BROWSER_INTEGRATION=1', 'ENABLE_OPTIMIZATION=YES', 'ADD_THUMBNAILPREVIEW=0', 'DISABLEDESKTOPSHORTCUT=1', \"/log $dir\\ScoopInstall.log\", \"INSTALLDIR=$dir\\Programs\\\") -Verb RunAs -Wait",
+            "",
             "Remove-Item \"$dir\\installer\" -Recurse -Force | Out-Null",
             "",
             ""
@@ -58,7 +59,7 @@
     "shortcuts0": [
         [
             "Programs\\Reader\\AcroRd32.exe",
-            "Adobe Acrobat DC"
+            "Adobe Acrobat Reader DC"
         ]
     ],
     "checkver": "Version\\s+\\d{2}([\\d.]+)",
