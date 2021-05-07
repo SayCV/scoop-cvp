@@ -8,10 +8,10 @@
     "extract_dir": "Photoshop",
     "extract_to": "Programs",
     "installer": {
-        "script": "sudo cmd /c \"$dir\\Programs\\!)绿化处理.bat\""
+        "script": "Start-Process \"$dir\\Programs\\!)绿化处理.bat\" -Verb RunAs -Wait | Out-Null"
     },
     "uninstaller": {
-        "script": "sudo cmd /c \"$dir\\Programs\\!)卸载清除.bat\""
+        "script": "Start-Process \"$dir\\Programs\\!)卸载清除.bat\" -Verb RunAs -Wait | Out-Null"
     },
     "shortcuts": [
         [
