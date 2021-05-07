@@ -8,10 +8,21 @@
     "extract_dir": "Photoshop",
     "extract_to": "Programs",
     "installer": {
-        "script": "Start-Process \"$dir\\Programs\\!)绿化处理.bat\" -Verb RunAs -Wait | Out-Null"
+        "script": "Start-Process 'cmd' -ArgumentList @('/c', \"$dir\\Programs\\!)绿化处理.bat\") -Verb RunAs -Wait | Out-Null"
     },
     "uninstaller": {
-        "script": "Start-Process \"$dir\\Programs\\!)卸载清除.bat\" -Verb RunAs -Wait | Out-Null"
+        "script": [
+            "",
+            "$ifile = \"$dir\\Programs\\!)卸载清除.bat\"",
+            "$ofile = $ifile",
+            "$cont = (Get-Content \"$ifile\")",
+            "$cont = $cont -replace 'CHOICE /C 12 /N', \"CHOICE /C 12 /N /T 1 /D 1\"",
+            "Set-Content \"$ofile\" ($cont -join \"`r`n\") -Encoding ASCII",
+            "",
+            "Start-Process 'cmd' -ArgumentList @('/c', \"$dir\\Programs\\!)卸载清除.bat\") -Verb RunAs -Wait | Out-Null",
+            "",
+            ""
+        ]
     },
     "shortcuts": [
         [
