@@ -1,11 +1,11 @@
 ﻿{
-    "version": "22.3.1.122",
-    "description": "Adobe Photoshop zdBryan 精简版本",
-    "homepage": "https://www.423down.com/6692.html",
+    "version": "25.2.1.236",
+    "description": "Adobe Illustrator 精简版本",
+    "homepage": "https://www.yijingying.com/5097.html",
     "depends": "sudo",
-    "url": "https://github.com/SayCV/gh-cdn-cvp/releases/download/v1.0.0/adobephotoshopcclite-22.3.1.122.7z",
-    "hash": "031617268dd620178fdecb9b3fbce2c19fdb2c1a9f51cffdadaa8387a1efde07",
-    "extract_dir": "Photoshop",
+    "url": "https://github.com/SayCV/gh-cdn-cvp/releases/download/v1.0.0/adobeillustratorlite-25.2.1.236.7z",
+    "hash": "1d2c3fcd5650074e732c05ec7608c6a821b1fe144388fe6e4eb5288bd407cf36",
+    "extract_dir": "Illustrator",
     "extract_to": "Programs",
     "installer": {
         "script": "Start-Process 'cmd' -ArgumentList @('/c', \"$dir\\Programs\\!)绿化处理.bat\") -Verb RunAs -Wait | Out-Null"
@@ -26,15 +26,15 @@
     },
     "shortcuts": [
         [
-            "Programs\\photoshop.exe",
-            "Adobe Photoshop 22"
+            "Programs\\Support Files\\Contents\\Windows\\Illustrator.exe",
+            "Adobe Illustrator 25"
         ]
     ],
     "checkver": {
         "github": "https://github.com/SayCV/gh-cdn-cvp/releases",
-        "regex": "adobephotoshopcclite-([\\d.-]+).7z"
+        "regex": "adobeillustratorlite-([\\d.-]+).7z"
     },
     "autoupdate": {
-        "url": "https://github.com/SayCV/gh-cdn-cvp/releases/download/v1.0.0/adobephotoshopcclite-$version.7z"
+        "url": "https://github.com/SayCV/gh-cdn-cvp/releases/download/v1.0.0/adobeillustratorlite-$version.7z"
     }
 }
