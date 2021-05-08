@@ -61,11 +61,11 @@
     "shortcuts0": [
         [
             "Programs\\Acrobat\\Acrobat.exe",
-            "Adobe Acrobat DC"
+            "Adobe Acrobat DC 2021"
         ],
         [
             "Programs\\Acrobat\\acrodist.exe",
-            "Adobe Acrobat Distiller DC"
+            "Adobe Acrobat Distiller DC 2021"
         ]
     ],
     "checkver": {
