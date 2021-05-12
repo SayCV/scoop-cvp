@@ -18,17 +18,17 @@
     "bin": [
         [
             "JLink.exe",
-            "JLink-V614"
+            "JLink614"
         ],
         [
             "JFlash.exe",
-            "JFlash-V614"
+            "JFlash614"
         ]
     ],
     "shortcuts": [
         [
             "JLink.exe",
-            "JLink-V614"
+            "JLink614"
         ]
     ],
     "checkver": {
