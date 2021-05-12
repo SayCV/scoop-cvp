@@ -18,11 +18,11 @@
     "shortcuts": [
         [
             "mainfree.exe",
-            "Eastmoney Free"
+            "东方财富终端"
         ],
         [
             "maintrade.exe",
-            "Eastmoney Trade"
+            "东方财富独立交易"
         ]
     ],
     "persist": [
