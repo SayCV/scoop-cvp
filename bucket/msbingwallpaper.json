@@ -64,6 +64,10 @@
             "",
             "sudo Remove-ItemProperty -Path \"HKLM:\\Software\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Run\" -Name \"BingWallpaperApp\" -ErrorAction Ignore | Out-Null",
             "sudo Remove-ItemProperty -Path \"HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\" -Name \"BingWallpaperApp\" -ErrorAction Ignore | Out-Null",
+            "",
+            "$companyname = 'Microsoft'",
+            "Remove-Item \"$env:LocalAppData\\$companyname\\BingWallpaperApp\" -Recurse -Force | Out-Null",
+            "",
             "Write-Host \":: uninstalled.\""
         ]
     },
