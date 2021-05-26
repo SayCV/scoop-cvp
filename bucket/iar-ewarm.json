@@ -3,6 +3,9 @@
     "description": "IAR Embedded Workbench for Arm",
     "homepage": "https://www.iar.com/",
     "license": "Trialware",
+    "depends": [
+        "vcredist-aio"
+    ],
     "notes": [
         "Complete development environment for Arm, generating fast, compact code and enabling you to take full control of your code."
     ],

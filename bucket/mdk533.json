@@ -3,6 +3,9 @@
     "description": "The Arm® Keil Microcontroller Tools.",
     "homepage": "https://www.keil.com/",
     "license": "Trialware",
+    "depends": [
+        "vcredist-aio"
+    ],
     "notes": [
         "The Arm® Keil Microcontroller Tools include C/C++ compilers, integrated development environments, RTOS, middleware, ",
         "as well as debug adapters and evaluation boards for Arm Cortex®-M based devices.",
