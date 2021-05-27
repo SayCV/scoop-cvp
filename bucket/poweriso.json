@@ -1,0 +1,58 @@
+{
+    "version": "0.2016.07.02",
+    "description": "PowerISO is a powerful CD / DVD / BD image file processing tool.",
+    "homepage": "https://github.com/thioshp/poweriso",
+    "license": "Shareware",
+    "depends": [
+        ""
+    ],
+    "notes": [
+        "Supports almost all CD / DVD / BD-ROM image file formats (ISO, BIN, NRG, CDI, DAA and so on)."
+    ],
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/thioshp/poweriso/raw/fb658449e54f2e03d5257ce3b069266cac41b18d/PowerISO6-x64.exe.zip",
+            "hash": "cbbdeb586a1301a53ef8ae8353587a41bd5ba482b4ced78a3fc143008fe68704"
+        },
+        "32bit": {
+            "url": "https://github.com/thioshp/poweriso/raw/fb658449e54f2e03d5257ce3b069266cac41b18d/PowerISO6-x32.exe.zip",
+            "hash": ""
+        }
+    },
+    "extract_dir": "",
+    "extract_to": "",
+    "post_install": [
+        "Remove-Item \"$dir\\Programs\\`$PLUGINSDIR\" -Recurse",
+        "Remove-Item \"$dir\\`$0\"",
+        "Remove-Item \"$dir\\`$R0\"",
+        ""
+    ],
+    "installer": {
+        "script": [
+            "$file = (Get-Item \"$dir\\PowerISO6*.exe\").FullName",
+            "Expand-7zipArchive $file -DestinationPath $dir\\Programs",
+            ""
+        ]
+    },
+    "shortcuts": [
+        [
+            "Programs\\PowerISO.exe",
+            "PowerISO"
+        ]
+    ],
+    "checkver": {
+        "url": "https://github.com/thioshp/poweriso/commits/master.atom",
+        "regex": "(?s)>(\\d+)-(\\d+)-(\\d+)T.*?/(?<sha>[0-9a-f]{40})",
+        "replace": "0.${1}.${2}.${3}"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/thioshp/poweriso/raw/$matchSha/PowerISO6-x64.exe.zip"
+            },
+            "32bit": {
+                "url": "https://github.com/thioshp/poweriso/raw/$matchSha/PowerISO6-x32.exe.zip"
+            }
+        }
+    }
+}
