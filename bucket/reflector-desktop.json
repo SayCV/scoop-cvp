@@ -31,7 +31,7 @@
     "shortcuts": [
         [
             "Programs\\Reflector.exe",
-            ".NET Reflector 10.0"
+            "Hack\\Disassemblers\\.NET Reflector 10.0"
         ]
     ],
     "persist": [

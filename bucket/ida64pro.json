@@ -23,11 +23,11 @@
     "shortcuts": [
         [
             "Programs\\ida64.exe",
-            "IDA Pro"
+            "Hack\\Disassemblers\\IDA Pro"
         ],
         [
             "Programs\\idahelp.chm",
-            "IDA Help"
+            "Hack\\Disassemblers\\IDA Help"
         ]
     ],
     "checkver": {
