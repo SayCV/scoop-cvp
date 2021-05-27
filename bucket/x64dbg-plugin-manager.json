@@ -38,7 +38,7 @@
     "shortcuts": [
         [
             "Programs\\x64plgmnr.exe",
-            "x64dbg Plugin Manager"
+            "Hack/Disassemblers/x64dbg Plugin Manager"
         ]
     ],
     "persist": [
