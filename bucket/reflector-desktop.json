@@ -1,5 +1,5 @@
 {
-    "version": "20210422",
+    "version": "10.0",
     "description": "Decompile, understand, and fix any .NET code, even if you don't have the source.",
     "homepage": "https://www.red-gate.com/products/dotnet-development/reflector/",
     "license": "Trialware",
