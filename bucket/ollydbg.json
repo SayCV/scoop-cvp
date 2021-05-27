@@ -11,7 +11,7 @@
     "shortcuts": [
         [
             "OLLYDBG.EXE",
-            "OllyDbg"
+            "Hack\\Disassemblers\\OllyDbg"
         ]
     ],
     "checkver": {
