@@ -23,8 +23,8 @@
     "extract_to": "",
     "post_install": [
         "Remove-Item \"$dir\\Programs\\`$PLUGINSDIR\" -Recurse",
-        "Remove-Item \"$dir\\`$0\"",
-        "Remove-Item \"$dir\\`$R0\"",
+        "Remove-Item \"$dir\\Programs\\`$0\"",
+        "Remove-Item \"$dir\\Programs\\`$R0\"",
         ""
     ],
     "installer": {
