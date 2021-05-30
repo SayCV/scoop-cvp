@@ -8,6 +8,6 @@
 	],
     "shortcuts": [
         ["windbg.exe", "Hack/Disassemblers/Windbg x64 "],
-        ["gflags.exe", "Hack/Disassemblers/GFlags"]
+        ["gflags.exe", "Hack/Disassemblers/GFlags x64"]
     ]
 }
