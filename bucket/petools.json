@@ -18,7 +18,7 @@
         ]
     ],
     "checkver": {
-        "github": "https://github.com/SayCV/petoolse/tags",
+        "github": "https://github.com/petoolse/petools/tags",
         "regex": "PE.Tools.v([\\d.-]+).7z"
     },
     "autoupdate": {
