@@ -14,7 +14,7 @@
         "script": [
             "$file = (Get-Item \"$dir\\DCDCDesignerSetup*.exe\").FullName",
             "Expand-InnoArchive $file -DestinationPath $dir",
-            "Expand-InnoArchive $file -Removal"
+            "#Expand-InnoArchive $file -Removal"
         ]
     },
     "post_install": [
