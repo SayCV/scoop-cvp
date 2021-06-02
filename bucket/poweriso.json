@@ -23,14 +23,29 @@
     "extract_to": "",
     "post_install": [
         "Remove-Item \"$dir\\Programs\\`$PLUGINSDIR\" -Recurse",
-        "Remove-Item \"$dir\\Programs\\`$0\"",
+        "#Remove-Item \"$dir\\Programs\\`$0\"",
         "Remove-Item \"$dir\\Programs\\`$R0\"",
         ""
     ],
     "installer": {
         "script": [
+            "",
+            "$null, $bucket = find_manifest($app)",
+            "$bucketdir = Find-BucketDirectory($bucket)",
             "$file = (Get-Item \"$dir\\PowerISO6*.exe\").FullName",
-            "Expand-7zipArchive $file -DestinationPath $dir\\Programs",
+            "Expand-7zipArchive $file -DestinationPath $dir\\Programs -Overwrite 'Rename'",
+            "",
+            "cp \"$bucketdir\\..\\scripts\\poweriso\\*.cmd\" \"$dir\\Programs\"",
+            "",
+            "sudo cmd /c $dir\\Programs\\instdrv.cmd",
+            ""
+        ]
+    },
+    "uninstaller": {
+        "script": [
+            "",
+            "sudo cmd /c $dir\\Programs\\uninstdrv.cmd",
+            "",
             ""
         ]
     },
