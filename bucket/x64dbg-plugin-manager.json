@@ -42,8 +42,7 @@
         ]
     ],
     "persist": [
-        "Programs\\data",
-        "Programs\\x64plgmnr.ini"
+        "Programs\\data"
     ],
     "checkver": {
         "url": "https://github.com/horsicq/x64dbg-Plugin-Manager/releases",
