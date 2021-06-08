@@ -12,7 +12,7 @@
         "同时FX友好的交互式集成开发环境可以支持多种广泛使用的第三方设计工具进行协同设计，从而进一步加速用户的设计与验证过程。"
     ],
     "url": "http://www.hercules-micro.com/ajax/download.aspx?id=1038&name=59714E0AFAFDE0D61A576AFD16F8A497/#dl.zip",
-    "hash": "",
+    "hash": "64f95cae33d9267ace37d6357b77d12ed01ee4bf5eed3e4bfa71a2058ee77664",
     "extract_dir": "",
     "extract_to": "",
     "post_install": [
@@ -24,24 +24,16 @@
             "",
             "$null, $bucket = find_manifest($app)",
             "$bucketdir = Find-BucketDirectory($bucket)",
-            "$file = (Get-Item \"$dir\\TD_*.msi\").FullName",
-            "'installer' | ForEach-Object { ensure \"$dir\\$_\" | Out-Null }",
-            "Expand-7zipArchive $file -DestinationPath \"$dir\\installer\"",
-            "Expand-MsiArchive $file -Removal",
             "",
-            "cp \"$dir\\installer\\Icon.td.exe\" \"$dir\\bin\\td.icon\"",
-            "cp \"$dir\\installer\\Icon.td_commands_prompt.exe\" \"$dir\\bin\\td_commands_prompt.icon\"",
             "",
             ""
         ]
     },
-    "bin": "bin\\td_commands_prompt.exe",
+    "bin": "bin\\fuxi.exe",
     "shortcuts": [
         [
-            "bin\\td.exe",
-            "EDA/Anlogic TD v5.0.3",
-            "",
-            "bin\\td.icon"
+            "bin\\fuxi.exe",
+            "EDA/HME fuxi 20"
         ]
     ]
 }
