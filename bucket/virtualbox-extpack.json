@@ -2,7 +2,7 @@
     "version": "6.1.22",
     "description": "Adds support for USB 2.0 and USB 3.0 devices, VirtualBox RDP, disk encryption, NVMe and PXE boot for Intel cards in Virtualbox.",
     "homepage": "https://www.virtualbox.org/",
-    "depends": "virtualbox-install",
+    "depends": "virtualbox",
     "license": {
         "identifier": "GPL-2.0-only|Freeware",
         "url": "https://www.virtualbox.org/wiki/VirtualBox_PUEL"
@@ -21,7 +21,11 @@
     "installer": {
         "script": [
             "$ProgramFilesPath = [Environment]::GetFolderPath(\"ProgramFiles\")",
-            "Start-Process -Wait -WindowStyle Hidden cmd \"/c call echo y | `\"$ProgramFilesPath\\Oracle\\VirtualBox\\VBoxManage.exe`\" extpack install --replace `\"$dir\\Oracle_VM_VirtualBox_Extension_Pack-$version.vbox-extpack`\"\" -Verb RunAs",
+            "",
+            "$evalDir = \"$(appdir virtualbox $global)\\current\".Replace('/', '\\')",
+            "",
+            "#Start-Process -Wait -WindowStyle Hidden cmd \"/c call echo y | `\"$ProgramFilesPath\\Oracle\\VirtualBox\\VBoxManage.exe`\" extpack install --replace `\"$dir\\Oracle_VM_VirtualBox_Extension_Pack-$version.vbox-extpack`\"\" -Verb RunAs",
+            "Start-Process -Wait -WindowStyle Hidden cmd \"/c call echo y | `\"$evalDir\\VBoxManage.exe`\" extpack install --replace `\"$dir\\Oracle_VM_VirtualBox_Extension_Pack-$version.vbox-extpack`\"\" -Verb RunAs",
             "Remove-Item \"$dir\\Oracle_VM_VirtualBox_Extension_Pack-$version.vbox-extpack\""
         ]
     },

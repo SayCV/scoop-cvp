@@ -13,7 +13,7 @@
             "hash": "ed5796aeb5d143bb4bb59a70bd976411dee79d583deb7a95f621992dd3c6864f"
         }
     },
-    "pre_download": "Assert-Administrator",
+    "#pre_download": "Assert-Administrator",
     "pre_install": [
         "$processname = \"virtualbox\"",
         "$process = Get-Process $processname -ErrorAction SilentlyContinue",
@@ -27,22 +27,18 @@
         "}"
     ],
     "installer": {
+        "script": "Start-Process cmd -Verb Runas \"/c $dir\\VBoxSetup.exe --msiparams INSTALLDIR=$dir VBOX_START=0 REBOOT=ReallySuppress --silent\" -Wait -WindowStyle hidden"
+    },
+    "post_install": "remove-item \"$dir\\VBoxSetup.exe\"",
+    "uninstaller": {
         "script": [
-            "$programname = \"Oracle VM VirtualBox*\"",
-            "if(!(Get-Package -Provider Programs -IncludeWindowsInstaller -Name \"$programname\" -MinimumVersion $version -ErrorAction SilentlyContinue))",
-            "{",
-            "   Start-Process -Wait -WindowStyle Hidden cmd \"/c call `\"$dir\\VBoxSetup.exe`\" --msiparams VBOX_START=0 VBOX_INSTALLDESKTOPSHORTCUT=0 VBOX_INSTALLQUICKLAUNCHSHORTCUT=0 REBOOT=ReallySuppress --silent\" -Verb RunAs",
-            "   if(!(Get-Package -Provider Programs -IncludeWindowsInstaller -Name \"$programname\" -MinimumVersion $version -ErrorAction SilentlyContinue))",
-            "   {",
-            "       exit 1",
-            "   }",
-            "}",
-            "Remove-Item \"$dir\\VBoxSetup.exe\""
+            "$id = wmic product where \"\"\"name like 'Oracle VM VirtualBox%'\"\"\" get IdentifyingNumber | find /i \"\"\"-\"\"\"",
+            "Start-Process cmd -Verb Runas \"/c msiexec /x $id /qn\" -Wait -WindowStyle hidden"
         ]
     },
     "checkver": {
-        "url": "https://www.virtualbox.org/wiki/Downloads",
-        "regex": "VirtualBox-(?<version>[\\d.]+)-(?<revision>[\\d]+)-Win.exe"
+        "url": "https://update.virtualbox.org/query.php?platform=WINDOWS_64BITS_GENERIC&version=6.0.0",
+        "re": "VirtualBox-(?<version>[\\d.]+)-(?<revision>[\\d]+)-Win.exe"
     },
     "autoupdate": {
         "architecture": {
