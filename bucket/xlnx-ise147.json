@@ -4,12 +4,15 @@
     "homepage": "https://www.xilinx.com/products/design-tools/ise-design-suite.html",
     "license": "Trialware",
     "depends": [
-        "silentcmd"
+        "silentcmd", "notworkonwin10"
     ],
     "notes": [
         "ISE Design Suite: Embedded Edition",
         "ISE Design Suite: System Edition",
         "ISE Design Suite: WebPACK Edition",
+        "Known Issues: https://www.xilinx.com/support/answers/68433.html",
+        "Not work for Win10",
+        "  https://www.xilinx.com/member/forms/download/xef.html?filename=Xilinx_ISE_14.7_Win10_14.7_VM_0213_1.zip",
         ""
     ],
     "url": [
