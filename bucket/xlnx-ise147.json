@@ -4,14 +4,14 @@
     "homepage": "https://www.xilinx.com/products/design-tools/ise-design-suite.html",
     "license": "Trialware",
     "depends": [
-        "silentcmd", "notworkonwin10"
+        "silentcmd"
     ],
     "notes": [
         "ISE Design Suite: Embedded Edition",
         "ISE Design Suite: System Edition",
         "ISE Design Suite: WebPACK Edition",
         "Known Issues: https://www.xilinx.com/support/answers/68433.html",
-        "Not work for Win10",
+        "Not work in Win10",
         "  https://www.xilinx.com/member/forms/download/xef.html?filename=Xilinx_ISE_14.7_Win10_14.7_VM_0213_1.zip",
         ""
     ],
@@ -43,18 +43,32 @@
         "05355ccf1f8f8963ff3ef20449a8a8076084f9bbe94b50b920ec5d33ed7a7da5",
         "22289f41986433485aa993ba5439450f6be80e5366989ef53c146d14c1539a8b"
     ],
+    "extract_dir": [
+        "",
+        "",
+        "",
+        "ISE2",
+        "ISE3",
+        "ISE4",
+        "ISE5",
+        "ISE6",
+        "ISE7",
+        "ISE8",
+        "ISE9",
+        ""
+    ],
     "extract_to": [
         "ISEROOT",
         "ISEROOT",
         "ISEROOT",
-        "ISEROOT",
-        "ISEROOT",
-        "ISEROOT",
-        "ISEROOT",
-        "ISEROOT",
-        "ISEROOT",
-        "ISEROOT",
-        "ISEROOT",
+        "ISEROOT/ISE",
+        "ISEROOT/ISE",
+        "ISEROOT/ISE",
+        "ISEROOT/ISE",
+        "ISEROOT/ISE",
+        "ISEROOT/ISE",
+        "ISEROOT/ISE",
+        "ISEROOT/ISE",
         "ISEROOT"
     ],
     "pre_install": [
@@ -79,21 +93,17 @@
         "$TOOL_INST_PATH = \"$(current_dir $dir)\".Replace('/', '\\\\')",
         "$escdir = \"$(current_dir $dir)\"",
         "",
+        "$icon = \"%SystemRoot%\\system32\\cmd.exe\"",
+        "$arguments = \"/k %XLNX_ISE_INSTALL_ROOT%\\ISEROOT\\settings32.bat\"",
+        "startmenu_shortcut \"$icon\" 'EDA\\ISE147\\ISE Design Suite 32 Bit Command Prompt CVP' $arguments \"$icon\" $global",
+        "",
+        "$icon = \"%SystemRoot%\\system32\\cmd.exe\"",
+        "$arguments = \"/k %XLNX_ISE_INSTALL_ROOT%\\ISEROOT\\settings64.bat\"",
+        "startmenu_shortcut \"$icon\" 'EDA\\ISE147\\ISE Design Suite 64 Bit Command Prompt CVP' $arguments \"$icon\" $global",
+        "",
         ""
     ],
     "shortcuts": [
-        [
-            "%SystemRoot%\\system32\\cmd.exe",
-            "EDA\\ISE147\\ISE Design Suite 32 Bit Command Prompt CVP",
-            "/k %XLNX_ISE_INSTALL_ROOT%\\ISEROOT\\settings32.bat",
-            "%SystemRoot%\\system32\\cmd.exe"
-        ],
-        [
-            "%SystemRoot%\\system32\\cmd.exe",
-            "EDA\\ISE147\\ISE Design Suite 64 Bit Command Prompt CVP",
-            "/k %XLNX_ISE_INSTALL_ROOT%\\ISEROOT\\settings64.bat",
-            "%SystemRoot%\\system32\\cmd.exe"
-        ],
         [
             "ISEROOT\\ISE\\bin\\nt\\analyzer.exe",
             "EDA\\ISE147\\ChipScope Pro\\Analyzer 14.7 x32 CVP",
@@ -119,28 +129,28 @@
             ""
         ],
         [
-            "%XLNX_ISE_INSTALL_ROOT%\\ISEROOT\\settings64.bat",
+            "ISEROOT\\settings64.bat",
             "EDA\\ISE147\\EDK\\Xilinx Platform Studio CVP",
             "%XLNX_ISE_INSTALL_ROOT%\\ISEROOT\\EDK\\bin\\nt64\\xps.exe",
-            "%XLNX_ISE_INSTALL_ROOT%\\ISEROOT\\EDK\\data\\images\\ps_platform_studio.ico"
+            "ISEROOT\\EDK\\data\\images\\ps_platform_studio.ico"
         ],
         [
-            "%XLNX_ISE_INSTALL_ROOT%\\ISEROOT\\settings64.bat",
+            "ISEROOT\\settings64.bat",
             "EDA\\ISE147\\EDK\\Xilinx Software Development Kit CVP",
             "%XLNX_ISE_INSTALL_ROOT%\\ISEROOT\\EDK\\bin\\nt64\\xsdk.exe",
-            "%XLNX_ISE_INSTALL_ROOT%\\ISEROOT\\EDK\\data\\images\\sdk_logo.ico"
+            "ISEROOT\\EDK\\data\\images\\sdk_logo.ico"
         ],
         [
-            "%XLNX_ISE_INSTALL_ROOT%\\ISEROOT\\settings32.bat",
+            "ISEROOT\\settings32.bat",
             "EDA\\ISE147\\32-bit Project Navigator CVP",
             "%XLNX_ISE_INSTALL_ROOT%\\ISEROOT\\ISE\\bin\\nt\\ise.exe",
-            "%XLNX_ISE_INSTALL_ROOT%\\ISEROOT\\ISE\\bin\\nt\\ise.exe"
+            "ISEROOT\\ISE\\bin\\nt\\ise.exe"
         ],
         [
-            "%XLNX_ISE_INSTALL_ROOT%\\ISEROOT\\settings64.bat",
+            "ISEROOT\\settings64.bat",
             "EDA\\ISE147\\64-bit Project Navigator CVP",
             "%XLNX_ISE_INSTALL_ROOT%\\ISEROOT\\ISE\\bin\\nt64\\ise.exe",
-            "%XLNX_ISE_INSTALL_ROOT%\\ISEROOT\\ISE\\bin\\nt64\\ise.exe"
+            "ISEROOT\\ISE\\bin\\nt64\\ise.exe"
         ],
         [
             "ISEROOT\\PlanAhead\\bin\\planAhead.bat",
