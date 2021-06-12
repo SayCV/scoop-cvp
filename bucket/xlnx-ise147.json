@@ -93,11 +93,11 @@
         "$TOOL_INST_PATH = \"$(current_dir $dir)\".Replace('/', '\\\\')",
         "$escdir = \"$(current_dir $dir)\"",
         "",
-        "$icon = \"%SystemRoot%\\system32\\cmd.exe\"",
+        "$icon = \"$env:systemroot\\system32\\cmd.exe\"",
         "$arguments = \"/k %XLNX_ISE_INSTALL_ROOT%\\ISEROOT\\settings32.bat\"",
         "startmenu_shortcut \"$icon\" 'EDA\\ISE147\\ISE Design Suite 32 Bit Command Prompt CVP' $arguments \"$icon\" $global",
         "",
-        "$icon = \"%SystemRoot%\\system32\\cmd.exe\"",
+        "$icon = \"$env:systemroot\\system32\\cmd.exe\"",
         "$arguments = \"/k %XLNX_ISE_INSTALL_ROOT%\\ISEROOT\\settings64.bat\"",
         "startmenu_shortcut \"$icon\" 'EDA\\ISE147\\ISE Design Suite 64 Bit Command Prompt CVP' $arguments \"$icon\" $global",
         "",
@@ -108,25 +108,25 @@
             "ISEROOT\\ISE\\bin\\nt\\analyzer.exe",
             "EDA\\ISE147\\ChipScope Pro\\Analyzer 14.7 x32 CVP",
             "",
-            ""
+            "ISEROOT\\ISE\\bin\\nt\\analyzer.exe"
         ],
         [
             "ISEROOT\\ISE\\bin\\nt64\\analyzer.exe",
             "EDA\\ISE147\\ChipScope Pro\\Analyzer 14.7 x64 CVP",
             "",
-            ""
+            "ISEROOT\\ISE\\bin\\nt64\\analyzer.exe"
         ],
         [
             "ISEROOT\\ISE\\bin\\nt\\inserterw.exe",
             "EDA\\ISE147\\ChipScope Pro\\Core Inserter 14.7 x32 CVP",
             "",
-            ""
+            "ISEROOT\\ISE\\bin\\nt\\inserterw.exe"
         ],
         [
             "ISEROOT\\ISE\\bin\\nt64\\inserterw.exe",
             "EDA\\ISE147\\ChipScope Pro\\Core Inserter 14.7 x64 CVP",
             "",
-            ""
+            "ISEROOT\\ISE\\bin\\nt64\\inserterw.exe"
         ],
         [
             "ISEROOT\\settings64.bat",
