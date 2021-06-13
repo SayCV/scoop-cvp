@@ -6,12 +6,33 @@
     "license": "Apache-2.0",
     "url": "https://raw.githubusercontent.com/getlantern/lantern-binaries/45715c125049bb4e274b3241b5a9caed5e75f18c/lantern-installer-preview.exe#/setup.exe",
     "hash": "0bb7603e7fec81aaa157189b2ade1ae4c662af684b00245028aed49debe9ce1d",
+    "pre_install": [
+        "",
+        "ensure \"$dir\\data\\AppData\" | Out-Null",
+        "",
+        ""
+    ],
+    "post_install": [
+        "",
+        "",
+        "$companyname = 'Lantern'",
+        "",
+        "#ensure \"$env:AppData\\$companyname\" | Out-Null",
+        "if (-not (Test-Path \"$env:AppData\\$companyname\")) {",
+        "    cmd /c mklink /j \"$env:AppData\\$companyname\" \"$dir\\data\\AppData\"",
+        "}",
+        "",
+        "Invoke-ExternalCommand \"$dir\\setup.exe\" -ArgumentList @('/S', \"/D=$dir\") | Out-Null",
+        "Remove-Item \"$dir\\setup.exe\"",
+        "Remove-Item -Recurse \"$([Environment]::GetFolderPath('startmenu'))\\Programs\\Lantern\"",
+        "Remove-Item \"$([Environment]::GetFolderPath('Desktop'))\\Lantern.lnk\"",
+        "",
+        ""
+    ],
     "installer": {
         "script": [
-            "Invoke-ExternalCommand \"$dir\\setup.exe\" -ArgumentList @('/S', \"/D=$dir\") | Out-Null",
-            "Remove-Item \"$dir\\setup.exe\"",
-            "Remove-Item -Recurse \"$([Environment]::GetFolderPath('startmenu'))\\Programs\\Lantern\"",
-            "Remove-Item \"$([Environment]::GetFolderPath('Desktop'))\\Lantern.lnk\""
+            "",
+            ""
         ]
     },
     "uninstaller": {
