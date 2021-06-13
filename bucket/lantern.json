@@ -8,11 +8,13 @@
     "hash": "0bb7603e7fec81aaa157189b2ade1ae4c662af684b00245028aed49debe9ce1d",
     "pre_install": [
         "",
-        "ensure \"$dir\\data\\AppData\" | Out-Null",
+        "ensure \"$dir\\data\" | Out-Null",
         "",
         ""
     ],
     "post_install": [
+        "",
+        "ensure \"$dir\\data\\AppData\" | Out-Null",
         "",
         "",
         "$companyname = 'Lantern'",

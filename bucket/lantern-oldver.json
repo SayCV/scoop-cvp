@@ -11,7 +11,7 @@
         "$null, $bucket = find_manifest($app)",
         "$bucketdir = Find-BucketDirectory($bucket)",
         "",
-        "ensure \"$dir\\data\\AppData\" | Out-Null",
+        "ensure \"$dir\\data\" | Out-Null",
         "",
         "",
         "cp \"$bucketdir\\..\\scripts\\lantern-oldver\\icon.7z\" \"$dir\"",
@@ -21,6 +21,8 @@
         ""
     ],
     "post_install": [
+        "",
+        "ensure \"$dir\\data\\AppData\" | Out-Null",
         "",
         "",
         "$companyname = 'Lantern'",
