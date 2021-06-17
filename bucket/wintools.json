@@ -19,7 +19,7 @@
         "$bucketdir = Find-BucketDirectory($bucket)",
         "",
         "",
-        "Expand-7zipArchive \"$dir\\PETools\\detect-it-easy\\die_win32_portable_2.02.zip\" -DestinationPath \"$dir\\Programs\\detect-it-easy\" -ExtractDir 'die_win32_portable'",
+        "Expand-7zipArchive \"$dir\\installer\\PETools\\detect-it-easy\\die_win32_portable_2.02.zip\" -DestinationPath \"$dir\\Programs\\detect-it-easy\" -ExtractDir 'die_win32_portable'",
         "",
         ""
     ],
@@ -34,7 +34,7 @@
         "$icon = \"$dir\\Programs\\detect-it-easy\\die.exe\"",
         "startmenu_shortcut \"$dir\\Programs\\detect-it-easy\\die.exe\" 'Hack/PETools/Detect It Easy' $null \"$icon\" $global",
         "",
-        "$icon = \"$dir\\Patcher\\PYG\\补丁工具\\keygen creator v2\\keygen creator.exe\"",
+        "$icon = \"$dir\\installer\\Patcher\\PYG\\补丁工具\\keygen creator v2\\keygen creator.exe\"",
         "startmenu_shortcut \"$icon\" 'Hack/Patcher/keygen creator v2' $null \"$icon\" $global",
         "",
         ""
