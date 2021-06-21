@@ -33,8 +33,16 @@
         "Remove-Item \"$dir\\installer\" -Force -Recurse",
         "Remove-Item \"$dir\\program files\" -Force -Recurse",
         "",
+        "cp \"$bucketdir\\..\\scripts\\xftp\\*.bat\" \"$dir\\Programs\"",
+        "",
         ""
     ],
+    "installer": {
+        "script": "Start-Process 'cmd' -ArgumentList @('/c', \"$dir\\Programs\\01-install.bat\") -Verb RunAs -Wait | Out-Null"
+    },
+    "uninstaller": {
+        "script": "Start-Process 'cmd' -ArgumentList @('/c', \"$dir\\Programs\\02-uninstall.bat\") -Verb RunAs -Wait | Out-Null"
+    },
     "shortcuts": [
         [
             "Programs\\Xftp.exe",
