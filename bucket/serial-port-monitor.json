@@ -10,12 +10,12 @@
         "sudo"
     ],
     "url": "https://cdn.electronic.us/products/spm/windows/download/serial_port_monitor.exe#/setup.exe",
-    "hash": "",
+    "hash": "11bfc82c4a7754e5c3170b48c8b9f5be4428cd20ca7c136af061dcb6b560edd8",
     "innosetup": true,
     "post_install": [
         "",
         "#Rename-Item \"$dir\\AutoUpdate,2.dll\" \"$dir\\AutoUpdate.dll\"",
-        "Rename-Item \"$dir\\SPSniff,2.sys\" \"$dir\\SPSniff64.sys\"",
+        "Rename-Item \"$dir\\SPSniff,2.sys\" \"$dir\\SPSniff.sys\"",
         "",
         ""
     ],
