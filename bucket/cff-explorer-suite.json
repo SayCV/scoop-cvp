@@ -1,0 +1,15 @@
+{
+    "homepage": "https://ntcore.com/?page_id=388",
+    "version": "III",
+    "license": "Freeware",
+    "hash": "94F4348EC573B05990B1E19542986E46DC30A87870739F5D5430B60072D5144D",
+    "url": "https://ntcore.com/files/ExplorerSuite.exe",
+    "extract_dir": "CFF_Explorer",
+    "bin": "CFF Explorer.exe",
+    "shortcuts": [
+        [
+            "CFF Explorer.exe",
+            "CFF Explorer"
+        ]
+    ]
+}
