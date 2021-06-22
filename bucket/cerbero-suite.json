@@ -1,0 +1,15 @@
+{
+    "homepage": "https://cerbero.io/",
+    "version": "4.8.0",
+    "license": "Freeware",
+    "hash": "66340F810AA79ED61B5B21C9BAFA0A920B87155487204D0B61974E2616FD5523",
+    "url": "https://store.cerbero.io/static/downloads/csuite/cerbero_suite_advanced_4.8.0_x64_setup.exe",
+    "extract_dir": "",
+    "bin": "cerbero_suite.exe",
+    "shortcuts": [
+        [
+            "cerbero_suite.exe",
+            "Cerbero Suite"
+        ]
+    ]
+}
