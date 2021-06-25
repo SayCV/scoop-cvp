@@ -48,11 +48,11 @@
     "uninstaller": {
         "script": "#Invoke-ExternalCommand \"$dir\\uninstall.exe\" -ArgumentList '/S' | Out-Null"
     },
-    "bin": "lantern.exe",
+    "#bin": "lantern.exe",
     "shortcuts": [
         [
             "lantern.exe",
-            "Lantern",
+            "Lantern OV",
             "",
             "lantern.ico"
         ]
