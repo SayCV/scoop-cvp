@@ -11,8 +11,6 @@
         "$null, $bucket = find_manifest($app)",
         "$bucketdir = Find-BucketDirectory($bucket)",
         "",
-        "ensure \"$dir\\data\" | Out-Null",
-        "",
         "",
         "cp \"$bucketdir\\..\\scripts\\lantern-oldver\\icon.7z\" \"$dir\"",
         "",

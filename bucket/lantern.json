@@ -6,7 +6,7 @@
     "license": "Apache-2.0",
     "url": "https://raw.githubusercontent.com/getlantern/lantern-binaries/45715c125049bb4e274b3241b5a9caed5e75f18c/lantern-installer-preview.exe#/setup.exe",
     "hash": "0bb7603e7fec81aaa157189b2ade1ae4c662af684b00245028aed49debe9ce1d",
-    "pre_install": [
+    "post_install": [
         "",
         "ensure \"$dir\\data\\AppData\" | Out-Null",
         "",
