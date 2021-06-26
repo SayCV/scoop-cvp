@@ -9,5 +9,8 @@
 # space.
 #
 
-127.0.0.1 licensing.ultraedit.com
+0.0.0.0 licensing.ultraedit.com
+0.0.0.0 licensing2.ultraedit.com
+127.0.0.1 66.179.42.233
+127.0.0.1 www.ultraedit.com
 127.0.0.1 swupdate.ultraedit.com
