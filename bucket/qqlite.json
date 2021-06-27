@@ -1,7 +1,7 @@
 {
     "version": "7.9.14314",
-    "homepage": "https://im.qq.com",
     "description": "QQLite",
+    "homepage": "https://im.qq.com",
     "license": "Freeware",
     "notes": [
         "Run after scoop install qqlite-patch"

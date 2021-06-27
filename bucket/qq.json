@@ -1,46 +1,28 @@
 {
-    "version": "9.4.6.27770",
+    "version": "9.4.8.27843",
+    "description": "QQ 正式版去除广告绿色版",
     "homepage": "https://im.qq.com",
-    "description": "QQ",
     "license": "Freeware",
     "notes": [
-        "Run after scoop install qq-patch"
+        "腾讯QQ v9.4.8.27843 正式版去除广告绿色版"
     ],
-    "url": "https://dl.softmgr.qq.com/original/im/QQ9.4.6.27770.exe#/dl.7z",
-    "hash": "b85e14f260ad7dd3136d2614b9f9b3bf41cc6e634112cd77bdfce3b4f0eb5717",
+    "depends": [
+        "sudo"
+    ],
+    "url": "https://github.com/SayCV/gh-cdn-cvp/releases/download/v1.0.0/qq-v9.4.8.27843-cvp.exe#/dl.7z",
+    "hash": "a336957a0b1f8a4e131de963158e49a88c293377a93200fd498bc3884aba5444",
+    "extract_dir": "QQ",
+    "extract_to": "",
     "installer": {
-        "script": [
-            "$qqRoaming = \"$env:APPDATA\\Tencent\\QQ\"",
-            "if (!(Test-Path $qqRoaming)) {",
-            "    New-Item -Path \"$qqRoaming\" -ItemType Directory | Out-Null",
-            "} else {",
-            "    Get-ChildItem -Path \"$dir\\Application Data\\Tencent\\QQ\" -Name | ForEach-Object {",
-            "        if (Test-Path \"$qqRoaming\\$_\") {",
-            "            Remove-Item \"$qqRoaming\\$_\" -Recurse -Force",
-            "        }",
-            "    }",
-            "}",
-            "Move-Item \"$dir\\Application Data\\Tencent\\QQ\\*\" \"$qqRoaming\" -Force",
-            "Move-Item \"$dir\\Files\\*\" \"$dir\" -Force",
-            "@('Application Data', 'Common', 'Files') | ForEach-Object {",
-            "    Remove-Item \"$dir\\$_\" -Recurse -Force",
-            "}"
-        ]
+        "script": "Start-Process 'cmd' -ArgumentList @('/c', \"$dir\\Programs\\!)绿化处理.bat\") -Verb RunAs -Wait | Out-Null"
     },
     "uninstaller": {
-        "script": "Remove-Item \"$env:APPDATA\\Tencent\\QQ\" -Recurse -Force"
+        "script": "Start-Process 'cmd' -ArgumentList @('/c', \"$dir\\Programs\\!)卸载清除.bat\") -Verb RunAs -Wait | Out-Null"
     },
     "shortcuts": [
         [
-            "Bin\\QQScLauncher.exe",
-            "QQ"
+            "Bin\\QQ.exe",
+            "腾讯QQ正式版"
         ]
-    ],
-    "checkver": {
-        "url": "https://pc.qq.com/detail/2/detail_2.html",
-        "regex": "QQ([\\d.]+)\\.exe"
-    },
-    "autoupdate": {
-        "url": "https://dl.softmgr.qq.com/original/im/QQ$version.exe#/dl.7z"
-    }
+    ]
 }
