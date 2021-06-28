@@ -9,6 +9,11 @@
     "depends": [
         "sudo"
     ],
+    "notes": [
+        "",
+        "usb-network-gate",
+        ""
+    ],
     "url": "https://cdn.electronic.us/products/usb-over-ethernet/windows/download/usb_network_gate.exe#/setup.exe",
     "hash": "1b8277f98a52778b48e882ced05b3898bfaac7e33b89482f2a71571bdc93d1d5",
     "innosetup": true,
