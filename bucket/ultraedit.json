@@ -13,7 +13,8 @@
         "$bucketdir = Find-BucketDirectory($bucket)",
         "",
         "$hostfile = \"$bucketdir\\..\\scripts\\ultraedit\\hosts.cvp\"",
-        "sudo hostctl replace idm_inc --from $hostfile",
+        "#sudo hostctl replace idm_inc --from $hostfile",
+        "Start-Process 'hostctl' -ArgumentList @('replace', 'idm_inc', '--from', \"$hostfile\") -Verb RunAs -Wait | Out-Null",
         "Write-Host 'DONE' -ForegroundColor Yellow",
         "",
         ""
@@ -22,7 +23,7 @@
         "script": "#Start-Process 'cmd' -ArgumentList @('/c', \"$dir\\Programs\\!)绿化处理.bat\") -Verb RunAs -Wait | Out-Null"
     },
     "uninstaller": {
-        "script": "#Start-Process 'cmd' -ArgumentList @('/c', \"$dir\\Programs\\!)卸载清除.bat\") -Verb RunAs -Wait | Out-Null"
+        "script": "Start-Process 'cmd' -ArgumentList @('/c', \"$dir\\Programs\\!)卸载清除残留.bat\") -Verb RunAs -Wait | Out-Null"
     },
     "shortcuts": [
         [
