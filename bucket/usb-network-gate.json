@@ -40,7 +40,7 @@
         "sudo netsh advfirewall firewall add rule name=u2ec_gui dir=in action=allow program=\"$dir\\UsbConfig.exe\" enable=yes",
         "",
         "sudo New-Item \"HKLM:\\Software\\Electronic Team\\USB Network Gate\" | Out-Null",
-        "sudo New-ItemProperty -Path \"HKLM:\\Software\\Electronic Team\\USB Network Gate\" -Name \"u2ec_log\" -Value \"$dir\\u2ec.log\" -ErrorAction Ignore | Out-Null",
+        "sudo New-ItemProperty -Path \"HKLM:\\Software\\WOW6432Node\\Electronic Team\\USB Network Gate\" -Name \"u2ec_log\" -Value \"$dir\\u2ec.log\" -ErrorAction Ignore | Out-Null",
         "sudo New-Item \"HKCU:\\Software\\Microsoft\\Terminal Server Client\\Default\\AddIns\\usb4rdp\" | Out-Null",
         "sudo New-ItemProperty -Path \"HKCU:\\Software\\Microsoft\\Terminal Server Client\\Default\\AddIns\\usb4rdp\" -Name \"Name\" -Value \"$dir\\usb4rdp64.dll\" -ErrorAction Ignore | Out-Null",
         "",
@@ -50,7 +50,15 @@
         "script": [
             "$file = \"$dir\\$fname\"",
             "Expand-InnoArchive $file -ExtractDir '{code_GetPathCitrix}' -DestinationPath \"$dir\"",
-            "Expand-InnoArchive $file -Removal"
+            "Expand-InnoArchive $file -Removal",
+            "",
+            "Copy-Item \"$dir\\drv\\NT6\\*\" \"$dir\\drv\\NT10\" -Force",
+            "Remove-Item \"$dir\\drv\\NT6\" -Recurse -Force",
+            "",
+            "Copy-Item \"$dir\\drv\\NT6x64\\*\" \"$dir\\drv\\NT10x64\" -Force",
+            "Remove-Item \"$dir\\drv\\NT6x64\" -Recurse -Force",
+            "",
+            ""
         ]
     },
     "uninstaller": {
@@ -59,7 +67,7 @@
             "sudo cmd /c sc stop \"U2EC_service\"",
             "sudo cmd /c sc delete \"U2EC_service\"",
             "",
-            "sudo Remove-Item \"HKLM:\\Software\\Electronic Team\\USB Network Gate\" -Recurse -Force",
+            "sudo Remove-Item \"HKLM:\\Software\\WOW6432Node\\Electronic Team\\USB Network Gate\" -Recurse -Force",
             "sudo Remove-Item \"HKCU:\\Software\\Microsoft\\Terminal Server Client\\Default\\AddIns\\usb4rdp\" -Recurse -Force",
             "",
             ""
