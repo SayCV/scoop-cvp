@@ -19,6 +19,8 @@
     "innosetup": true,
     "post_install": [
         "",
+        "ensure \"$dir\\u2ec.log\" | Out-Null",
+        "",
         "$params = @{",
         "    Name = \"U2EC_service\"",
         "    BinaryPathName = \"$dir\\UsbService64.exe\"",
@@ -29,6 +31,12 @@
         "}",
         "sudo New-Service @params",
         "sudo Start-Service \"U2EC_service\"",
+        "",
+        "#netsh firewall set allowedprogram \"$dir\\UsbService64.exe\" U2EC_service enable",
+        "sudo netsh advfirewall firewall add rule name=u2ec_service dir=in action=allow program=\"$dir\\UsbService64.exe\" enable=yes",
+        "",
+        "#netsh firewall set allowedprogram \"$dir\\UsbConfig.exe\" U2EC_gui enable",
+        "sudo netsh advfirewall firewall add rule name=u2ec_gui dir=in action=allow program=\"$dir\\UsbConfig.exe\" enable=yes",
         "",
         ""
     ],
