@@ -7,7 +7,8 @@
         "url": "https://wiki.eltima.com/software-licenses/software-licenses.html"
     },
     "depends": [
-        "sudo"
+        "sudo",
+        "innounp"
     ],
     "notes": [
         "",
@@ -16,10 +17,10 @@
     ],
     "url": "https://cdn.electronic.us/products/usb-over-ethernet/windows/download/usb_network_gate.exe#/setup.exe",
     "hash": "1b8277f98a52778b48e882ced05b3898bfaac7e33b89482f2a71571bdc93d1d5",
-    "innosetup": true,
+    "#innosetup": true,
     "post_install": [
         "",
-        "ensure \"$dir\\u2ec.log\" | Out-Null",
+        "#'u2ec.log' | Test-Persistence",
         "",
         "$params = @{",
         "    Name = \"U2EC_service\"",
@@ -38,13 +39,26 @@
         "#netsh firewall set allowedprogram \"$dir\\UsbConfig.exe\" U2EC_gui enable",
         "sudo netsh advfirewall firewall add rule name=u2ec_gui dir=in action=allow program=\"$dir\\UsbConfig.exe\" enable=yes",
         "",
+        "sudo New-ItemProperty -Path \"HKLM:\\Software\\Electronic Team\\USB Network Gate\" -Name \"u2ec_log\" -Value \"$dir\\u2ec.log\" -ErrorAction Ignore | Out-Null",
+        "sudo New-ItemProperty -Path \"HKCU:\\Software\\Microsoft\\Terminal Server Client\\Default\\AddIns\\usb4rdp\" -Name \"Name\" -Value \"$dir\\usb4rdp64.dll\" -ErrorAction Ignore | Out-Null",
+        "",
         ""
     ],
+    "installer": {
+        "script": [
+            "$file = \"$dir\\$fname\"",
+            "Expand-InnoArchive $file -ExtractDir '{code_GetPathCitrix}' -DestinationPath \"$dir\"",
+            "Expand-InnoArchive $file -Removal"
+        ]
+    },
     "uninstaller": {
         "script": [
             "",
             "sudo cmd /c sc stop \"U2EC_service\"",
             "sudo cmd /c sc delete \"U2EC_service\"",
+            "",
+            "sudo Remove-Item HKLM:\\Software\\Electronic Team\\USB Network Gate -Recurse -Force",
+            "sudo Remove-Item HKCU:\\Software\\Microsoft\\Terminal Server Client\\Default\\AddIns\\usb4rdp -Recurse -Force",
             "",
             ""
         ]
