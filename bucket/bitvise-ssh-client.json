@@ -15,19 +15,20 @@
         "https://dl.bitvise.com/BvSshClient-Inst.exe",
         ""
     ],
-    "url": "https://dl.bitvise.com/BvSshClient-Inst.exe",
-    "hash": "d0ba214c5523efa4a20b53a62bf550d7ec06793f3b4334fb8a672074f871378a",
+    "url": "https://github.com/SayCV/gh-cdn-cvp/releases/download/v1.0.0/bitvise-ssh-client-v8.48-cvp.7z",
+    "hash": "b2728d7ccb399eda23d3e063b097447cb8d516a318d1d8b41baadb2987506bed",
     "#innosetup": true,
     "post_install": [
         "",
+        "Expand-MsiArchive \"$dir\\Programs\\FlowSshNet32.msi\" \"$dir\\Programs\" -ExtractDir 'Bitvise FlowSshNet'",
         "",
         ""
     ],
     "installer": {
         "script": [
             "",
-            "Invoke-ExternalCommand \"$dir\\BvSshClient-Inst.exe\" -ArgumentList @(\"-installDir=$dir\\Programs\", '-force', '-acceptEULA') -RunAs | Out-Null",
-            "Remove-Item \"$dir\\BvSshClient-Inst.exe\"",
+            "#Invoke-ExternalCommand \"$dir\\BvSshClient-Inst.exe\" -ArgumentList @(\"-installDir=$dir\\Programs\", '-force', '-acceptEULA') -RunAs | Out-Null",
+            "#Remove-Item \"$dir\\BvSshClient-Inst.exe\"",
             "",
             ""
         ]
@@ -37,16 +38,31 @@
             "",
             "#$pg_x86 = (Get-Item Env:programfiles`(x86`)).Value",
             "#Invoke-ExternalCommand \"$pg_x86\\Bitvise SSH Client\\uninst.exe\" -ArgumentList @('-unat', '\"Bitvise SSH Client\"') -RunAs | Out-Null",
+            "#Invoke-ExternalCommand \"$dir\\Programs\\uninst.exe\" -ArgumentList @('-unat', '\"Bitvise SSH Client\"') -RunAs | Out-Null",
             "",
-            "Invoke-ExternalCommand \"$dir\\uninst.exe\" -ArgumentList @('-unat', '\"Bitvise SSH Client\"') -RunAs | Out-Null",
             "",
             ""
         ]
     },
-    "#shortcuts": [
+    "shortcuts": [
         [
             "Programs\\bitvise.exe",
             "Bitvise SSH Client"
+        ],
+        [
+            "Programs\\bitvise.exe",
+            "Bitvise Proxy Settings",
+            "-glclstgs=Proxy"
+        ],
+        [
+            "Programs\\bitvise.exe",
+            "Bitvise Host Key Manager",
+            "-glclstgs=Hostkeys"
+        ],
+        [
+            "Programs\\bitvise.exe",
+            "Bitvise Client Key Manager",
+            "-glclstgs=Keypairs"
         ]
     ],
     "#persist": [
