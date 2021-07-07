@@ -26,7 +26,7 @@
     "installer": {
         "script": [
             "",
-            "Invoke-ExternalCommand \"$dir\\BvSshClient-Inst.exe\" -ArgumentList @(\"-installDir=$dir\", '-force', '-acceptEULA') -RunAs | Out-Null",
+            "Invoke-ExternalCommand \"$dir\\BvSshClient-Inst.exe\" -ArgumentList @(\"-installDir=$dir\\Programs\", '-force', '-acceptEULA') -RunAs | Out-Null",
             "Remove-Item \"$dir\\BvSshClient-Inst.exe\"",
             "",
             ""
@@ -45,11 +45,11 @@
     },
     "#shortcuts": [
         [
-            "bitvise.exe",
+            "Programs\\bitvise.exe",
             "Bitvise SSH Client"
         ]
     ],
-    "persist": [
+    "#persist": [
         "data"
     ],
     "checkver": {
