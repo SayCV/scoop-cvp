@@ -21,6 +21,10 @@
     "post_install": [
         "",
         "Expand-MsiArchive \"$dir\\Programs\\FlowSshNet32.msi\" \"$dir\\Programs\" -ExtractDir 'Bitvise FlowSshNet'",
+        "Expand-MsiArchive \"$dir\\Programs\\FlowSshNet64.msi\" \"$dir\\Programs\" -ExtractDir 'Bitvise FlowSshNet'",
+        "",
+        "Copy-Item \"$dir\\Programs\\MstscTitle32.dll\" \"$env:systemroot\\system32\" -Force",
+        "Copy-Item \"$dir\\Programs\\MstscTitle64.dll\" \"$env:systemroot\\system32\" -Force",
         "",
         ""
     ],
@@ -46,21 +50,21 @@
     },
     "shortcuts": [
         [
-            "Programs\\bitvise.exe",
+            "Programs\\BvSsh.exe",
             "Bitvise SSH Client"
         ],
         [
-            "Programs\\bitvise.exe",
+            "Programs\\BvSsh.exe",
             "Bitvise Proxy Settings",
             "-glclstgs=Proxy"
         ],
         [
-            "Programs\\bitvise.exe",
+            "Programs\\BvSsh.exe",
             "Bitvise Host Key Manager",
             "-glclstgs=Hostkeys"
         ],
         [
-            "Programs\\bitvise.exe",
+            "Programs\\BvSsh.exe",
             "Bitvise Client Key Manager",
             "-glclstgs=Keypairs"
         ]
