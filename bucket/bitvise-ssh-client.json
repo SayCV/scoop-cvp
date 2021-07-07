@@ -23,8 +23,8 @@
         "Expand-MsiArchive \"$dir\\Programs\\FlowSshNet32.msi\" \"$dir\\Programs\" -ExtractDir 'Bitvise FlowSshNet'",
         "Expand-MsiArchive \"$dir\\Programs\\FlowSshNet64.msi\" \"$dir\\Programs\" -ExtractDir 'Bitvise FlowSshNet'",
         "",
-        "Copy-Item \"$dir\\Programs\\MstscTitle32.dll\" \"$env:systemroot\\system32\" -Force",
-        "Copy-Item \"$dir\\Programs\\MstscTitle64.dll\" \"$env:systemroot\\system32\" -Force",
+        "sudo Copy-Item \"$dir\\Programs\\MstscTitle32.dll\" \"$env:systemroot\" -Force",
+        "sudo Copy-Item \"$dir\\Programs\\MstscTitle64.dll\" \"$env:systemroot\" -Force",
         "",
         ""
     ],
@@ -44,6 +44,8 @@
             "#Invoke-ExternalCommand \"$pg_x86\\Bitvise SSH Client\\uninst.exe\" -ArgumentList @('-unat', '\"Bitvise SSH Client\"') -RunAs | Out-Null",
             "#Invoke-ExternalCommand \"$dir\\Programs\\uninst.exe\" -ArgumentList @('-unat', '\"Bitvise SSH Client\"') -RunAs | Out-Null",
             "",
+            "sudo Remove-Item \"$env:systemroot\\MstscTitle32.dll\" -Force",
+            "sudo Remove-Item \"$env:systemroot\\MstscTitle32.dll\" -Force",
             "",
             ""
         ]
