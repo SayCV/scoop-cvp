@@ -19,6 +19,9 @@
     "#innosetup": true,
     "post_install": [
         "",
+        "sudo New-Item \"HKCU:\\Software\\ALITHON\\SerialPortUtility\" | Out-Null",
+        "sudo New-ItemProperty -Path \"HKCU:\\Software\\ALITHON\\SerialPortUtility\" -Name \"CONFIG_FILE_PATH\" -Value \"$dir\\data\" -ErrorAction Ignore | Out-Null",
+        "",
         ""
     ],
     "installer": {
@@ -30,6 +33,7 @@
     "uninstaller": {
         "script": [
             "",
+            "sudo Remove-Item \"HKCU:\\Software\\ALITHON\\SerialPortUtility\" -Recurse -Force",
             "",
             ""
         ]
