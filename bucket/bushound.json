@@ -43,7 +43,11 @@
             ""
         ]
     },
-    "bin": "buscmdr.exe",
+    "bin": [
+        [
+            "Programs\\buscmdr.exe"
+        ]
+    ],
     "shortcuts": [
         [
             "Programs\\bushound.exe",
