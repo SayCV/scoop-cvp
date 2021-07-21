@@ -1,0 +1,87 @@
+{
+    "version": "10.4.0.00006",
+    "description": "CCSTUDIO — Code Composer Studio integrated development environment (IDE)",
+    "homepage": "https://www.ti.com/tool/CCSTUDIO",
+    "license": {
+        "identifier": "Freeware",
+        "url": "https://software-dl.ti.com/ccs/esd/documents/ccs_downloads.html"
+    },
+    "depends": [
+        ""
+    ],
+    "notes": [
+        "",
+        "ccstudio",
+        "https://www.ti.com/tool/download/CCSTUDIO",
+        "Code Composer Studio؜™ software is an integrated development environment (IDE) that supports TI's microcontroller (MCU) and embedded processor portfolios.",
+        "https://software-dl.ti.com/ccs/esd/documents/ccs_downloads.html",
+        "If you are using a 32bit Windows System please use CCSv8.3.1 or earlier.",
+        "If you need to use one of these older probes please use CCSv8.3.1 or earlier.",
+        "",
+        ""
+    ],
+    "url": "https://software-dl.ti.com/ccs/esd/CCSv10/CCS_10_4_0/exports/CCS10.4.0.00006_win64.zip?tracked=1#/dl.zip",
+    "hash": "md5:f2b52bad95b782905815312e99d0973f",
+    "#innosetup": true,
+    "extract_dir": "CCS10.4.0.00006_win64",
+    "extract_to": "installer",
+    "pre_install": [
+        "",
+        "'crack' | ForEach-Object { ensure \"$dir\\$_\" | Out-Null }",
+        "$null, $bucket = find_manifest($app)",
+        "$bucketdir = Find-BucketDirectory($bucket)",
+        "",
+        "$file = (Get-Item \"$dir\\installer\\*.exe\").FullName",
+        "#Rename-Item \"$file\" \"$dir\\installer\\setup.exe\"",
+        "",
+        "Write-Host \"  ::running $file...\" -ForegroundColor DarkCyan",
+        "Start-Process \"$file\" -ArgumentList @('--unattendedmodeui none',\"--prefix $dir\\Programs\") -Wait | Out-Null",
+        "",
+        "#cp \"$bucketdir\\..\\scripts\\ccstudio\\*.bat\" \"$dir\\Programs\"",
+        "",
+        "",
+        ""
+    ],
+    "post_install": [
+        "",
+        "",
+        ""
+    ],
+    "installer": {
+        "script": [
+            "",
+            "",
+            ""
+        ]
+    },
+    "uninstaller": {
+        "script": [
+            "",
+            "",
+            ""
+        ]
+    },
+    "bin": [
+        [
+            "Programs\\ccstudio.exe"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "Programs\\ccstudio.exe",
+            "CCSTUDIO"
+        ]
+    ],
+    "#persist": [
+        "data"
+    ],
+    "checkver": {
+        "github": "https://www.ti.com/tool/download/CCSTUDIO#previous-versions",
+        "regex": ">([\\d.-]+)"
+    },
+    "autoupdate": {
+        "url": "https://software-dl.ti.com/ccs/esd/CCSv$majorVersion/CCS_$majorVersion_$minorVersion_$patchVersion/exports/CCS$version_win64.zip?tracked=1#/dl.zip",
+        "extract_dir": "CCS$version_win64",
+        "extract_to": "installer"
+    }
+}
