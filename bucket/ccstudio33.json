@@ -22,10 +22,10 @@
         ""
     ],
     "url": [
-        "https://github.com/SayCV/gh-cdn-cvp/releases/download/v1.0.0/ccs-v3.3.83.20-cvp.7z"
+        "https://github.com/SayCV/gh-cdn-cvp/releases/download/v1.0.0/ccs33-v3.3.83.20-cvp.7z"
     ],
     "hash": [
-        ""
+        "1bcc844a33565ac3a6422c5688bacf4866e5600c48727bdf05d67ee6ac893953"
     ],
     "#innosetup": true,
     "extract_dir": "",
@@ -55,23 +55,51 @@
             ""
         ]
     },
-    "bin": [
+    "#bin": [
         [
-            "ccs/eclipse/ccstudio.exe"
+            "ccs/cc/bin/cc_app.exe"
         ]
     ],
     "shortcuts": [
         [
-            "ccs/eclipse/ccstudio.exe",
-            "TI/Code Composer Studio 3.3"
+            "ccs/cc/bin/cc_app.exe",
+            "TI/CCS33/CCStudio v3.3"
         ],
         [
-            "Blackhawk/Emulation/Drivers/Bh560v2/v1.1.0.13/amd64/blackhwk.cpl",
-            "TI/Blackhawk Control Panel (64-bit)"
+            "ccs/cc/bin/cc_setup.exe",
+            "TI/CCS33/Setup CCStudio v3.3"
         ],
         [
-            "Blackhawk/Emulation/Drivers/LAN/v2.0.0.6/bhethcfg.exe",
-            "TI/LAN560 Configuration Utility"
+            "ccs/cc/bin/comp_mgr.exe",
+            "TI/CCS33/Component Manager"
+        ],
+        [
+            "ccs/cc/bin/xdsreset240.bat",
+            "TI/Hardware Resets/Reset XDS 510 - Port 240"
+        ],
+        [
+            "ccs/cc/bin/xdsreset280.bat",
+            "TI/Hardware Resets/Reset XDS 510 - Port 280"
+        ],
+        [
+            "ccs/cc/bin/xdsreset320.bat",
+            "TI/Hardware Resets/Reset XDS 510 - Port 320"
+        ],
+        [
+            "ccs/cc/bin/xdsreset340.bat",
+            "TI/Hardware Resets/Reset XDS 510 - Port 340"
+        ],
+        [
+            "ccs/cc/bin/xdsrst.bat",
+            "TI/Hardware Resets/Reset XDS510 Board"
+        ],
+        [
+            "ccs/cc/bin/xds560reset.bat",
+            "TI/Hardware Resets/Reset XDS560 Board"
+        ],
+        [
+            "ccs/cc/bin/XDS560Diagnostic.exe",
+            "TI/Hardware Resets/XDS560 Diagnostics"
         ]
     ],
     "#persist": [
@@ -79,17 +107,11 @@
     ],
     "checkver": {
         "github": "https://github.com/SayCV/gh-cdn-cvp/releases",
-        "regex": "ccs-v([\\d.-]+)-p01-eclipse.7z"
+        "regex": "ccs33-v([\\d.-]+)-cvp.7z"
     },
     "autoupdate": {
         "url": [
-            "https://github.com/SayCV/gh-cdn-cvp/releases/download/v1.0.0/ccs-v$version-cvp.7z",
-            "https://github.com/SayCV/gh-cdn-cvp/releases/download/v1.0.0/ccs-v$version-p02-ccs_base.7z",
-            "https://github.com/SayCV/gh-cdn-cvp/releases/download/v1.0.0/ccs-v$version-p03-tools.7z",
-            "https://github.com/SayCV/gh-cdn-cvp/releases/download/v1.0.0/ccs-v$version-p04-miscs.7z",
-            "https://github.com/SayCV/gh-cdn-cvp/releases/download/v1.0.0/ccs-v$version-p05-xdctools.7z",
-            "https://github.com/SayCV/gh-cdn-cvp/releases/download/v1.0.0/ccs-v$version-p06-Blackhawk.7z",
-            ""
+            "https://github.com/SayCV/gh-cdn-cvp/releases/download/v1.0.0/ccs33-v$version-cvp.7z"
         ]
     }
 }
