@@ -55,8 +55,8 @@
         "#cp \"$dir\\ccs412-\\emulation\\drivers\\*.dvr\" \"$evalDir\\ccs\\drivers\\SEED-WIN7\" -force",
         "cp \"$dir\\ccs412-\\emulation\\seed\\*.*\" \"$evalDir\\ccs\\drivers\\SEED-WIN7\" -force",
         "",
-        "cp \"$dir\\ccs33\\drivers\" \"$evalDir\\ccs\" -force",
-        "cp \"$dir\\ccs33\\cc\" \"$evalDir\\ccs\" -force",
+        "cp \"$dir\\ccs33\\drivers\" \"$evalDir\\ccs\" -Recurse -force",
+        "cp \"$dir\\ccs33\\cc\" \"$evalDir\\ccs\" -Recurse -force",
         "",
         ""
     ],
