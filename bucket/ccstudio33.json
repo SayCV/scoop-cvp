@@ -11,7 +11,7 @@
     ],
     "notes": [
         "",
-        "ccstudio",
+        "ccstudio33",
         "https://www.ti.com/tool/download/CCSTUDIO",
         "https://software-dl.ti.com/dsps/dsps_public_sw/sdo_ccstudio/CCSv3/CCS_3_3/exports/CCS_3.3.83.20_Platinum.zip?tracked=1#/dl.zip",
         "Code Composer Studio؜™ software is an integrated development environment (IDE) that supports TI's microcontroller (MCU) and embedded processor portfolios.",
@@ -98,7 +98,7 @@
             "TI/Hardware Resets/Reset XDS560 Board"
         ],
         [
-            "ccs/cc/bin/XDS560Diagnostic.exe",
+            "ccs/bin/XDS560Diagnostic.exe",
             "TI/Hardware Resets/XDS560 Diagnostics"
         ]
     ],
