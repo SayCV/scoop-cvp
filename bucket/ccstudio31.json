@@ -137,6 +137,9 @@
             "TI/CCS31/Hardware Resets/XDS560 Diagnostics"
         ]
     ],
+    "env_set": {
+        "CCS31_INST_ROOT": "(Get-Location).Drive.Name+':\\lnkscoop\\ccs31\\ccs'"
+    },
     "#persist": [
         "data"
     ],
