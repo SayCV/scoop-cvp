@@ -1,0 +1,18 @@
+{
+    "version": "2.7.2",
+    "description": "Writage - Markdown plugin for Microsoft Word",
+    "homepage": "https://www.writage.com/download/",
+    "license": "Trialware",
+    "depends": [
+        ""
+    ],
+    "notes": [
+        ""
+    ],
+    "url": [
+        "https://www.writage.com/Writage-2.7.2.msi"
+    ],
+    "hash": [
+        ""
+    ]
+}
