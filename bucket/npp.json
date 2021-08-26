@@ -21,6 +21,23 @@
         "try { Get-Command 'Test-Persistence' -ErrorAction 'Stop' | Out-Null } catch { error 'Shovel flavour of scoop is required'; exit 258 }",
         "Test-Persistence 'session.xml', 'userDefineLang.xml'"
     ],
+    "post_install": [
+        "$null, $bucket = find_manifest($app)",
+        "$bucketdir = Find-BucketDirectory($bucket)",
+        "",
+        "$EVAL_INST_PATH = \"$(current_dir $dir)\".Replace('/', '\\\\')",
+        "$escdir = $EVAL_INST_PATH -replace \"\\\\\",\"\\\\\"",
+        "$escdir = $(current_dir $dir)",
+        "",
+        "$EVAL_INST_PATH = \"$(current_dir $dir)\".Replace('/', '\\\\')",
+        "$escdir = $EVAL_INST_PATH -replace \"\\\\\",\"\\\\\"",
+        "(gc \"$bucketdir\\..\\scripts\\npp\\install-context.reg.templ\") | % {$_ -replace \"%EVAL_INST_PATH%\",\"$escdir\"} | out-file -enc oem \"$dir\\install-context.reg\"",
+        "cp \"$bucketdir\\..\\scripts\\npp\\uninstall-context.reg\" \"$dir\"",
+        "",
+        "#sudo regedit.exe /s \"$dir\\install-context.reg\"",
+        "",
+        ""
+    ],
     "bin": [
         "notepad++.exe",
         [
