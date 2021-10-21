@@ -1,7 +1,7 @@
 {
-    "version": "0.2016.07.02",
+    "version": "8.0",
     "description": "PowerISO is a powerful CD / DVD / BD image file processing tool.",
-    "homepage": "https://github.com/thioshp/poweriso",
+    "homepage": "https://www.poweriso.com/PowerISO8-x64.exe",
     "license": "Shareware",
     "depends": [
         ""
@@ -11,12 +11,12 @@
     ],
     "architecture": {
         "64bit": {
-            "url": "https://github.com/thioshp/poweriso/raw/fb658449e54f2e03d5257ce3b069266cac41b18d/PowerISO6-x64.exe.zip",
-            "hash": "cbbdeb586a1301a53ef8ae8353587a41bd5ba482b4ced78a3fc143008fe68704"
+            "url": "https://www.poweriso.com/PowerISO8-x64.exe",
+            "hash": "e07337cf4ad24cbbcf5c708b3c595e47fce0f570e4fac02028b3098364e52173"
         },
         "32bit": {
-            "url": "https://github.com/thioshp/poweriso/raw/fb658449e54f2e03d5257ce3b069266cac41b18d/PowerISO6-x32.exe.zip",
-            "hash": ""
+            "url": "https://www.poweriso.com/PowerISO8-x32.exe",
+            "hash": "4aacef94d60b92b745d600957cf493e21ac9a9ff86d0349edc527a53910546a0"
         }
     },
     "extract_dir": "",
@@ -32,7 +32,7 @@
             "",
             "$null, $bucket = find_manifest($app)",
             "$bucketdir = Find-BucketDirectory($bucket)",
-            "$file = (Get-Item \"$dir\\PowerISO6*.exe\").FullName",
+            "$file = (Get-Item \"$dir\\PowerISO8*.exe\").FullName",
             "Expand-7zipArchive $file -DestinationPath $dir\\Programs -Overwrite 'Rename'",
             "",
             "cp \"$bucketdir\\..\\scripts\\poweriso\\*.cmd\" \"$dir\\Programs\"",
