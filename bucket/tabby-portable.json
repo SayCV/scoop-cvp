@@ -1,0 +1,22 @@
+{
+    "homepage": "https://github.com/Eugeny/tabby",
+    "description": "A Windows 11 application to easily install and use the Windows Subsystem For Android™ package on your computer.",
+    "version": "1.0.164",
+    "license": "MIT",
+    "#depends": "sudo",
+    "url": "https://github.com/Eugeny/tabby/releases/download/v1.0.164/tabby-1.0.164-portable.zip",
+    "hash": "",
+    "shortcuts": [
+        [
+            "Tabby.exe",
+            "Tabby"
+        ]
+    ],
+    "persist": "data",
+    "checkver": {
+        "github": "https://github.com/Eugeny/tabby"
+    },
+    "autoupdate": {
+        "url": "https://github.com/Eugeny/tabby/releases/download/v$version/tabby-$version-portable.zip"
+    }
+}
