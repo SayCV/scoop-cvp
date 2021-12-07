@@ -1,16 +1,17 @@
 {
-    "version": "9.4.8.27843",
+    "version": "9.5.3.28008",
     "description": "QQ 正式版去除广告绿色版",
     "homepage": "https://im.qq.com",
+    "dlpage": "https://www.423down.com/8229.html",
     "license": "Freeware",
     "notes": [
-        "腾讯QQ v9.4.8.27843 正式版去除广告绿色版"
+        "腾讯 QQ 去广告版"
     ],
     "depends": [
         "sudo"
     ],
-    "url": "https://github.com/SayCV/gh-cdn-cvp/releases/download/v1.0.0/qq-v9.4.8.27843-cvp.exe#/dl.7z",
-    "hash": "a336957a0b1f8a4e131de963158e49a88c293377a93200fd498bc3884aba5444",
+    "url": "https://github.com/SayCV/gh-cdn-cvp/releases/download/v1.0.0/qq-portable-v9.5.3.28008.7z",
+    "hash": "9e10d6a3c5ce329165a9e3adc6ea95a5a7fea6f563b6f98790e8474f6030a610",
     "extract_dir": "QQ",
     "extract_to": "",
     "installer": {
@@ -24,5 +25,12 @@
             "Bin\\QQ.exe",
             "腾讯QQ正式版"
         ]
-    ]
+    ],
+    "checkver": {
+        "github": "https://github.com/SayCV/gh-cdn-cvp/releases",
+        "regex": "qq-portable-v([\\d.-]+).7z"
+    },
+    "autoupdate": {
+        "url": "https://github.com/SayCV/gh-cdn-eda/releases/download/v1.0.0/qq-portable-v$version.7z"
+    }
 }
