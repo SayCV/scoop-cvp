@@ -13,6 +13,6 @@
         "8739c76e681f900923b900c9df0ef75cf421d39cabb54650c4b9ad19b6a76d85"
     ],
     "env_set": {
-        "CYGWIN_INSTALL_ROOT": "$($(appdir cygwin $global).Replace('\\', '/'))/current/root"
+        "CYGWIN_INSTALL_ROOT": "$($(appdir cygwin $global).Replace('\\', '/'))/current"
     }
 }
