@@ -15,6 +15,8 @@
         "p03 | docs | examples",
         "p04 | ispfpga",
         "p05 | synpbase",
+        "",
+        "Please install drivers in ",
         ""
     ],
     "url": [
@@ -59,6 +61,15 @@
         "$escdir = $TOOL_INST_PATH -replace \"\\\\\",\"\\\\\"",
         "(gc \"$bucketdir\\..\\scripts\\lattice-diamond311\\install-context.reg.templ\") | % {$_ -replace \"%TOOL_INST_PATH%\",\"$escdir\"} | out-file -enc oem \"$dir\\install-context.reg\"",
         "cp \"$bucketdir\\..\\scripts\\lattice-diamond311\\uninstall-context.reg\" \"$dir\"",
+        ""
+    ],
+    "post_install": [
+        "",
+        "$inst = Join-Path $dir 'Programs'",
+        "ensure $inst | Out-Null",
+        "",
+        "cmd /c mklink /d \"$(shortcut_folder $false)\\EDA\\Lattice Diamond 3.11 CVP Drivers\" \"$dir\\Programs\\data\\vmdata\\drivers\"",
+        "",
         ""
     ],
     "shortcuts": [
