@@ -1,0 +1,17 @@
+{
+    "version": "nightly",
+    "description": "GameBuff 修改器是一款功能非常强大的单机游戏修改器",
+    "homepage": "https://soft.3dmgame.com/down/186286.html",
+    "license": "Freeware",
+    "depends": "",
+    "notes": "",
+    "url": "https://dl.gamebuff.cn/GameBuff_LS.exe#/dl.7z",
+    "hash": "",
+    "#extract_dir": "",
+    "shortcuts": [
+        [
+            "Main/GameBuff.exe",
+            "GameBuff"
+        ]
+    ]
+}
