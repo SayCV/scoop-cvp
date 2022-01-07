@@ -120,7 +120,7 @@
     ],
     "pre_install": [
         "",
-        "$null, $bucket = find_manifest($app)",
+        "$null, $bucket = find_manifest($appName)",
         "$bucketdir = Find-BucketDirectory($bucket)",
         "",
         "'data', 'home', 'scripts' | ForEach-Object { ensure \"$dir\\$_\" | Out-Null }",
