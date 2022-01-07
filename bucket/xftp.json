@@ -10,7 +10,7 @@
     "pre_install": [
         "",
         "'crack' | ForEach-Object { ensure \"$dir\\$_\" | Out-Null }",
-        "$null, $bucket = find_manifest($app)",
+        "$null, $bucket = find_manifest($appName)",
         "$bucketdir = Find-BucketDirectory($bucket)",
         "",
         "$file = (Get-Item \"$dir\\installer\\Xftp-7.0.0071.exe\").FullName",

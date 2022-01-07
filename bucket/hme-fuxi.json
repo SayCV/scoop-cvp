@@ -22,7 +22,7 @@
     "installer": {
         "script": [
             "",
-            "$null, $bucket = find_manifest($app)",
+            "$null, $bucket = find_manifest($appName)",
             "$bucketdir = Find-BucketDirectory($bucket)",
             "",
             "",

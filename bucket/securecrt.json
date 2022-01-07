@@ -10,7 +10,7 @@
     "pre_install": [
         "",
         "#'data', 'scripts', 'crack' | ForEach-Object { ensure \"$dir\\$_\" | Out-Null }",
-        "$null, $bucket = find_manifest($app)",
+        "$null, $bucket = find_manifest($appName)",
         "$bucketdir = Find-BucketDirectory($bucket)",
         "",
         "$file = (Get-Item \"$dir\\installer\\scrt-sfx-x64*.exe\").FullName",

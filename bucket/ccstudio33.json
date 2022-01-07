@@ -41,7 +41,7 @@
         "",
         "'data', 'scripts', 'crack' | ForEach-Object { ensure \"$dir\\$_\" | Out-Null }",
         "",
-        "$null, $bucket = find_manifest($app)",
+        "$null, $bucket = find_manifest($appName)",
         "$bucketdir = Find-BucketDirectory($bucket)",
         "",
         "#sudo cp \"$dir\\xerces-c_1_7_0.dll\" \"$env:WINDIR\\SysWOW64\" -force",

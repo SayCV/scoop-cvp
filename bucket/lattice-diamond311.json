@@ -41,7 +41,7 @@
         "",
         "Move-Item -Path \"$dir\\*\" -Destination \"$inst\" -Exclude 'Programs' -ErrorAction Ignore",
         "",
-        "$null, $bucket = find_manifest($app)",
+        "$null, $bucket = find_manifest($appName)",
         "$bucketdir = Find-BucketDirectory($bucket)",
         "",
         "'data', 'scripts' | ForEach-Object { ensure \"$dir\\$_\" | Out-Null }",
