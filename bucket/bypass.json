@@ -1,12 +1,12 @@
 {
-    "version": "1.14.56",
+    "version": "1.14.80",
     "description": "Bypass分流抢票 春运抢票的好工具",
     "homepage": "https://www.bypass.cn/",
     "license": "Freeware",
     "depends": "sudo",
     "extract_dir": "Bypass",
-    "url": "https://github.com/SayCV/gh-cdn-cvp/releases/download/v1.0.0/Bypass-v1.14.56-cvp.zip",
-    "hash": "3a156f157d3b162125c4d9940416770eed8f3299ada1935e78dcf909e0afdbb0",
+    "url": "https://www.bypass.cn/api/download?name=Bypass.zip#/Bypass.zip",
+    "hash": "40e613fb64a96ed44013749555c2d3c3ada1e26617ac06c5cba43459ded75f4b",
     "shortcuts": [
         [
             "Bypass.exe",
@@ -20,10 +20,13 @@
         ]
     ],
     "checkver": {
-        "github": "https://www.bypass.cn/changelog",
-        "regex": "<h3>([\\d.-]+)"
+        "url": "https://www.bypass.cn/",
+        "regex": "Version.*?([\\d.]+)</label>"
     },
     "autoupdate": {
-        "url": "https://www.bypass.cn/api/download?name=Bypass.zip"
+        "url": "https://www.bypass.cn/api/download?name=Bypass.zip#/Bypass.zip",
+        "hash": {
+            "mode": "download"
+        }
     }
 }
