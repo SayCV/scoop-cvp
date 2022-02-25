@@ -1,5 +1,5 @@
 {
-    "version": "9.5.3.28008",
+    "version": "9.5.8.28186",
     "description": "QQ 正式版去除广告绿色版",
     "homepage": "https://im.qq.com",
     "dlpage": "https://www.423down.com/8229.html",
@@ -10,8 +10,8 @@
     "depends": [
         "sudo"
     ],
-    "url": "https://github.com/SayCV/gh-cdn-cvp/releases/download/v1.0.0/qq-portable-v9.5.3.28008.7z",
-    "hash": "9e10d6a3c5ce329165a9e3adc6ea95a5a7fea6f563b6f98790e8474f6030a610",
+    "url": "https://github.com/SayCV/gh-cdn-cvp/releases/download/v1.0.0/qq-portable-v9.5.8.28186.7z",
+    "hash": "786f5dbd6a776cdfbf44a97e98eb6a0b79cc98230036b79abbff8dc4ad6040da",
     "extract_dir": "QQ",
     "extract_to": "",
     "installer": {
@@ -31,6 +31,6 @@
         "regex": "qq-portable-v([\\d.-]+).7z"
     },
     "autoupdate": {
-        "url": "https://github.com/SayCV/gh-cdn-eda/releases/download/v1.0.0/qq-portable-v$version.7z"
+        "url": "https://github.com/SayCV/gh-cdn-cvp/releases/download/v1.0.0/qq-portable-v$version.7z"
     }
 }
