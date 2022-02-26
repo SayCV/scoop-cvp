@@ -20,6 +20,7 @@
         "Write-Host \"$ahkExe start time:`t$($ahkProc.StartTime.ToShortTimeString())\"",
         "Write-Host \"Process ID:`t$ahkId\"",
         "",
+        "$origc = Get-Culture",
         "Set-Culture en-US",
         "$proc = Start-Process $dir\\setup.exe -Verb RunAs -PassThru",
         "$timeouted = $null # reset any previously set timeout",
@@ -30,7 +31,7 @@
         "   $proc | kill",
         "   Write-Host \"::Detecting and ignoring internal error.\"",
         "}",
-        "Set-Culture zh-CN",
+        "Set-Culture $origc.Name",
         "",
         ""
     ],
