@@ -17,11 +17,19 @@
         "$args = \"$dir\\softether-vpn-client-install.ahk\"",
         "$ahkProc = Start-Process -FilePath $ahkExe -ArgumentList $args -PassThru",
         "$ahkId = $ahkProc.Id",
-        "Write-Debug \"$ahkExe start time:`t$($ahkProc.StartTime.ToShortTimeString())\"",
-        "Write-Debug \"Process ID:`t$ahkId\"",
+        "Write-Host \"$ahkExe start time:`t$($ahkProc.StartTime.ToShortTimeString())\"",
+        "Write-Host \"Process ID:`t$ahkId\"",
         "",
         "Set-Culture en-US",
-        "Start-Process $dir\\setup.exe -Verb RunAs",
+        "$proc = Start-Process $dir\\setup.exe -Verb RunAs -PassThru",
+        "$timeouted = $null # reset any previously set timeout",
+        "# wait up to x seconds for normal termination",
+        "$proc | Wait-Process -Timeout 30 -ErrorAction SilentlyContinue -ErrorVariable timeouted",
+        "if ($timeouted) {",
+        "   # terminate the process",
+        "   $proc | kill",
+        "   Write-Host \"::Detecting and ignoring internal error.\"",
+        "}",
         "",
         ""
     ],
@@ -38,7 +46,7 @@
             "SoftEther VPN Client 管理工具"
         ]
     ],
-    "persist": [
+    "#persist": [
         "vpn_client.config"
     ],
     "checkver": {
