@@ -12,10 +12,10 @@
         "Test-Persistence 'session.xml', 'userDefineLang.xml'"
     ],
     "pre_install": [
-        "$null, $bucket = find_manifest($app)",
+        "$null, $bucket = find_manifest($appName)",
         "$bucketdir = Find-BucketDirectory($bucket)",
         "",
-        "cp \"$bucketdir\\..\\scripts\\softether-vpnclient\\softether-vpn-client-install.ahk\" \"$dir\"",
+        "cp \"$bucketdir\\..\\scripts\\$appName\\softether-vpn-client-install.ahk\" \"$dir\"",
         "",
         "$ahkExe = 'AutoHotKey'",
         "$args = \"$dir\\softether-vpn-client-install.ahk\"",
