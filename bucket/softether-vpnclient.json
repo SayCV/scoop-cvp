@@ -30,6 +30,7 @@
         "   $proc | kill",
         "   Write-Host \"::Detecting and ignoring internal error.\"",
         "}",
+        "Set-Culture zh-CN",
         "",
         ""
     ],
