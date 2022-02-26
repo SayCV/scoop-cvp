@@ -8,6 +8,7 @@ SetControlDelay -1
 ; Title for setup windows
 winInstallTitle := "SoftEther VPN Setup Wizard"
 agreeEULText := "I agree to the End User License Agreement"
+specifyDirText := "Specify the Directory"
 openAppText := "Start the SoftEther VPN Client Manager."
 winInstallFinishedText := "The setup process of SoftEther VPN Client has completed successfully"
 
@@ -39,7 +40,18 @@ WinWait, % winInstallTitle
 WinActivate
 Send {Enter}
 WinActivate
+If (0 = 0) {
+    Send {Tab}
+	Send {Down}
+    Send {Tab}
+    ; WinWait, % winInstallTitle, % specifyDirText
+    Send {Text}%A_ScriptDir%
+    Send {Tab}
+    Send {Tab}
+    Send {Tab}
+}
 Send {Enter}
+
 WinActivate
 Send {Enter}
 
