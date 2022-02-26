@@ -8,20 +8,25 @@
     "hash": "fe1cf6cd8d78c063f898d1841feecd35db0d5d2ab0e3d51a709924ea1d2b4b7c",
     "#innosetup": true,
     "pre_install": [
+        "try { Get-Command 'Test-Persistence' -ErrorAction 'Stop' | Out-Null } catch { error 'Shovel flavour of scoop is required'; exit 258 }",
+        "Test-Persistence 'vpn_client.config'",
+        "",
         "$null, $bucket = find_manifest($appName)",
         "$bucketdir = Find-BucketDirectory($bucket)",
         "",
-        "cp \"$bucketdir\\..\\scripts\\$appName\\softether-vpn-client-install.ahk\" \"$dir\"",
+        "$origc = $(Get-Culture).Name",
+        "",
+        "cp \"$bucketdir\\..\\scripts\\$appName\\softether-vpn-client-install.$origc.ahk\" \"$dir\"",
         "",
         "$ahkExe = 'AutoHotKey.exe'",
-        "$args = \"$dir\\softether-vpn-client-install.ahk\"",
+        "$args = \"$dir\\softether-vpn-client-install.$origc.ahk\"",
         "$ahkProc = Start-Process -FilePath $ahkExe -ArgumentList $args -PassThru",
         "$ahkId = $ahkProc.Id",
         "Write-Host \"$ahkExe start time:`t$($ahkProc.StartTime.ToShortTimeString())\"",
         "Write-Host \"Process ID:`t$ahkId\"",
         "",
-        "$origc = Get-Culture",
-        "Set-Culture en-US",
+        "#$origc = Get-Culture",
+        "#Set-Culture en-US",
         "$proc = Start-Process $dir\\setup.exe -Verb RunAs -PassThru",
         "$timeouted = $null # reset any previously set timeout",
         "# wait up to x seconds for normal termination",
@@ -31,7 +36,7 @@
         "   $proc | kill",
         "   Write-Host \"::Detecting and ignoring internal error.\"",
         "}",
-        "Set-Culture $origc.Name",
+        "#Set-Culture $origc.Name",
         "",
         ""
     ],
@@ -48,7 +53,7 @@
             "SoftEther VPN Client 管理工具"
         ]
     ],
-    "#persist": [
+    "persist": [
         "vpn_client.config"
     ],
     "checkver": {
