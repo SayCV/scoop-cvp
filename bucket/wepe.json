@@ -47,17 +47,11 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://mirrors.sdu.edu.cn/software/Windows/WePE/WePE64_V$version.exe",
-                "hash": "md5:5E1CB51415598FC52E477BBAEB038DDA"
+                "url": "https://mirrors.sdu.edu.cn/software/Windows/WePE/WePE64_V$version.exe"
             },
             "32bit": {
-                "url": "https://mirrors.sdu.edu.cn/software/Windows/WePE/WePE32_V$version.exe",
-                "hash": "md5:1DB91E7FFCCCB2BDADBD93749FDA0CCB"
+                "url": "https://mirrors.sdu.edu.cn/software/Windows/WePE/WePE32_V$version.exe"
             }
-        },
-        "hash": {
-            "url": "$url/Hash.txt",
-            "regex": "$md5"
         }
     }
 }
