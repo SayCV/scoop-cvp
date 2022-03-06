@@ -5,13 +5,13 @@
     "license": "Apache-2.0",
     "url": "https://github.com/lapce/lapce/releases/download/v0.0.10/Lapce-windows.msi",
     "hash": "e109600699979331431dd1d80047a5d2c900f6511693336b95a44b694b22c14c",
-    "installer": {
+    "#installer": {
         "script": "Expand-MsiArchive \"$dir\\Lapce-windows.msi\""
     },
-    "bin": "lapce",
+    "bin": "Lapce/lapce.exe",
     "shortcuts": [
         [
-            "lapce.exe",
+            "Lapce/lapce.exe",
             "Lapce"
         ]
     ],
