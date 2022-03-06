@@ -8,8 +8,8 @@
     "hash": "146597558a80b7021eb91805cddff3aeb00ae61014a31a7748718b3dc683353a",
     "#innosetup": true,
     "pre_install": [
-        "#try { Get-Command 'Test-Persistence' -ErrorAction 'Stop' | Out-Null } catch { error 'Shovel flavour of scoop is required'; exit 258 }",
-        "#Test-Persistence 'vpn_server.config'",
+        "try { Get-Command 'Test-Persistence' -ErrorAction 'Stop' | Out-Null } catch { error 'Shovel flavour of scoop is required'; exit 258 }",
+        "Test-Persistence 'vpn_server.config'",
         "",
         "$null, $bucket = find_manifest($appName)",
         "$bucketdir = Find-BucketDirectory($bucket)",
@@ -25,7 +25,7 @@
         "Write-Host \"$ahkExe start time:`t$($ahkProc.StartTime.ToShortTimeString())\"",
         "Write-Host \"Process ID:`t$ahkId\"",
         "",
-        "$origc = Get-Culture",
+        "#$origc = Get-Culture",
         "Set-Culture en-US",
         "$proc = Start-Process $dir\\setup.exe -Verb RunAs -PassThru",
         "$timeouted = $null # reset any previously set timeout",
@@ -36,7 +36,7 @@
         "   $proc | kill",
         "   Write-Host \"::Detecting and ignoring internal error.\"",
         "}",
-        "Set-Culture $origc.Name",
+        "Set-Culture $origc",
         "",
         ""
     ],
@@ -53,7 +53,7 @@
             "SoftEther VPN Server 管理工具"
         ]
     ],
-    "persist": [
+    "#persist": [
         "vpn_server.config"
     ],
     "checkver": {

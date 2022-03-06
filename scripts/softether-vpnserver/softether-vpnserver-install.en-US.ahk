@@ -54,8 +54,6 @@ WinActivate
 Send {Enter}
 WinActivate
 Send {Enter}
-WinActivate
-Send {Enter}
 
 ;MsgBox % "softether-vpn-server Setup Finish"
 WinWait, % winInstallTitle, % winInstallFinishedText
