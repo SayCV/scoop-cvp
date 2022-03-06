@@ -4,7 +4,7 @@
     "version": "12.5.1.44969",
     "architecture": {
         "64bit": {
-            "url": "https://dl-cdn.oray.com/sunlogin/windows/SunloginClient_12.5.1.44969_x64.exe",
+            "url": "https://dl-cdn.oray.com/sunlogin/windows/SunloginClient_12.5.1.44969_x64.exe#/SunloginClient.exe",
             "hash": "",
             "shortcuts": [
                 [
@@ -14,7 +14,7 @@
             ]
         },
         "32bit": {
-            "url": "https://dl-cdn.oray.com/sunlogin/windows/SunloginClient_12.5.1.44969.exe",
+            "url": "https://dl-cdn.oray.com/sunlogin/windows/SunloginClient_12.5.1.44969.exe#/SunloginClient.exe",
             "hash": "",
             "shortcuts": [
                 [
@@ -40,20 +40,28 @@
         ""
     ],
     "post_install": [
-        "New-ItemProperty -Path 'HKCU:\\SOFTWARE\\Oray\\SunLogin\\SunloginClient' -Name ${version}_IsRunSeted -Value 1 | Out-Null"
+        "if (Test-Path \"HKCU:\\SOFTWARE\\Oray\\SunLogin\\SunloginClient\"){",
+        "   New-ItemProperty -Path 'HKCU:\\SOFTWARE\\Oray\\SunLogin\\SunloginClient' -Name ${version}_IsRunSeted -Value 1 | Out-Null",
+        "}",
+        ""
     ],
     "installer": {
         "script": [
-            "Remove-ItemProperty -Path 'HKCU:\\SOFTWARE\\Oray\\SunLogin\\SunloginClient' -Name *_IsRunSeted -Force -ErrorAction SilentlyContinue"
+        "if (Test-Path \"HKCU:\\SOFTWARE\\Oray\\SunLogin\\SunloginClient\"){",
+        "   Remove-ItemProperty -Path 'HKCU:\\SOFTWARE\\Oray\\SunLogin\\SunloginClient' -Name *_IsRunSeted -Force -ErrorAction SilentlyContinue",
+        "}",
+        ""
         ]
     },
     "uninstaller": {
         "script": [
             "$uninst = \"$dir\\SunloginClient\\SunloginClient.exe\"",
             "if (Test-Path $uninst) {",
-            "   $uninst --mod=uninstall",
+            "#   $uninst --mod=uninstall",
             "}",
-            "Remove-ItemProperty -Path 'HKCU:\\SOFTWARE\\Oray\\SunLogin\\SunloginClient' -Name *_IsRunSeted -Force -ErrorAction SilentlyContinue"
+            "if (Test-Path \"HKCU:\\SOFTWARE\\Oray\\SunLogin\\SunloginClient\"){",
+            "   Remove-ItemProperty -Path 'HKCU:\\SOFTWARE\\Oray\\SunLogin\\SunloginClient' -Name *_IsRunSeted -Force -ErrorAction SilentlyContinue",
+            "}",
         ]
     },
     "checkver": {
@@ -63,10 +71,10 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://dl-cdn.oray.com/sunlogin/windows/SunloginClient_$version_x64.exe"
+                "url": "https://dl-cdn.oray.com/sunlogin/windows/SunloginClient_$version_x64.exe#/SunloginClient.exe"
             },
             "32bit": {
-                "url": "https://dl-cdn.oray.com/sunlogin/windows/SunloginClient_$version.exe"
+                "url": "https://dl-cdn.oray.com/sunlogin/windows/SunloginClient_$version.exe#/SunloginClient.exe"
             }
         }
     }
