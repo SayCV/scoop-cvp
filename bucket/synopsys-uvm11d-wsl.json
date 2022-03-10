@@ -1,0 +1,32 @@
+{
+    "version": "3.5",
+    "description": "VCS is a Verilog compiler and simulator from Synopsys. VCS has a graphical interface which you can use to debug your code. ",
+    "homepage": "https://www.synopsys.com/",
+    "license": "Trialware",
+    "depends": [
+        ""
+    ],
+    "notes": [
+        "synopsys-installer35-wsl"
+    ],
+    "url": "https://github.com/SayCV/gh-cdn-eda/releases/download/v1.0.0/synopsys-installer35-wsl.tar.gz",
+    "hash": "",
+    "extract_dir": "",
+    "extract_to": "",
+    "installer": {
+        "script": [
+            "",
+            "$null, $bucket = find_manifest($appName)",
+            "$bucketdir = Find-BucketDirectory($bucket)",
+            "$file = (Get-Item \"$dir\\TD_*.msi\").FullName",
+            "'installer' | ForEach-Object { ensure \"$dir\\$_\" | Out-Null }",
+            "Expand-7zipArchive $file -DestinationPath \"$dir\\installer\"",
+            "Expand-MsiArchive $file -Removal",
+            "",
+            "cp \"$dir\\installer\\Icon.td.exe\" \"$dir\\bin\\td.icon\"",
+            "cp \"$dir\\installer\\Icon.td_commands_prompt.exe\" \"$dir\\bin\\td_commands_prompt.icon\"",
+            "",
+            ""
+        ]
+    }
+}
