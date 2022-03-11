@@ -9,10 +9,15 @@
 # =====
 # 
 
+base_dir=/usr/synopsys
+tool=vcs
+version=N-2017.12
+installer_version=v3.5
+
 [ -d /usr/tmp ] || sudo mkdir /usr/tmp
 [ -f /usr/tmp/.flexlm ] || sudo touch /usr/tmp/.flexlm
-[ -d /usr/synopsys ] || sudo mkdir -p /usr/synopsys
-sudo chown $USER:$USER /usr/synopsys
+[ -d ${base_dir} ] || sudo mkdir -p ${base_dir}
+sudo chown $USER:$USER ${base_dir}
 
-chmod +x SynopsysInstaller_v3.5.run
-./SynopsysInstaller_v3.5.run -d /usr/synopsys/installer35
+chmod +x ./SynopsysInstaller_${installer_version}.run
+./SynopsysInstaller_${installer_version}.run -dir ${base_dir}/installer_${installer_version}
