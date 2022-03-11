@@ -16,4 +16,4 @@ installer_version=v3.5
 
 [ -d ${base_dir}/installer_${installer_version} ] || ( print '${base_dir}/installer_${installer_version} Not exist!!!' && exit 1 )
 
-echo 'yes' | ${base_dir}/installer_${installer_version}/batch_installer -install_as_root -source ${pwd}/ -target ${base_dir}/ -allprods
+echo 'yes' | ${base_dir}/installer_${installer_version}/batch_installer -install_as_root -source ${PWD}/ -target ${base_dir}/ -allprods

@@ -14,6 +14,9 @@ tool=vcs
 version=N-2017.12
 installer_version=v3.5
 
+# 'cshell' is required to run the installer
+sudo apt-get install -y --no-install-recommends csh
+
 [ -d /usr/tmp ] || sudo mkdir /usr/tmp
 [ -f /usr/tmp/.flexlm ] || sudo touch /usr/tmp/.flexlm
 [ -d ${base_dir} ] || sudo mkdir -p ${base_dir}
