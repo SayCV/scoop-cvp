@@ -16,6 +16,7 @@ installer_version=v3.5
 
 # 'cshell' is required to run the installer
 sudo apt-get install -y --no-install-recommends csh
+sudo apt-get install -y lsb-core bc
 
 [ -d /usr/tmp ] || sudo mkdir /usr/tmp
 [ -f /usr/tmp/.flexlm ] || sudo touch /usr/tmp/.flexlm
