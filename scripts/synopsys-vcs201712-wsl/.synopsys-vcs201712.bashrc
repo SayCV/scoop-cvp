@@ -45,7 +45,7 @@ alias dve64="dve -full64 &"
 #alias lmli2="lmgrd -c $SYNOPSYS/Synopsys.dat -l $SYNOPSYS/lmgrd.log"
 alias lmli2="lmgrd -c $SYNOPSYS/Synopsys.dat"
 
-eth0mac=$(ifconfig eth0 | grep ether | awk '{print $2; exit;}' | sed 's/://g')
-sed "1c SERVER $HOSTNAME $eth0mac 27000" -i $SYNOPSYS/Synopsys.dat
+# eth0mac=$(ifconfig eth0 | grep ether | awk '{print $2; exit;}' | sed 's/://g')
+# sed "1c SERVER $HOSTNAME $eth0mac 27000" -i $SYNOPSYS/Synopsys.dat
 
 ###<-- CVP.BASHRC
