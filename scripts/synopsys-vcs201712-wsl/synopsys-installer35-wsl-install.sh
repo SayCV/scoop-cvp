@@ -11,16 +11,20 @@
 
 base_dir=/usr/synopsys
 tool=vcs
-version=N-2017.12
+version=N-2017.12 
 installer_version=v3.5
+
+sudo add-apt-repository ppa:linuxuprising/libpng12
+sudo apt update
+sudo apt-get install -y libpng12-0
 
 # 'cshell' is required to run the installer
 sudo apt-get install -y --no-install-recommends csh
-sudo apt-get install -y lsb-core bc libjpeg62-dev libpng12-dev
+sudo apt-get install -y lsb-core bc libjpeg62-dev net-tools
 
-wget -q -O /tmp/libpng12.deb http://mirrors.kernel.org/ubuntu/pool/main/libp/libpng/libpng12-0_1.2.54-1ubuntu1_amd64.deb \
-  && sudo dpkg -i /tmp/libpng12.deb \
-  && rm /tmp/libpng12.deb
+# wget -q -O /tmp/libpng12.deb http://mirrors.kernel.org/ubuntu/pool/main/libp/libpng/libpng12-0_1.2.54-1ubuntu1_amd64.deb \
+#   && sudo dpkg -i /tmp/libpng12.deb \
+#   && rm /tmp/libpng12.deb
 
 [ -d /usr/tmp ] || sudo mkdir /usr/tmp
 [ -f /usr/tmp/.flexlm ] || sudo touch /usr/tmp/.flexlm
