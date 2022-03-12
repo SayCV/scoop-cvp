@@ -2,9 +2,9 @@
 
 # Synopsys
 export SYNOPSYS=/usr/synopsys
-export SCL_VER=2017.12
-export VCS_VER=N-2017.12-SP2
-export VERDI_VER=L-2016.06-1
+export SCL_VER=2018.06
+export VCS_VER=O-2018.09-SP2
+export VERDI_VER=O-2018.09-SP2
 export UVM_VER=1.1d
 
 # SCL
@@ -19,8 +19,8 @@ export VCS_HOME=$SYNOPSYS/vcs-mx/${VCS_VER}
 export DVE_HOME=$VCS_HOME/gui/dve
 
 # verdi
-export VERDI_HOME=$SYNOPSYS/verdi/Verdi3_${VERDI_VER}
-export NOVAS_HOME=$SYNOPSYS/verdi/Verdi3_${VERDI_VER}
+export VERDI_HOME=$SYNOPSYS/verdi/Verdi_${VERDI_VER}
+export NOVAS_HOME=$SYNOPSYS/verdi/Verdi_${VERDI_VER}
 export FSDB_HOME=$VERDI_HOME/share/PLI/VCS/LINUX64
 
 export PATH=$PATH:$DVE_HOME/bin:$VCS_HOME/bin

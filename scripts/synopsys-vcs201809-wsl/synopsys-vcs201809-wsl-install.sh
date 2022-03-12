@@ -11,8 +11,8 @@
 
 base_dir=/usr/synopsys
 tool=vcs
-version=N-2017.12
-installer_version=v3.5
+version=N-2018.09
+installer_version=v5.0
 
 [ -d ${base_dir}/installer_${installer_version} ] || ( print '${base_dir}/installer_${installer_version} Not exist!!!' && exit 1 )
 

@@ -9,14 +9,14 @@
 # =====
 # 
 
-cp -rf ${PWD}/.synopsys-vcs201712.bashrc ~/.synopsys-vcs201712.bashrc
+cp -rf ${PWD}/.synopsys-vcs201809.bashrc ~/.synopsys-vcs201809.bashrc
 
-grep -qxF '###--> CVP.BASHRC.synopsys-vcs201712' ~/.bashrc || ( \
+grep -qxF '###--> CVP.BASHRC.synopsys-vcs201809' ~/.bashrc || ( \
     echo -e '\n'; \
-    echo '###--> CVP.BASHRC.synopsys-vcs201712'; \
-    echo 'if [ -f ~/.synopsys-vcs201712.bashrc ]; then'; \
-    echo '    . ~/.synopsys-vcs201712.bashrc'; \
+    echo '###--> CVP.BASHRC.synopsys-vcs201809'; \
+    echo 'if [ -f ~/.synopsys-vcs201809.bashrc ]; then'; \
+    echo '    . ~/.synopsys-vcs201809.bashrc'; \
     echo 'fi'; \
-    echo '###<-- CVP.BASHRC.synopsys-vcs201712'; \
+    echo '###<-- CVP.BASHRC.synopsys-vcs201809'; \
     echo -e '\n' \
 ) >> ~/.bashrc
