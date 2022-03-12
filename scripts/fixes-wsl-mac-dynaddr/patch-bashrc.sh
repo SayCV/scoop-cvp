@@ -11,9 +11,9 @@
 
 cp -rf ${PWD}/.fixes-wsl-mac-dynaddr.bashrc ~/.fixes-wsl-mac-dynaddr.bashrc
 
-grep -qxF '###--> CVP.BASHRC.fixes-wsl-mac-dynaddr' ~/.bashrc || ( \ 
+grep -qxF '###--> CVP.BASHRC.fixes-wsl-mac-dynaddr' ~/.bashrc || ( \
     echo -e '\n'; \
-    echo '###--> CVP.BASHRC'; \
+    echo '###--> CVP.BASHRC.fixes-wsl-mac-dynaddr'; \
     echo 'if [ -f ~/.fixes-wsl-mac-dynaddr.bashrc ]; then'; \
     echo '    . ~/.fixes-wsl-mac-dynaddr.bashrc'; \
     echo 'fi'; \
