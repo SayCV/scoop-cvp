@@ -33,3 +33,5 @@ sudo chown $USER:$USER ${base_dir}
 
 chmod +x ./SynopsysInstaller_${installer_version}.run
 ./SynopsysInstaller_${installer_version}.run -dir ${base_dir}/installer_${installer_version}
+
+touch ./.install.done

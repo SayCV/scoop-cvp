@@ -24,6 +24,16 @@
             "Write-Host \"  ::  Insalling...\" -ForegroundColor DarkCyan",
             "Start-Process $dir\\install.cmd -Wait -Verb RunAs",
             "",
+            "$done = $false",
+            "while(!$done)",
+            "{",
+            "   if(Test-Path \"$dir\\.install.done\"){",
+            "       $done=$true",
+            "   }",
+            "#   Write-Host \"  ::  Found done $done\" -ForegroundColor DarkCyan",
+            "   Start-Sleep -s 1",
+            "}",
+            "",
             ""
         ]
     }
