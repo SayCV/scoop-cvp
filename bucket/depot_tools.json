@@ -4,8 +4,8 @@
     "homepage": "https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up",
     "license": "MIT",
     "depends": [""],
-    "url0": "https://storage.googleapis.com/chrome-infra/depot_tools.zip",
-    "url": [
+    "url": "https://storage.googleapis.com/chrome-infra/depot_tools.zip",
+    "url0": [
         "https://gitlab.com/chromiumsrc/depot_tools/-/archive/master/depot_tools-master.tar.gz"
     ],
     "hash": [
@@ -19,9 +19,9 @@
         "$bucketdir = Find-BucketDirectory($bucket)",
         "",
         "",
-        "Move-Item \"$dir\\depot_tools-master\\*\" \"$dir\" -Force",
+        "#Move-Item \"$dir\\depot_tools-master\\*\" \"$dir\" -Force",
         "",
-        "Remove-Item \"$dir\\depot_tools-master\" -Force | Out-Null",
+        "#Remove-Item \"$dir\\depot_tools-master\" -Force | Out-Null",
         "",
         ""
     ],
@@ -36,6 +36,6 @@
         "replace": "0.${1}.${2}.${3}"
     },
     "autoupdate": {
-        "url": "https://gitlab.com/chromiumsrc/depot_tools/-/archive/master/depot_tools-master.tar.gz"
+        "url": "https://storage.googleapis.com/chrome-infra/depot_tools.zip"
     }
 }
