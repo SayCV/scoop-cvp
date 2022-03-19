@@ -1,0 +1,26 @@
+{
+    "version": "0.2021.09.23",
+    "description": "chromium depot_tools",
+    "homepage": "https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up",
+    "license": "MIT",
+    "depends": [""],
+    "url0": "https://storage.googleapis.com/chrome-infra/depot_tools.zip",
+    "url": [
+        "https://gitlab.com/chromiumsrc/depot_tools/-/archive/master/depot_tools-master.tar.gz"
+    ],
+    "hash": [
+        ""
+    ],
+    "bin": [
+        "gclient.bat",
+        "fetch.bat"
+    ],
+    "checkver": {
+        "url": "https://gitlab.com/chromiumsrc/depot_tools/commits/master.atom",
+        "regex": "(?s)>(\\d+)-(\\d+)-(\\d+)T.*?/(?<sha>[0-9a-f]{40})",
+        "replace": "0.${1}.${2}.${3}"
+    },
+    "autoupdate": {
+        "url": "https://gitlab.com/chromiumsrc/depot_tools/-/archive/master/depot_tools-master.tar.gz"
+    }
+}
