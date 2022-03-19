@@ -15,6 +15,7 @@
         "gclient.bat",
         "fetch.bat"
     ],
+    "env_add_path": ".",
     "checkver": {
         "url": "https://gitlab.com/chromiumsrc/depot_tools/commits/master.atom",
         "regex": "(?s)>(\\d+)-(\\d+)-(\\d+)T.*?/(?<sha>[0-9a-f]{40})",
