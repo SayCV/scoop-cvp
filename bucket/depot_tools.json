@@ -11,6 +11,20 @@
     "hash": [
         ""
     ],
+    "extract_dir": "",
+    "extract_to": "",
+    "pre_install": [
+        "",
+        "$null, $bucket = find_manifest($appName)",
+        "$bucketdir = Find-BucketDirectory($bucket)",
+        "",
+        "",
+        "Move-Item \"$dir\\depot_tools-master\\*\" \"$dir\" -Force",
+        "",
+        "Remove-Item \"$dir\\depot_tools-master\" -Force | Out-Null",
+        "",
+        ""
+    ],
     "bin": [
         "gclient.bat",
         "fetch.bat"
