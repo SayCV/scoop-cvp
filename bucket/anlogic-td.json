@@ -27,7 +27,7 @@
             "$file = (Get-Item \"$dir\\TD_*.msi\").FullName",
             "'installer' | ForEach-Object { ensure \"$dir\\$_\" | Out-Null }",
             "Expand-7zipArchive $file -DestinationPath \"$dir\\installer\"",
-            "Expand-MsiArchive $file -Removal",
+            "Expand-MsiArchive $file -ExtractDir 'APPDIR' -Removal",
             "",
             "cp \"$dir\\installer\\Icon.td.exe\" \"$dir\\bin\\td.icon\"",
             "cp \"$dir\\installer\\Icon.td_commands_prompt.exe\" \"$dir\\bin\\td_commands_prompt.icon\"",
