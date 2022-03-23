@@ -32,6 +32,14 @@
             "cp \"$dir\\installer\\Icon.td.exe\" \"$dir\\bin\\td.icon\"",
             "cp \"$dir\\installer\\Icon.td_commands_prompt.exe\" \"$dir\\bin\\td_commands_prompt.icon\"",
             "",
+            "$EVAL_INST_PATH = \"$(current_dir $dir)\".Replace('/', '\\\\')",
+            "$escdir = $EVAL_INST_PATH -replace \"\\\\\",\"\\\\\"",
+            "(gc \"$bucketdir\\..\\scripts\\$appName\\install-context.reg.tpl\")   | % {$_ -replace \"%EVAL_INST_PATH%\",\"$escdir\"} | out-file -enc oem \"$dir\\install-context.reg\"",
+            "(gc \"$bucketdir\\..\\scripts\\$appName\\uninstall-context.reg.tpl\") | % {$_ -replace \"%EVAL_INST_PATH%\",\"$escdir\"} | out-file -enc oem \"$dir\\uninstall-context.reg\"",
+            "#cp \"$bucketdir\\..\\scripts\\$appName\\uninstall-context.reg\" \"$dir\"",
+            "",
+            "sudo regedit.exe /s \"$dir\\install-context.reg\"",
+            "",
             ""
         ]
     },
