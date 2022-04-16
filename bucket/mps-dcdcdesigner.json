@@ -1,6 +1,6 @@
 {
-    "version": "3.13",
-    "description": "MPS DC DC Designer is a simulation tool which is used to help you create and analyze a power solution with MPS DCDC chips.",
+    "version": "3.16",
+    "description": "mps-dcdcdesigner: MPS DC DC Designer is a simulation tool which is used to help you create and analyze a power solution with MPS DCDC chips.",
     "homepage": "https://www.monolithicpower.com/en/dc-dc-designer-for-windows.html",
     "license": "Freeware",
     "notes": [
@@ -8,8 +8,8 @@
         "MPS also offers an Online Version of DC-DC Designer: ", 
         "https://www.monolithicpower.com/design-tools/design-tools/dc-dc-designer-online.html"
     ],
-    "url": "https://www.monolithicpower.com/en/themechanges/downloadlink/downloadlink/?url=L2QvYy9kY2RjX2Rlc2lnbmVyX3NldHVwLnppcA==#/dcdc_designer_setup.zip",
-    "hash": "408c0f879dd398071b7b34eede118c3a8d09027019632dd6165fdd2b630daef7",
+    "url": "https://www.monolithicpower.com/en/themechanges/downloadlink/downloadlink/?url=L2QvYy9kY2RjZGVzaWduZXJzZXR1cF92My4xNi56aXA=#/dcdc_designer_setup.zip",
+    "hash": "",
     "installer": {
         "script": [
             "$file = (Get-Item \"$dir\\DCDCDesignerSetup*.exe\").FullName",
@@ -32,13 +32,13 @@
     "bin": [
         [
             "DCDCDesigner.exe",
-            "MPS DCDCDesigner 3.13"
+            "MPS DCDCDesigner"
         ]
     ],
     "shortcuts": [
         [
             "DCDCDesigner.exe",
-            "MPS DCDCDesigner 3.13"
+            "MPS DCDCDesigner"
         ]
     ],
     "persist": [
