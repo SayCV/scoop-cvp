@@ -1,11 +1,11 @@
 {
     "homepage": "http://www.10jqka.com.cn",
-    "description": "聚集了国内众多炒股高手的免费炒股软件，浙江同花顺云软件有限公司©版权所有 Zhejiang RoyalFlush cloud software co., LTD. All rights reserved.",
-    "version": "8.90.3126",
-    "url": "http://resource.thsi.cn/soft/THS_freeldy_8.90.3126.exe#/setup.exe",
-    "hash": "f8163b5e1aacce9fd8e48b58c47305612c9dc9b039dd807badbfabd3d0442219",
-    "innosetup": true,
-    "extract_to": "Programs",
+    "description": "ths-desktop: 聚集了国内众多炒股高手的免费炒股软件，浙江同花顺云软件有限公司©版权所有 Zhejiang RoyalFlush cloud software co., LTD. All rights reserved.",
+    "version": "9.10.40",
+    "url": "https://webcdn.m.qq.com/spcmgr/download/THS_qqguanjia_9.10.40.exe",
+    "hash": "e3783cd20bc0f2c115a9894bbb7f6b1177318aa334591b872b68737d7294ffb3",
+    "#innosetup": true,
+    "#extract_to": "Programs",
     "pre_install": [
         "$null, $bucket = find_manifest($appName)",
         "$bucketdir = Find-BucketDirectory($bucket)",
@@ -15,10 +15,17 @@
     "post_install": [
         ""
     ],
+    "installer": {
+        "script": [
+            "$file = (Get-Item \"$dir\\THS*.exe\").FullName",
+            "Expand-InnoArchive -UseInnoextract $file -DestinationPath $dir\\Programs",
+            "#Expand-InnoArchive $file -Removal"
+        ]
+    },
     "shortcuts": [
         [
             "Programs\\hexin.exe",
-            "THS 核新"
+            "THS 核新" 
         ]
     ],
     "persist": [
@@ -29,6 +36,6 @@
         "regex": "：([\\d.]+)</li>"
     },
     "autoupdate": {
-        "url": "http://resource.thsi.cn/soft/THS_freeldy_$version.exe#/dl.7z"
+        "url": "https://webcdn.m.qq.com/spcmgr/download/THS_qqguanjia_$version.exe"
     }
 }
