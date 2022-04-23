@@ -35,7 +35,7 @@
         "url": "https://storage.flutter-io.cn/flutter_infra_release/releases/stable/windows/flutter_windows_$version-stable.zip",
         "hash": {
             "url": "https://storage.googleapis.com/flutter_infra_release/releases/releases_windows.json",
-            "jp": "$.releases[?(@.hash == $.current_release.stable)].sha256"
+            "jsonpath": "$.releases[?(@.archive =~ /.*$basename/)].sha256"
         }
     },
     "suggest": {
