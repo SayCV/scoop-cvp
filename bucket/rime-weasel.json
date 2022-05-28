@@ -5,7 +5,7 @@
     "license": "GPL-3.0",
     "depends": "sudo",
     "url": [
-        "https://dl.bintray.com/rime/weasel/weasel-0.14.3.0-installer.exe#/dl.7z",
+        "https://github.com/rime/weasel/releases/download/0.14.3/weasel-0.14.3.0-installer.exe#/dl.7z",
         "https://raw.githubusercontent.com/rime/weasel/master/output/install.bat",
         "https://raw.githubusercontent.com/rime/weasel/master/output/uninstall.bat",
         "https://raw.githubusercontent.com/rime/weasel/master/output/stop_service.bat",
