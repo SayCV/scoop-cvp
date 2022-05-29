@@ -1,9 +1,9 @@
 {
     "homepage": "http://www.10jqka.com.cn",
     "description": "ths-desktop: 聚集了国内众多炒股高手的免费炒股软件，浙江同花顺云软件有限公司©版权所有 Zhejiang RoyalFlush cloud software co., LTD. All rights reserved.",
-    "version": "9.10.40_0414",
+    "version": "9.10.40_20220412",
     "depends": "innoextract",
-    "url": "https://resource.thsi.cn/soft/THS_freeldy_9.10.40_0414.exe",
+    "url": "http://resource.thsi.cn/download/THS_9.10.40_20220412.exe",
     "hash": "",
     "#innosetup": true,
     "#extract_to": "Programs",
@@ -37,6 +37,6 @@
         "regex": "：([\\d.]+)</li>"
     },
     "autoupdate": {
-        "url": "https://resource.thsi.cn/soft/THS_freeldy_$version.exe"
+        "url": "http://resource.thsi.cn/download/THS_freeldy_$version.exe"
     }
 }
