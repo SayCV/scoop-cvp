@@ -25,8 +25,8 @@
     ],
     "env_set": {
         "DVM_DIR": "$dir/.dvm",
-        "DENO_INSTALL": "$dir/.dvm/deno",
-        "DENO_DIR": "$dir/.dvm/deno/appdata"
+        "DENO_INSTALL": "$dir/.dvm/bin",
+        "DENO_DIR": "$dir/.dvm/data"
     },
     "persist": [
         ".dvm"
