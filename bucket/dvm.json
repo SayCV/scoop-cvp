@@ -21,7 +21,7 @@
     ],
     "bin": "dvm.exe",
     "env_add_path": [
-        ".dvm/deno/bin"
+        ".dvm/bin"
     ],
     "env_set": {
         "DVM_DIR": "$dir/.dvm",
