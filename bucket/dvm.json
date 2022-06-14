@@ -1,32 +1,32 @@
 {
-    "version": "1.4.6",
+    "version": "1.7.0",
     "description": "Deno Version Manager - Easy way to manage multiple active deno versions.",
     "homepage": "https://github.com/justjavac/dvm",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/justjavac/dvm/releases/download/v1.4.6/dvm-x86_64-pc-windows-msvc.zip",
-            "hash": "267de2fcc5ca0a502dcf5e752720edc74cf6a108fc721b7dad7328c55db17ee8"
+            "url": "https://github.com/justjavac/dvm/releases/download/v1.7.0/dvm-x86_64-pc-windows-msvc.zip",
+            "hash": "f5dc63c098e43d068bf8d5e46b5f54cba03d5f035f5d58c96277e89b0f9db34c"
         }
     },
     "post_install": [
         "",
         "[Environment]::SetEnvironmentVariable('DVM_DIR', \"$dir/.dvm\", 'Process')",
         "[Environment]::SetEnvironmentVariable('DENO_INSTALL', \"$dir/.dvm/deno\", 'Process')",
-        "Invoke-ExternalCommand -Path \"$dir/dvm.exe\" -Args 'install 1.16.1' | Out-Null",
-        "Invoke-ExternalCommand -Path \"$dir/dvm.exe\" -Args 'use     1.16.1' | Out-Null",
+        "Invoke-ExternalCommand -Path \"$dir/dvm.exe\" -Args 'install 1.22.1' | Out-Null",
+        "Invoke-ExternalCommand -Path \"$dir/dvm.exe\" -Args 'use     1.22.1' | Out-Null",
         "Write-Output \"Done.\"",
         "",
         ""
     ],
     "bin": "dvm.exe",
     "env_add_path": [
-        ".dvm/deno/bin"
+        ".dvm/bin"
     ],
     "env_set": {
         "DVM_DIR": "$dir/.dvm",
-        "DENO_INSTALL": "$dir/.dvm/deno",
-        "DENO_DIR": "$dir/.dvm/deno/appdata"
+        "DENO_INSTALL": "$dir/.dvm/bin",
+        "DENO_DIR": "$dir/.dvm/data"
     },
     "persist": [
         ".dvm"
