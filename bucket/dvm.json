@@ -13,8 +13,7 @@
         "",
         "[Environment]::SetEnvironmentVariable('DVM_DIR', \"$dir/.dvm\", 'Process')",
         "[Environment]::SetEnvironmentVariable('DENO_INSTALL', \"$dir/.dvm/deno\", 'Process')",
-        "Invoke-ExternalCommand -Path \"$dir/dvm.exe\" -Args 'install 1.22.1' | Out-Null",
-        "Invoke-ExternalCommand -Path \"$dir/dvm.exe\" -Args 'use     1.22.1' | Out-Null",
+        "Invoke-ExternalCommand -Path \"$dir/dvm.exe\" -Args 'use latest' | Out-Null",
         "Write-Output \"Done.\"",
         "",
         ""
