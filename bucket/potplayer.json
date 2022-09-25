@@ -1,5 +1,5 @@
 {
-    "version": "210127",
+    "version": "220925",
     "description": "PotPlayer Mini X64. A multimedia software player developed for the Microsoft Windows operating system.",
     "homepage": "https://potplayer.daum.net/",
     "license": {
@@ -7,12 +7,12 @@
         "url": "https://potplayer.daum.net/publicRelation"
     },
     "url": [
-        "https://t1.daumcdn.net/potplayer/PotPlayer/Version/210127/PotPlayerSetup64.exe#/cosi.7z",
-        "https://list.nb.gl/OD_scoop/apt-cdn/PotPlayer/20190731_1.7.19955/OpenCodecSetup64.exe#/codec.7z"
+        "https://t1.daumcdn.net/potplayer/PotPlayer/Version/Latest/PotPlayerSetup64.exe#/cosi.7z",
+        "https://t1.daumcdn.net/potplayer/PotPlayer/Codec/OpenCodecSetup64.exe#/codec.7z"
     ],
     "hash": [
-        "68aab0b7c4e30464a6189888e59859b2bf25ed18b805aee902e55968e2d6d4d8",
-        "8c5d725d87d7a6c8519bce9282b06f52395e4f945be28f1d1981c0dc4c6458a3"
+        "",
+        ""
     ],
     "shortcuts": [
         [
