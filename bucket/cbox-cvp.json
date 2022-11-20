@@ -1,11 +1,11 @@
 {
-    "version": "4.6.8.1",
+    "version": "5.0.1.2",
     "description": "央视影音PC版 CBOX 去除广告绿色版",
     "homepage": "https://www.423down.com/6692.html",
     "depends": "sudo",
     "extract_dir": "CBox",
-    "url": "https://github.com/SayCV/gh-cdn-cvp/releases/download/v1.0.0/cbox-v4.6.8.1-cvp.exe/#dl.7z",
-    "hash": "61828d6204aa39c688fbf11548972b4da55a3a3881f36b7fe595406e225e66ba",
+    "url": "https://github.com/SayCV/gh-cdn-cvp/releases/download/v1.0.0/cbox-v5.0.1.2-cvp.exe/#dl.7z",
+    "hash": "f6a859b1939f4dff845bbe0992eaf06d02a6d58228f0fff915cad612f0d19804",
     "installer": {
         "script": "sudo cmd /c \"$dir\\!)绿化安装.bat\""
     },
