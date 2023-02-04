@@ -1,12 +1,12 @@
 {
-    "version": "1.7.0",
+    "version": "1.8.6",
     "description": "Deno Version Manager - Easy way to manage multiple active deno versions.",
     "homepage": "https://github.com/justjavac/dvm",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/justjavac/dvm/releases/download/v1.7.0/dvm-x86_64-pc-windows-msvc.zip",
-            "hash": "f5dc63c098e43d068bf8d5e46b5f54cba03d5f035f5d58c96277e89b0f9db34c"
+            "url": "https://github.com/justjavac/dvm/releases/download/v1.8.6/dvm-x86_64-pc-windows-msvc.zip",
+            "hash": "bbbc0c5a1420eff9429eb2a305da5046d03a477d85f186c0acb587c7e62c3d5d"
         }
     },
     "post_install": [
@@ -19,18 +19,14 @@
         ""
     ],
     "bin": "dvm.exe",
-    "env_add_path": [
-        ".dvm/bin"
-    ],
+    "env_add_path": ".dvm/bin",
     "env_set": {
         "DVM_DIR": "$dir/.dvm",
         "DENO_INSTALL": "$dir/.dvm/bin",
         "DENO_INSTALL_ROOT": "$dir/.dvm",
         "DENO_DIR": "$dir/.dvm/data"
     },
-    "persist": [
-        ".dvm"
-    ],
+    "persist": ".dvm",
     "checkver": {
         "github": "https://github.com/justjavac/dvm"
     },
