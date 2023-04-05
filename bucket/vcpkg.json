@@ -27,7 +27,7 @@
         "git clone --depth 1 'https://github.com/microsoft/vcpkg.git' \"$dir\\vcpkg\"",
         "Write-Host \" :: git clone done\" -ForegroundColor DarkCyan",
         "",
-        "Move-Item \"$dir\\vcpkg\\*\" \"$dir\" -Force",
+        "Get-ChildItem -Path \"$dir\\vcpkg\\*\" -Recurse -Force | Move-Item -Destination \"$dir\" -Force",
         "if(Test-Path \"$dir\\vcpkg\"){",
         "    Remove-Item \"$dir\\vcpkg\" -Recurse -Force",
         "}",
