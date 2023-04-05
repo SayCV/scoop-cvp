@@ -24,7 +24,7 @@
         "$null, $bucket = find_manifest($appName)",
         "$bucketdir = Find-BucketDirectory($bucket)",
         "",
-        "git clone --depth 1 'https://github.com/microsoft/vcpkg.git' \"$dir\\vcpkg\"",
+        "git clone 'https://github.com/microsoft/vcpkg.git' \"$dir\\vcpkg\"",
         "Write-Host \" :: git clone done\" -ForegroundColor DarkCyan",
         "",
         "Get-ChildItem -Path \"$dir\\vcpkg\\*\" -Recurse -Force | Move-Item -Destination \"$dir\" -Force",
