@@ -39,7 +39,7 @@
         "$cont = \"@cmd /s /k clink inject --profile $dir/profile\"",
         "Set-Content \"$ofile\" \"$cont\" -Encoding ASCII",
         "",
-        "Write-Host \":: Allow called by 'clink inject --autorun --profile %SCOOP%/apps/starship/current/profile'\" -ForegroundColor DarkCyan",
+        "Write-Host \":: Allow called by 'starship_by_clink'\" -ForegroundColor DarkCyan",
         ""
     ],
     "bin": [
