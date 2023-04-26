@@ -57,7 +57,7 @@
         "Write-Host \":: Create script for start starship by nushell...\" -ForegroundColor DarkCyan",
         "#ensure $dir/profile | Out-Null",
         "$ofile = \"$dir/starship_by_nushell.cmd\"",
-        "$cont = \"@nu --config $dir/profile/config.nu\"",
+        "$cont = \"@cmd /s /k nu --config $dir/profile/config.nu\"",
         "Set-Content \"$ofile\" \"$cont\" -Encoding ASCII",
         "",
         "Write-Host \":: Allow called by 'starship_by_nushell'\" -ForegroundColor DarkCyan",
