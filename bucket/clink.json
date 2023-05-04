@@ -14,7 +14,7 @@
         "",
         "Write-Host \":: Create script for start clink...\" -ForegroundColor DarkCyan",
         "$ofile = \"$dir/cmd_by_clink_portable.cmd\"",
-        "$cont = \"@cmd /s /k clink inject --profile $dir/profile && doskey.exe /macrofile=$dir/profile/user_aliases.cmd\"",
+        "$cont = \"@call doskey.exe /macrofile=$dir/profile/user_aliases.cmd\n@cmd /s /k clink inject --quiet --profile $dir/profile\"",
         "Set-Content \"$ofile\" \"$cont\" -Encoding ASCII",
         "",
         "Write-Host \":: Allow called by 'cmd_by_clink'\" -ForegroundColor DarkCyan",
