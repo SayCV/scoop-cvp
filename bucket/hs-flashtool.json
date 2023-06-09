@@ -11,18 +11,20 @@
     "installer": {
         "script": [
             "",
+            "$current_dir = if (get_config NO_JUNCTIONS) { $dir } else { \"$(appdir $app $global)\\current\" }",
             "Write-Host 'Enable program run as administrator'",
             "$regpath = \"HKEY_CURRENT_USER\\Software\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Layers\"",
-            "try { reg add \"$regpath\" /v \"$dir\\Programs\\FlashTool.exe\" /t 'REG_SZ' /d '~ RUNASADMIN' /f } catch {}",
+            "try { reg add \"$regpath\" /v \"$current_dir\\Programs\\FlashTool.exe\" /t 'REG_SZ' /d '~ RUNASADMIN' /f } catch {}",
             ""
         ]
     },
     "uninstaller": {
         "script": [
             "",
+            "$current_dir = if (get_config NO_JUNCTIONS) { $dir } else { \"$(appdir $app $global)\\current\" }",
             "Write-Host 'Disable program run as administrator'",
             "$regpath = \"HKEY_CURRENT_USER\\Software\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Layers\"",
-            "try { reg delete \"$regpath\" /v \"$dir\\Programs\\FlashTool.exe\" /f 2>&1 1>$null } catch {}",
+            "try { reg delete \"$regpath\" /v \"$current_dir\\Programs\\FlashTool.exe\" /f 2>&1 1>$null } catch {}",
             ""
         ]
     },
