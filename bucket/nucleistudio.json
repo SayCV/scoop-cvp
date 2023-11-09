@@ -6,6 +6,8 @@
     "url": "https://www.nucleisys.com/upload/files/nucleistudio/NucleiStudio_IDE_202310-win64.zip",
     "hash": "a28dc44eeaefb28af38929524c746ce122f07152b607720009c9f8a11c6b931d",
     "#innosetup": true,
+    "extract_dir": "NucleiStudio",
+    "extract_to": "",
     "#pre_install": [
         "$bucketdir = Find-BucketDirectory -Name $bucket",
         ""
