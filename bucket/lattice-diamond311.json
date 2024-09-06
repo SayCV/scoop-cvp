@@ -54,7 +54,7 @@
         "$cont = $cont -replace '@SCRIPT_LNKNAME@', \"Lattice Diamond 3.11 CVP\"",
         "Set-Content \"$ofile\" ($cont -join \"`r`n\") -Encoding ASCII",
         "",
-        "$TOOL_INST_PATH = \"$(current_dir $dir)\".Replace('/', '\\\\')",
+        "$TOOL_INST_PATH = \"$dir\".Replace('/', '\\\\')",
         "$escdir = $TOOL_INST_PATH -replace \"\\\\\",\"\\\\\"",
         "(gc \"$bucketdir\\..\\scripts\\lattice-diamond311\\install-context.reg.templ\") | % {$_ -replace \"%TOOL_INST_PATH%\",\"$escdir\"} | out-file -enc oem \"$dir\\install-context.reg\"",
         "cp \"$bucketdir\\..\\scripts\\lattice-diamond311\\uninstall-context.reg\" \"$dir\"",
@@ -69,7 +69,7 @@
         "",
         ""
     ],
-    "bin": "Programs\\bin\\nt64\\bin\\pnmainc.exe",
+    "bin": "Programs\\bin\\nt64\\pnmainc.exe",
     "shortcuts": [
         [
             "scripts\\lattice_diamond.cmd",
