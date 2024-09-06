@@ -69,6 +69,7 @@
         "",
         ""
     ],
+    "bin": "Programs\\bin\\nt64\\bin\\pnmainc.exe",
     "shortcuts": [
         [
             "scripts\\lattice_diamond.cmd",
