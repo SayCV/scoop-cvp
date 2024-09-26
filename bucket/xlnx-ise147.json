@@ -91,6 +91,20 @@
         "$TOOL_INST_PATH = \"$(current_dir $dir)\".Replace('/', '\\\\')",
         "$escdir = \"$(current_dir $dir)\"",
         "",
+        "cp \"$bucketdir\\..\\scripts\\xlnx-ise147\\xilinx-ise-win10-hang-hotfix.zip\" \"$dir\"",
+        "Expand-7zipArchive \"$dir\\xilinx-ise-win10-hang-hotfix.zip\" \"$dir\\data\"",
+        "cp \"$dir\\data\\libPortability.dll\" \"%XLNX_ISE_INSTALL_ROOT%\\ISEROOT\\ISE\\sysgen\\bin\\nt64\\libPortability.dll\"",
+        "cp \"$dir\\data\\libPortability.dll\" \"%XLNX_ISE_INSTALL_ROOT%\\ISEROOT\\ISE\\sysgen\\bin\\nt\\libPortability.dll\"",
+        "cp \"$dir\\data\\libPortability.dll\" \"%XLNX_ISE_INSTALL_ROOT%\\ISEROOT\\ISE\\lib\\nt64\\libPortability.dll\"",
+        "cp \"$dir\\data\\libPortability.dll\" \"%XLNX_ISE_INSTALL_ROOT%\\ISEROOT\\ISE\\lib\\nt\\libPortability.dll\"",
+        "cp \"$dir\\data\\libPortability.dll\" \"%XLNX_ISE_INSTALL_ROOT%\\ISEROOT\\EDK\\lib\\nt64\\sdk\\libPortability.dll\"",
+        "cp \"$dir\\data\\libPortability.dll\" \"%XLNX_ISE_INSTALL_ROOT%\\ISEROOT\\EDK\\lib\\nt64\\libPortability.dll\"",
+        "cp \"$dir\\data\\libPortability.dll\" \"%XLNX_ISE_INSTALL_ROOT%\\ISEROOT\\EDK\\lib\\nt\\libPortability.dll\"",
+        "cp \"$dir\\data\\libPortability.dll\" \"%XLNX_ISE_INSTALL_ROOT%\\ISEROOT\\common\\lib\\nt64\\libPortability.dll\"",
+        "cp \"$dir\\data\\libPortability.dll\" \"%XLNX_ISE_INSTALL_ROOT%\\ISEROOT\\common\\lib\\nt\\libPortability.dll\"",
+        "cp \"$dir\\data\\libPortability.dll\" \"%XLNX_ISE_INSTALL_ROOT%\\ISEROOT\\.xinstall/bin\\nt64\\libPortability.dll\"",
+        "cp \"$dir\\data\\libPortability.dll\" \"%XLNX_ISE_INSTALL_ROOT%\\ISEROOT\\.xinstall/bin\\nt\\libPortability.dll\"",
+        "",
         "$icon = \"$env:systemroot\\system32\\cmd.exe\"",
         "$arguments = \"/k %XLNX_ISE_INSTALL_ROOT%\\ISEROOT\\settings32.bat\"",
         "startmenu_shortcut \"$icon\" 'EDA\\ISE147\\ISE Design Suite 32 Bit Command Prompt CVP' $arguments \"$icon\" $global",
@@ -164,7 +178,8 @@
         ]
     ],
     "env_set": {
-        "XLNX_ISE_INSTALL_ROOT": "$dir"
+        "XLNX_ISE_INSTALL_ROOT": "$dir",
+        "XILINXD_LICENSE_FILE": "$dir/data/license.lic"
     },
     "persist": [
         "AppData",
